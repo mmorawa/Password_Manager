@@ -18,6 +18,8 @@ namespace Password_Manager
             InitializeComponent();
         }
 
+        //tablica bajtowa z zaszyfrowanymi danymi
+        byte[] Encrypted_Bytes;
 
         private void Button_Encrypt_Click(object sender, EventArgs e)
         {
@@ -41,10 +43,7 @@ namespace Password_Manager
             //utworzenie nowej instancji szyfratora
             ICryptoTransform Encryptor = TripleDES.CreateEncryptor();
 
-            //tablica bajtowa z zaszyfrowanymi danymi
-            byte[] Encrypted_Bytes;
-             
-            
+               
             //szyfrowanie wpisanego przez użytkownika tekstu od pierwszego znaku do ostatniego
             Encrypted_Bytes = Encryptor.TransformFinalBlock(utf8.GetBytes(textBox_Text.Text), 0, utf8.GetBytes(textBox_Text.Text).Length);
             
@@ -52,6 +51,34 @@ namespace Password_Manager
             //konwersja zaszyfrowanych bajtów do łańcucha znakowego i przypisanie tego łańcucha do textBoxa'a w celu jego wyświetlenia
             textBox_Encrypted.Text = BitConverter.ToString(Encrypted_Bytes);
             
+        }
+
+        private void Button_Decrypt_Click(object sender, EventArgs e)
+        {
+            //utworzenie instacji kryptograficznej funkcji skrótu md5
+            MD5CryptoServiceProvider md5 = new MD5CryptoServiceProvider();
+
+            //zdefiniowanie kodowania utf8 w celu późniejszej zamiany tekstu wprowadzanego przez użytkownika na bajty
+            UTF8Encoding utf8 = new UTF8Encoding();
+
+            //utworzenie instacji szyfrowania 3DES
+            TripleDESCryptoServiceProvider TripleDES = new TripleDESCryptoServiceProvider
+            {
+                //klucz wprowadzony przez użytkownika zahashowany md5
+                Key = md5.ComputeHash(utf8.GetBytes(textBox_Key2.Text)),
+
+                //Parametry dla 3DES
+                Mode = CipherMode.ECB,
+                Padding = PaddingMode.PKCS7
+            };
+
+            //utworzenie nowej instancji deszyfratora
+            ICryptoTransform Decryptor = TripleDES.CreateDecryptor();
+
+            //deszyfrowanie tablicy z bajtami od pierwszego elementu do końca, a następnie przetworzenie do łańcucha znakowego i wysłanie do textBox'a
+            textBox_Decrypted.Text = utf8.GetString(Decryptor.TransformFinalBlock(Encrypted_Bytes, 0, Encrypted_Bytes.Length));
+
+
         }
     }
 }

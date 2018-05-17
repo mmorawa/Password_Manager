@@ -35,6 +35,11 @@
             this.textBox_Key = new System.Windows.Forms.TextBox();
             this.textBox_Text = new System.Windows.Forms.TextBox();
             this.textBox_Encrypted = new System.Windows.Forms.TextBox();
+            this.Button_Decrypt = new System.Windows.Forms.Button();
+            this.label_key2 = new System.Windows.Forms.Label();
+            this.label_Decrypted = new System.Windows.Forms.Label();
+            this.textBox_Decrypted = new System.Windows.Forms.TextBox();
+            this.textBox_Key2 = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // Button_Encrypt
@@ -105,11 +110,66 @@
             this.textBox_Encrypted.Size = new System.Drawing.Size(244, 60);
             this.textBox_Encrypted.TabIndex = 6;
             // 
+            // Button_Decrypt
+            // 
+            this.Button_Decrypt.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.Button_Decrypt.Location = new System.Drawing.Point(12, 261);
+            this.Button_Decrypt.Name = "Button_Decrypt";
+            this.Button_Decrypt.Size = new System.Drawing.Size(116, 34);
+            this.Button_Decrypt.TabIndex = 7;
+            this.Button_Decrypt.Text = "Decrypt";
+            this.Button_Decrypt.UseVisualStyleBackColor = true;
+            this.Button_Decrypt.Click += new System.EventHandler(this.Button_Decrypt_Click);
+            // 
+            // label_key2
+            // 
+            this.label_key2.AutoSize = true;
+            this.label_key2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label_key2.Location = new System.Drawing.Point(12, 314);
+            this.label_key2.Name = "label_key2";
+            this.label_key2.Size = new System.Drawing.Size(39, 20);
+            this.label_key2.TabIndex = 8;
+            this.label_key2.Text = "Key:";
+            // 
+            // label_Decrypted
+            // 
+            this.label_Decrypted.AutoSize = true;
+            this.label_Decrypted.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label_Decrypted.Location = new System.Drawing.Point(12, 354);
+            this.label_Decrypted.Name = "label_Decrypted";
+            this.label_Decrypted.Size = new System.Drawing.Size(86, 20);
+            this.label_Decrypted.TabIndex = 9;
+            this.label_Decrypted.Text = "Decrypted:";
+            // 
+            // textBox_Decrypted
+            // 
+            this.textBox_Decrypted.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.textBox_Decrypted.Location = new System.Drawing.Point(16, 377);
+            this.textBox_Decrypted.Multiline = true;
+            this.textBox_Decrypted.Name = "textBox_Decrypted";
+            this.textBox_Decrypted.ReadOnly = true;
+            this.textBox_Decrypted.Size = new System.Drawing.Size(244, 60);
+            this.textBox_Decrypted.TabIndex = 10;
+            // 
+            // textBox_Key2
+            // 
+            this.textBox_Key2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.textBox_Key2.Location = new System.Drawing.Point(135, 308);
+            this.textBox_Key2.Name = "textBox_Key2";
+            this.textBox_Key2.Size = new System.Drawing.Size(125, 26);
+            this.textBox_Key2.TabIndex = 11;
+            this.textBox_Key2.UseSystemPasswordChar = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(299, 258);
+            this.ClientSize = new System.Drawing.Size(299, 470);
+            this.Controls.Add(this.textBox_Key2);
+            this.Controls.Add(this.textBox_Decrypted);
+            this.Controls.Add(this.label_Decrypted);
+            this.Controls.Add(this.label_key2);
+            this.Controls.Add(this.Button_Decrypt);
             this.Controls.Add(this.textBox_Encrypted);
             this.Controls.Add(this.textBox_Text);
             this.Controls.Add(this.textBox_Key);
@@ -133,6 +193,11 @@
         private System.Windows.Forms.TextBox textBox_Key;
         private System.Windows.Forms.TextBox textBox_Text;
         private System.Windows.Forms.TextBox textBox_Encrypted;
+        private System.Windows.Forms.Button Button_Decrypt;
+        private System.Windows.Forms.Label label_key2;
+        private System.Windows.Forms.Label label_Decrypted;
+        private System.Windows.Forms.TextBox textBox_Decrypted;
+        private System.Windows.Forms.TextBox textBox_Key2;
     }
 }
 
