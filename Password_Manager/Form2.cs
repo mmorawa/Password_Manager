@@ -1,12 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Password_Manager
@@ -18,8 +10,8 @@ namespace Password_Manager
             InitializeComponent();
         }
 
-        public static string Key;
-        public static string PathToDatabase;
+        public static string Key { get; set; }
+        public static string PathToDatabase { get; set; }
 
         private void Button_Load_Click(object sender, EventArgs e)
         {
@@ -27,7 +19,7 @@ namespace Password_Manager
             openFile.Title = "Open file with Database";
             openFile.Filter = "Text files |*.txt| All files |*.*";
             DialogResult dr2 = openFile.ShowDialog();
-            //magic
+            //wewnętrzny Dialog
             DialogResult = DialogResult.None;
 
             if (dr2 == DialogResult.OK)
@@ -42,10 +34,6 @@ namespace Password_Manager
             Key = textBox_Key2.Text;
         }
 
-
     }
-
-
-
 
 }

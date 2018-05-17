@@ -52,7 +52,7 @@
             // 
             this.Button_Load.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.Button_Load.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.Button_Load.Location = new System.Drawing.Point(440, 18);
+            this.Button_Load.Location = new System.Drawing.Point(444, 18);
             this.Button_Load.Name = "Button_Load";
             this.Button_Load.Size = new System.Drawing.Size(116, 34);
             this.Button_Load.TabIndex = 9;
@@ -81,7 +81,7 @@
             // 
             // textBox_Filename
             // 
-            this.textBox_Filename.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.textBox_Filename.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.textBox_Filename.Location = new System.Drawing.Point(30, 63);
             this.textBox_Filename.Multiline = true;
             this.textBox_Filename.Name = "textBox_Filename";

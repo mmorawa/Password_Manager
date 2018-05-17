@@ -52,44 +52,44 @@
             // label_key
             // 
             this.label_key.AutoSize = true;
-            this.label_key.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label_key.Location = new System.Drawing.Point(359, 101);
+            this.label_key.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label_key.Location = new System.Drawing.Point(358, 95);
             this.label_key.Name = "label_key";
-            this.label_key.Size = new System.Drawing.Size(39, 20);
+            this.label_key.Size = new System.Drawing.Size(64, 29);
             this.label_key.TabIndex = 1;
             this.label_key.Text = "Key:";
             // 
             // label_Text
             // 
             this.label_Text.AutoSize = true;
-            this.label_Text.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label_Text.Location = new System.Drawing.Point(359, 137);
+            this.label_Text.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label_Text.Location = new System.Drawing.Point(358, 140);
             this.label_Text.Name = "label_Text";
-            this.label_Text.Size = new System.Drawing.Size(43, 20);
+            this.label_Text.Size = new System.Drawing.Size(71, 29);
             this.label_Text.TabIndex = 2;
             this.label_Text.Text = "Text:";
             // 
             // textBox_Key
             // 
-            this.textBox_Key.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.textBox_Key.Location = new System.Drawing.Point(482, 95);
+            this.textBox_Key.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.textBox_Key.Location = new System.Drawing.Point(438, 92);
             this.textBox_Key.Name = "textBox_Key";
-            this.textBox_Key.Size = new System.Drawing.Size(125, 26);
+            this.textBox_Key.Size = new System.Drawing.Size(179, 35);
             this.textBox_Key.TabIndex = 4;
             this.textBox_Key.UseSystemPasswordChar = true;
             // 
             // textBox_Text
             // 
-            this.textBox_Text.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.textBox_Text.Location = new System.Drawing.Point(482, 131);
+            this.textBox_Text.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.textBox_Text.Location = new System.Drawing.Point(438, 137);
             this.textBox_Text.Name = "textBox_Text";
-            this.textBox_Text.Size = new System.Drawing.Size(125, 26);
+            this.textBox_Text.Size = new System.Drawing.Size(179, 35);
             this.textBox_Text.TabIndex = 5;
             // 
             // Button_Decrypt
             // 
             this.Button_Decrypt.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.Button_Decrypt.Location = new System.Drawing.Point(33, 48);
+            this.Button_Decrypt.Location = new System.Drawing.Point(34, 48);
             this.Button_Decrypt.Name = "Button_Decrypt";
             this.Button_Decrypt.Size = new System.Drawing.Size(116, 34);
             this.Button_Decrypt.TabIndex = 7;
@@ -100,17 +100,17 @@
             // label_Decrypted
             // 
             this.label_Decrypted.AutoSize = true;
-            this.label_Decrypted.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label_Decrypted.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label_Decrypted.Location = new System.Drawing.Point(29, 95);
             this.label_Decrypted.Name = "label_Decrypted";
-            this.label_Decrypted.Size = new System.Drawing.Size(86, 20);
+            this.label_Decrypted.Size = new System.Drawing.Size(139, 29);
             this.label_Decrypted.TabIndex = 9;
             this.label_Decrypted.Text = "Decrypted:";
             // 
             // textBox_Decrypted
             // 
-            this.textBox_Decrypted.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.textBox_Decrypted.Location = new System.Drawing.Point(33, 118);
+            this.textBox_Decrypted.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.textBox_Decrypted.Location = new System.Drawing.Point(33, 127);
             this.textBox_Decrypted.Multiline = true;
             this.textBox_Decrypted.Name = "textBox_Decrypted";
             this.textBox_Decrypted.ReadOnly = true;

@@ -26,10 +26,6 @@ namespace Password_Manager
         {
 
 
-            //zdefiniowanie kodowania utf8 w celu późniejszej zamiany tekstu wprowadzanego przez użytkownika na bajty
-            UTF8Encoding utf8 = new UTF8Encoding();
-
-
             using (Form2 form2 = new Form2())
             {
                 DialogResult dr = form2.ShowDialog();
@@ -39,10 +35,20 @@ namespace Password_Manager
                 {
                     using (StreamReader sr = new StreamReader(Form2.PathToDatabase))
                     {
-                        // Read the stream to a string, and write the string to the console.
+
                         string line = sr.ReadToEnd();
-                        MessageBox.Show(line);
-                        Encrypted_Bytes = utf8.GetBytes(line);
+
+                        Encrypted_Bytes = new byte[(line.Length - 2) / 2];
+                        for (int d = 0; d < line.Length - 2; d += 2)
+                        {
+                            Encrypted_Bytes[d / 2] = Convert.ToByte(line.Substring(d, 2), 16);
+                        }
+                        /* test
+                        foreach (var item in Encrypted_Bytes)
+                        {
+                            MessageBox.Show(string.Format("byte_{0}", item));
+                        }
+                        */
                     }
                 }
             }
@@ -51,6 +57,8 @@ namespace Password_Manager
             MD5CryptoServiceProvider md5 = new MD5CryptoServiceProvider();
 
 
+            //zdefiniowanie kodowania utf8 w celu późniejszej zamiany tekstu wprowadzanego przez użytkownika na bajty
+            UTF8Encoding utf8 = new UTF8Encoding();
 
 
             //utworzenie instacji szyfrowania 3DES
@@ -99,32 +107,32 @@ namespace Password_Manager
             //utworzenie nowej instancji szyfratora
             ICryptoTransform Encryptor = TripleDES.CreateEncryptor();
 
-               
-            //szyfrowanie wpisanego przez użytkownika tekstu od pierwszego znaku do ostatniego
-            Encrypted_Bytes = Encryptor.TransformFinalBlock(utf8.GetBytes(textBox_Text.Text), 0, utf8.GetBytes(textBox_Text.Text).Length);
-            
 
             //konwersja zaszyfrowanych bajtów do łańcucha znakowego i przypisanie tego łańcucha do textBoxa'a w celu jego wyświetlenia
             //textBox_Encrypted.Text = BitConverter.ToString(Encrypted_Bytes);
 
-            SaveFileDialog saveFile = new SaveFileDialog();
-            saveFile.Filter = "File name | *.txt";
-            saveFile.FileName = "Database.txt";
-            saveFile.Title = "Sava Database:";
+            SaveFileDialog saveFile = new SaveFileDialog
+            {
+                Filter = "File name | *.txt",
+                FileName = "Database.txt",
+                Title = "Sava Database:"
+            };
 
             if (saveFile.ShowDialog() == DialogResult.OK)
             {
-                string path = saveFile.FileName;
-                StreamWriter sw = new StreamWriter(File.Create(path));
-                sw.WriteLine(BitConverter.ToString(Encrypted_Bytes));
-                /*
-                sw.WriteLine(string.Format("file_{0}", x));
+                //szyfrowanie wpisanego przez użytkownika tekstu od pierwszego znaku do ostatniego
+                Encrypted_Bytes = Encryptor.TransformFinalBlock(utf8.GetBytes(textBox_Text.Text), 0, utf8.GetBytes(textBox_Text.Text).Length);
 
-                foreach (var item in Data)
+                /* test
+                foreach (var item in Encrypted_Bytes)
                 {
-                    sw.WriteLine(item);
+                    MessageBox.Show(string.Format("byte_{0}", item));
                 }
                 */
+
+                string path = saveFile.FileName;
+                StreamWriter sw = new StreamWriter(File.Create(path));
+                sw.WriteLine(BitConverter.ToString(Encrypted_Bytes).Replace("-", ""));
                 sw.Dispose();
             }
 
