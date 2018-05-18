@@ -30,10 +30,11 @@
         {
             this.Button_OK = new System.Windows.Forms.Button();
             this.Button_Load = new System.Windows.Forms.Button();
-            this.textBox_Key2 = new System.Windows.Forms.TextBox();
-            this.label_key2 = new System.Windows.Forms.Label();
+            this.textBox_Key = new System.Windows.Forms.TextBox();
+            this.label_key = new System.Windows.Forms.Label();
             this.textBox_Filename = new System.Windows.Forms.TextBox();
             this.label_Info = new System.Windows.Forms.Label();
+            this.Button_Cancel = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // Button_OK
@@ -60,24 +61,24 @@
             this.Button_Load.UseVisualStyleBackColor = true;
             this.Button_Load.Click += new System.EventHandler(this.Button_Load_Click);
             // 
-            // textBox_Key2
+            // textBox_Key
             // 
-            this.textBox_Key2.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.textBox_Key2.Location = new System.Drawing.Point(95, 102);
-            this.textBox_Key2.Name = "textBox_Key2";
-            this.textBox_Key2.Size = new System.Drawing.Size(489, 35);
-            this.textBox_Key2.TabIndex = 13;
-            this.textBox_Key2.UseSystemPasswordChar = true;
+            this.textBox_Key.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.textBox_Key.Location = new System.Drawing.Point(95, 102);
+            this.textBox_Key.Name = "textBox_Key";
+            this.textBox_Key.Size = new System.Drawing.Size(489, 35);
+            this.textBox_Key.TabIndex = 13;
+            this.textBox_Key.UseSystemPasswordChar = true;
             // 
-            // label_key2
+            // label_key
             // 
-            this.label_key2.AutoSize = true;
-            this.label_key2.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label_key2.Location = new System.Drawing.Point(25, 108);
-            this.label_key2.Name = "label_key2";
-            this.label_key2.Size = new System.Drawing.Size(64, 29);
-            this.label_key2.TabIndex = 12;
-            this.label_key2.Text = "Key:";
+            this.label_key.AutoSize = true;
+            this.label_key.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label_key.Location = new System.Drawing.Point(25, 108);
+            this.label_key.Name = "label_key";
+            this.label_key.Size = new System.Drawing.Size(64, 29);
+            this.label_key.TabIndex = 12;
+            this.label_key.Text = "Key:";
             // 
             // textBox_Filename
             // 
@@ -99,15 +100,27 @@
             this.label_Info.TabIndex = 15;
             this.label_Info.Text = "Load the base and enter the key.";
             // 
+            // Button_Cancel
+            // 
+            this.Button_Cancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.Button_Cancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.Button_Cancel.Location = new System.Drawing.Point(362, 169);
+            this.Button_Cancel.Name = "Button_Cancel";
+            this.Button_Cancel.Size = new System.Drawing.Size(116, 34);
+            this.Button_Cancel.TabIndex = 16;
+            this.Button_Cancel.Text = "Cancel";
+            this.Button_Cancel.UseVisualStyleBackColor = true;
+            // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(615, 237);
+            this.Controls.Add(this.Button_Cancel);
             this.Controls.Add(this.label_Info);
             this.Controls.Add(this.textBox_Filename);
-            this.Controls.Add(this.textBox_Key2);
-            this.Controls.Add(this.label_key2);
+            this.Controls.Add(this.textBox_Key);
+            this.Controls.Add(this.label_key);
             this.Controls.Add(this.Button_Load);
             this.Controls.Add(this.Button_OK);
             this.Name = "Form2";
@@ -121,9 +134,10 @@
 
         private System.Windows.Forms.Button Button_OK;
         private System.Windows.Forms.Button Button_Load;
-        private System.Windows.Forms.TextBox textBox_Key2;
-        private System.Windows.Forms.Label label_key2;
+        private System.Windows.Forms.TextBox textBox_Key;
+        private System.Windows.Forms.Label label_key;
         private System.Windows.Forms.TextBox textBox_Filename;
         private System.Windows.Forms.Label label_Info;
+        private System.Windows.Forms.Button Button_Cancel;
     }
 }

@@ -28,108 +28,163 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.Button_Encrypt = new System.Windows.Forms.Button();
-            this.label_key = new System.Windows.Forms.Label();
-            this.label_Text = new System.Windows.Forms.Label();
-            this.textBox_Key = new System.Windows.Forms.TextBox();
-            this.textBox_Text = new System.Windows.Forms.TextBox();
-            this.Button_Decrypt = new System.Windows.Forms.Button();
-            this.label_Decrypted = new System.Windows.Forms.Label();
-            this.textBox_Decrypted = new System.Windows.Forms.TextBox();
+            this.Button_Save = new System.Windows.Forms.Button();
+            this.label_Password = new System.Windows.Forms.Label();
+            this.label_Login = new System.Windows.Forms.Label();
+            this.textBox_Site1 = new System.Windows.Forms.TextBox();
+            this.textBox_Login1 = new System.Windows.Forms.TextBox();
+            this.Button_Open = new System.Windows.Forms.Button();
+            this.label_Site = new System.Windows.Forms.Label();
+            this.Button_change = new System.Windows.Forms.Button();
+            this.textBox_Pass1 = new System.Windows.Forms.TextBox();
+            this.textBox_Pass2 = new System.Windows.Forms.TextBox();
+            this.textBox_Login2 = new System.Windows.Forms.TextBox();
+            this.textBox_Site2 = new System.Windows.Forms.TextBox();
+            this.button_New = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // Button_Encrypt
+            // Button_Save
             // 
-            this.Button_Encrypt.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.Button_Encrypt.Location = new System.Drawing.Point(363, 48);
-            this.Button_Encrypt.Name = "Button_Encrypt";
-            this.Button_Encrypt.Size = new System.Drawing.Size(116, 34);
-            this.Button_Encrypt.TabIndex = 0;
-            this.Button_Encrypt.Text = "Save";
-            this.Button_Encrypt.UseVisualStyleBackColor = true;
-            this.Button_Encrypt.Click += new System.EventHandler(this.Button_Encrypt_Click);
+            this.Button_Save.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.Button_Save.Location = new System.Drawing.Point(411, 45);
+            this.Button_Save.Name = "Button_Save";
+            this.Button_Save.Size = new System.Drawing.Size(116, 34);
+            this.Button_Save.TabIndex = 0;
+            this.Button_Save.Text = "Save";
+            this.Button_Save.UseVisualStyleBackColor = true;
+            this.Button_Save.Click += new System.EventHandler(this.Button_Save_Click);
             // 
-            // label_key
+            // label_Password
             // 
-            this.label_key.AutoSize = true;
-            this.label_key.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label_key.Location = new System.Drawing.Point(358, 95);
-            this.label_key.Name = "label_key";
-            this.label_key.Size = new System.Drawing.Size(64, 29);
-            this.label_key.TabIndex = 1;
-            this.label_key.Text = "Key:";
+            this.label_Password.AutoSize = true;
+            this.label_Password.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label_Password.Location = new System.Drawing.Point(453, 130);
+            this.label_Password.Name = "label_Password";
+            this.label_Password.Size = new System.Drawing.Size(135, 29);
+            this.label_Password.TabIndex = 1;
+            this.label_Password.Text = "Password:";
             // 
-            // label_Text
+            // label_Login
             // 
-            this.label_Text.AutoSize = true;
-            this.label_Text.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label_Text.Location = new System.Drawing.Point(358, 140);
-            this.label_Text.Name = "label_Text";
-            this.label_Text.Size = new System.Drawing.Size(71, 29);
-            this.label_Text.TabIndex = 2;
-            this.label_Text.Text = "Text:";
+            this.label_Login.AutoSize = true;
+            this.label_Login.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label_Login.Location = new System.Drawing.Point(284, 130);
+            this.label_Login.Name = "label_Login";
+            this.label_Login.Size = new System.Drawing.Size(85, 29);
+            this.label_Login.TabIndex = 2;
+            this.label_Login.Text = "Login:";
             // 
-            // textBox_Key
+            // textBox_Site1
             // 
-            this.textBox_Key.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.textBox_Key.Location = new System.Drawing.Point(438, 92);
-            this.textBox_Key.Name = "textBox_Key";
-            this.textBox_Key.Size = new System.Drawing.Size(179, 35);
-            this.textBox_Key.TabIndex = 4;
-            this.textBox_Key.UseSystemPasswordChar = true;
+            this.textBox_Site1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.textBox_Site1.Location = new System.Drawing.Point(34, 162);
+            this.textBox_Site1.Name = "textBox_Site1";
+            this.textBox_Site1.Size = new System.Drawing.Size(179, 35);
+            this.textBox_Site1.TabIndex = 4;
             // 
-            // textBox_Text
+            // textBox_Login1
             // 
-            this.textBox_Text.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.textBox_Text.Location = new System.Drawing.Point(438, 137);
-            this.textBox_Text.Name = "textBox_Text";
-            this.textBox_Text.Size = new System.Drawing.Size(179, 35);
-            this.textBox_Text.TabIndex = 5;
+            this.textBox_Login1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.textBox_Login1.Location = new System.Drawing.Point(231, 162);
+            this.textBox_Login1.Name = "textBox_Login1";
+            this.textBox_Login1.Size = new System.Drawing.Size(179, 35);
+            this.textBox_Login1.TabIndex = 5;
             // 
-            // Button_Decrypt
+            // Button_Open
             // 
-            this.Button_Decrypt.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.Button_Decrypt.Location = new System.Drawing.Point(34, 48);
-            this.Button_Decrypt.Name = "Button_Decrypt";
-            this.Button_Decrypt.Size = new System.Drawing.Size(116, 34);
-            this.Button_Decrypt.TabIndex = 7;
-            this.Button_Decrypt.Text = "Open";
-            this.Button_Decrypt.UseVisualStyleBackColor = true;
-            this.Button_Decrypt.Click += new System.EventHandler(this.Button_Decrypt_Click);
+            this.Button_Open.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.Button_Open.Location = new System.Drawing.Point(156, 45);
+            this.Button_Open.Name = "Button_Open";
+            this.Button_Open.Size = new System.Drawing.Size(116, 34);
+            this.Button_Open.TabIndex = 7;
+            this.Button_Open.Text = "Open";
+            this.Button_Open.UseVisualStyleBackColor = true;
+            this.Button_Open.Click += new System.EventHandler(this.Button_Open_Click);
             // 
-            // label_Decrypted
+            // label_Site
             // 
-            this.label_Decrypted.AutoSize = true;
-            this.label_Decrypted.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label_Decrypted.Location = new System.Drawing.Point(29, 95);
-            this.label_Decrypted.Name = "label_Decrypted";
-            this.label_Decrypted.Size = new System.Drawing.Size(139, 29);
-            this.label_Decrypted.TabIndex = 9;
-            this.label_Decrypted.Text = "Decrypted:";
+            this.label_Site.AutoSize = true;
+            this.label_Site.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label_Site.Location = new System.Drawing.Point(91, 130);
+            this.label_Site.Name = "label_Site";
+            this.label_Site.Size = new System.Drawing.Size(66, 29);
+            this.label_Site.TabIndex = 9;
+            this.label_Site.Text = "Site:";
             // 
-            // textBox_Decrypted
+            // Button_change
             // 
-            this.textBox_Decrypted.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.textBox_Decrypted.Location = new System.Drawing.Point(33, 127);
-            this.textBox_Decrypted.Multiline = true;
-            this.textBox_Decrypted.Name = "textBox_Decrypted";
-            this.textBox_Decrypted.ReadOnly = true;
-            this.textBox_Decrypted.Size = new System.Drawing.Size(244, 60);
-            this.textBox_Decrypted.TabIndex = 10;
+            this.Button_change.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.Button_change.Location = new System.Drawing.Point(283, 45);
+            this.Button_change.Name = "Button_change";
+            this.Button_change.Size = new System.Drawing.Size(116, 34);
+            this.Button_change.TabIndex = 11;
+            this.Button_change.Text = "Change Key";
+            this.Button_change.UseVisualStyleBackColor = true;
+            this.Button_change.Click += new System.EventHandler(this.Button_change_Click);
+            // 
+            // textBox_Pass1
+            // 
+            this.textBox_Pass1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.textBox_Pass1.Location = new System.Drawing.Point(427, 162);
+            this.textBox_Pass1.Name = "textBox_Pass1";
+            this.textBox_Pass1.Size = new System.Drawing.Size(179, 35);
+            this.textBox_Pass1.TabIndex = 12;
+            this.textBox_Pass1.UseSystemPasswordChar = true;
+            // 
+            // textBox_Pass2
+            // 
+            this.textBox_Pass2.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.textBox_Pass2.Location = new System.Drawing.Point(427, 203);
+            this.textBox_Pass2.Name = "textBox_Pass2";
+            this.textBox_Pass2.Size = new System.Drawing.Size(179, 35);
+            this.textBox_Pass2.TabIndex = 15;
+            this.textBox_Pass2.UseSystemPasswordChar = true;
+            // 
+            // textBox_Login2
+            // 
+            this.textBox_Login2.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.textBox_Login2.Location = new System.Drawing.Point(231, 203);
+            this.textBox_Login2.Name = "textBox_Login2";
+            this.textBox_Login2.Size = new System.Drawing.Size(179, 35);
+            this.textBox_Login2.TabIndex = 14;
+            // 
+            // textBox_Site2
+            // 
+            this.textBox_Site2.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.textBox_Site2.Location = new System.Drawing.Point(34, 203);
+            this.textBox_Site2.Name = "textBox_Site2";
+            this.textBox_Site2.Size = new System.Drawing.Size(179, 35);
+            this.textBox_Site2.TabIndex = 13;
+            // 
+            // button_New
+            // 
+            this.button_New.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.button_New.Location = new System.Drawing.Point(25, 45);
+            this.button_New.Name = "button_New";
+            this.button_New.Size = new System.Drawing.Size(116, 34);
+            this.button_New.TabIndex = 16;
+            this.button_New.Text = "New";
+            this.button_New.UseVisualStyleBackColor = true;
+            this.button_New.Click += new System.EventHandler(this.button_New_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(725, 648);
-            this.Controls.Add(this.textBox_Decrypted);
-            this.Controls.Add(this.label_Decrypted);
-            this.Controls.Add(this.Button_Decrypt);
-            this.Controls.Add(this.textBox_Text);
-            this.Controls.Add(this.textBox_Key);
-            this.Controls.Add(this.label_Text);
-            this.Controls.Add(this.label_key);
-            this.Controls.Add(this.Button_Encrypt);
+            this.Controls.Add(this.button_New);
+            this.Controls.Add(this.textBox_Pass2);
+            this.Controls.Add(this.textBox_Login2);
+            this.Controls.Add(this.textBox_Site2);
+            this.Controls.Add(this.textBox_Pass1);
+            this.Controls.Add(this.Button_change);
+            this.Controls.Add(this.label_Site);
+            this.Controls.Add(this.Button_Open);
+            this.Controls.Add(this.textBox_Login1);
+            this.Controls.Add(this.textBox_Site1);
+            this.Controls.Add(this.label_Login);
+            this.Controls.Add(this.label_Password);
+            this.Controls.Add(this.Button_Save);
             this.Name = "Form1";
             this.Text = "Password Manager";
             this.ResumeLayout(false);
@@ -139,14 +194,19 @@
 
         #endregion
 
-        private System.Windows.Forms.Button Button_Encrypt;
-        private System.Windows.Forms.Label label_key;
-        private System.Windows.Forms.Label label_Text;
-        private System.Windows.Forms.TextBox textBox_Key;
-        private System.Windows.Forms.TextBox textBox_Text;
-        private System.Windows.Forms.Button Button_Decrypt;
-        private System.Windows.Forms.Label label_Decrypted;
-        private System.Windows.Forms.TextBox textBox_Decrypted;
+        private System.Windows.Forms.Button Button_Save;
+        private System.Windows.Forms.Label label_Password;
+        private System.Windows.Forms.Label label_Login;
+        private System.Windows.Forms.TextBox textBox_Site1;
+        private System.Windows.Forms.TextBox textBox_Login1;
+        private System.Windows.Forms.Button Button_Open;
+        private System.Windows.Forms.Label label_Site;
+        private System.Windows.Forms.Button Button_change;
+        private System.Windows.Forms.TextBox textBox_Pass1;
+        private System.Windows.Forms.TextBox textBox_Pass2;
+        private System.Windows.Forms.TextBox textBox_Login2;
+        private System.Windows.Forms.TextBox textBox_Site2;
+        private System.Windows.Forms.Button button_New;
     }
 }
 

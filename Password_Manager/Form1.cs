@@ -22,9 +22,8 @@ namespace Password_Manager
         //tablica bajtowa z zaszyfrowanymi danymi
         byte[] Encrypted_Bytes;
 
-        private void Button_Decrypt_Click(object sender, EventArgs e)
+        private void Button_Open_Click(object sender, EventArgs e)
         {
-
 
             using (Form2 form2 = new Form2())
             {
@@ -78,14 +77,13 @@ namespace Password_Manager
 
 
             //deszyfrowanie tablicy z bajtami od pierwszego elementu do końca, a następnie przetworzenie do łańcucha znakowego i wysłanie do textBox'a
-            textBox_Decrypted.Text = utf8.GetString(Decryptor.TransformFinalBlock(Encrypted_Bytes, 0, Encrypted_Bytes.Length));
+            //textBox_Decrypted.Text = utf8.GetString(Decryptor.TransformFinalBlock(Encrypted_Bytes, 0, Encrypted_Bytes.Length));
 
 
         }
 
-        private void Button_Encrypt_Click(object sender, EventArgs e)
+        private void Button_Save_Click(object sender, EventArgs e)
         {
-
 
             //utworzenie instacji kryptograficznej funkcji skrótu md5
             MD5CryptoServiceProvider md5 = new MD5CryptoServiceProvider();
@@ -97,7 +95,7 @@ namespace Password_Manager
             TripleDESCryptoServiceProvider TripleDES = new TripleDESCryptoServiceProvider
             {
                 //klucz wprowadzony przez użytkownika zahashowany md5
-                Key = md5.ComputeHash(utf8.GetBytes(textBox_Key.Text)),
+                Key = md5.ComputeHash(utf8.GetBytes(textBox_Site1.Text)),
 
                 //Parametry dla 3DES
                 Mode = CipherMode.ECB,
@@ -121,7 +119,7 @@ namespace Password_Manager
             if (saveFile.ShowDialog() == DialogResult.OK)
             {
                 //szyfrowanie wpisanego przez użytkownika tekstu od pierwszego znaku do ostatniego
-                Encrypted_Bytes = Encryptor.TransformFinalBlock(utf8.GetBytes(textBox_Text.Text), 0, utf8.GetBytes(textBox_Text.Text).Length);
+                Encrypted_Bytes = Encryptor.TransformFinalBlock(utf8.GetBytes(textBox_Login1.Text), 0, utf8.GetBytes(textBox_Login1.Text).Length);
 
                 /* test
                 foreach (var item in Encrypted_Bytes)
@@ -131,13 +129,49 @@ namespace Password_Manager
                 */
 
                 string path = saveFile.FileName;
-                StreamWriter sw = new StreamWriter(File.Create(path));
-                sw.WriteLine(BitConverter.ToString(Encrypted_Bytes).Replace("-", ""));
-                sw.Dispose();
+                using (StreamWriter sw = new StreamWriter(File.Create(path)))
+                {
+                    sw.WriteLine(BitConverter.ToString(Encrypted_Bytes).Replace("-", ""));
+                    sw.Dispose();
+                }
             }
-
         }
 
+        private void button_New_Click(object sender, EventArgs e)
+        {
+            using (Form3 form3 = new Form3())
+            {
+                DialogResult dr = form3.ShowDialog();
 
+
+                if (dr == DialogResult.OK)
+                {
+                    MessageBox.Show("Test");
+                    /*
+                    using (StreamReader sr = new StreamReader(Form2.PathToDatabase))
+                    {
+                        MessageBox.Show("Test");
+
+
+                    }
+                    */
+                }
+            }
+        }
+
+        private void Button_change_Click(object sender, EventArgs e)
+        {
+            using (Form4 form4 = new Form4())
+            {
+                DialogResult dr = form4.ShowDialog();
+
+
+                if (dr == DialogResult.OK)
+                {
+                        MessageBox.Show("Test");
+
+                }
+            }
+        }
     }
 }

@@ -15,9 +15,12 @@ namespace Password_Manager
 
         private void Button_Load_Click(object sender, EventArgs e)
         {
-            OpenFileDialog openFile = new OpenFileDialog();
-            openFile.Title = "Open file with Database";
-            openFile.Filter = "Text files |*.txt| All files |*.*";
+            OpenFileDialog openFile = new OpenFileDialog
+            {
+                Title = "Open file with Database",
+                Filter = "Text files |*.txt| All files |*.*"
+            };
+
             DialogResult dr2 = openFile.ShowDialog();
             //wewnętrzny Dialog
             DialogResult = DialogResult.None;
@@ -31,7 +34,7 @@ namespace Password_Manager
 
         private void Button_OK_Click(object sender, EventArgs e)
         {
-            Key = textBox_Key2.Text;
+            Key = textBox_Key.Text;
         }
 
     }
