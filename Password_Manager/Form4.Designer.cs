@@ -38,7 +38,7 @@
             // textBox_Key
             // 
             this.textBox_Key.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.textBox_Key.Location = new System.Drawing.Point(97, 100);
+            this.textBox_Key.Location = new System.Drawing.Point(97, 81);
             this.textBox_Key.Name = "textBox_Key";
             this.textBox_Key.Size = new System.Drawing.Size(489, 35);
             this.textBox_Key.TabIndex = 22;
@@ -48,7 +48,7 @@
             // 
             this.label_key.AutoSize = true;
             this.label_key.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label_key.Location = new System.Drawing.Point(27, 103);
+            this.label_key.Location = new System.Drawing.Point(27, 84);
             this.label_key.Name = "label_key";
             this.label_key.Size = new System.Drawing.Size(64, 29);
             this.label_key.TabIndex = 21;

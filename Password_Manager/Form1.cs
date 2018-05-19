@@ -135,7 +135,7 @@ namespace Password_Manager
             //konwersja zaszyfrowanych bajtów do łańcucha znakowego i przypisanie tego łańcucha do textBoxa'a w celu jego wyświetlenia
             //textBox_Encrypted.Text = BitConverter.ToString(Encrypted_Bytes);
 
-            MessageBox.Show("Database was successfully saved.");
+            MessageBox.Show("Database has been successfully saved.");
 
         }
 
@@ -232,7 +232,23 @@ namespace Password_Manager
                     
                     sw.Dispose();
                 }
+
+                MessageBox.Show("Database has been successfully saved.");
             }
+        }
+
+        private void Button_Close_Click(object sender, EventArgs e)
+        {
+            Key = null;
+
+            textBox_Site1.Text = null;
+            textBox_Site2.Text = null;
+            textBox_Login1.Text = null;
+            textBox_Login2.Text = null;
+            textBox_Pass1.Text = null;
+            textBox_Pass2.Text = null;
+
+            MessageBox.Show("Database has been successfully closed.");
         }
     }
 }
