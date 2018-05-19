@@ -40,7 +40,7 @@
             this.textBox_Pass2 = new System.Windows.Forms.TextBox();
             this.textBox_Login2 = new System.Windows.Forms.TextBox();
             this.textBox_Site2 = new System.Windows.Forms.TextBox();
-            this.button_New = new System.Windows.Forms.Button();
+            this.Button_New = new System.Windows.Forms.Button();
             this.Button_SaveAs = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -157,16 +157,16 @@
             this.textBox_Site2.Size = new System.Drawing.Size(179, 35);
             this.textBox_Site2.TabIndex = 13;
             // 
-            // button_New
+            // Button_New
             // 
-            this.button_New.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.button_New.Location = new System.Drawing.Point(25, 45);
-            this.button_New.Name = "button_New";
-            this.button_New.Size = new System.Drawing.Size(116, 34);
-            this.button_New.TabIndex = 16;
-            this.button_New.Text = "New";
-            this.button_New.UseVisualStyleBackColor = true;
-            this.button_New.Click += new System.EventHandler(this.button_New_Click);
+            this.Button_New.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.Button_New.Location = new System.Drawing.Point(25, 45);
+            this.Button_New.Name = "Button_New";
+            this.Button_New.Size = new System.Drawing.Size(116, 34);
+            this.Button_New.TabIndex = 16;
+            this.Button_New.Text = "New";
+            this.Button_New.UseVisualStyleBackColor = true;
+            this.Button_New.Click += new System.EventHandler(this.Button_New_Click);
             // 
             // Button_SaveAs
             // 
@@ -185,7 +185,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(725, 648);
             this.Controls.Add(this.Button_SaveAs);
-            this.Controls.Add(this.button_New);
+            this.Controls.Add(this.Button_New);
             this.Controls.Add(this.textBox_Pass2);
             this.Controls.Add(this.textBox_Login2);
             this.Controls.Add(this.textBox_Site2);
@@ -219,7 +219,7 @@
         private System.Windows.Forms.TextBox textBox_Pass2;
         private System.Windows.Forms.TextBox textBox_Login2;
         private System.Windows.Forms.TextBox textBox_Site2;
-        private System.Windows.Forms.Button button_New;
+        private System.Windows.Forms.Button Button_New;
         private System.Windows.Forms.Button Button_SaveAs;
     }
 }

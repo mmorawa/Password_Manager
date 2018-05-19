@@ -32,6 +32,7 @@
             this.label_key = new System.Windows.Forms.Label();
             this.Button_OK = new System.Windows.Forms.Button();
             this.Button_Cancel = new System.Windows.Forms.Button();
+            this.label_Info = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // textBox_Key
@@ -63,6 +64,7 @@
             this.Button_OK.TabIndex = 20;
             this.Button_OK.Text = "OK";
             this.Button_OK.UseVisualStyleBackColor = true;
+            this.Button_OK.Click += new System.EventHandler(this.Button_OK_Click);
             // 
             // Button_Cancel
             // 
@@ -75,11 +77,22 @@
             this.Button_Cancel.Text = "Cancel";
             this.Button_Cancel.UseVisualStyleBackColor = true;
             // 
+            // label_Info
+            // 
+            this.label_Info.AutoSize = true;
+            this.label_Info.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label_Info.Location = new System.Drawing.Point(27, 21);
+            this.label_Info.Name = "label_Info";
+            this.label_Info.Size = new System.Drawing.Size(184, 29);
+            this.label_Info.TabIndex = 24;
+            this.label_Info.Text = "Enter new key:";
+            // 
             // Form4
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(615, 237);
+            this.Controls.Add(this.label_Info);
             this.Controls.Add(this.Button_Cancel);
             this.Controls.Add(this.textBox_Key);
             this.Controls.Add(this.label_key);
@@ -97,5 +110,6 @@
         private System.Windows.Forms.Label label_key;
         private System.Windows.Forms.Button Button_OK;
         private System.Windows.Forms.Button Button_Cancel;
+        private System.Windows.Forms.Label label_Info;
     }
 }

@@ -23,11 +23,8 @@ namespace Password_Manager
         byte[][] Encrypted_Bytes = new byte [6][];
 
         //klucz
-        public static string Key { get; set; }
+        public static byte[] Key { get; set; }
         public static string PathToDatabase { get; set; }
-
-        //utworzenie instacji kryptograficznej funkcji skrótu md5
-        MD5CryptoServiceProvider md5 = new MD5CryptoServiceProvider();
 
         //zdefiniowanie kodowania utf8 w celu późniejszej zamiany tekstu wprowadzanego przez użytkownika na bajty
         UTF8Encoding utf8 = new UTF8Encoding();
@@ -42,16 +39,13 @@ namespace Password_Manager
 
                 if (dr == DialogResult.OK)
                 {
-                    using (StreamReader sr = new StreamReader(Form2.PathToDatabase))
+                    using (StreamReader sr = new StreamReader(PathToDatabase))
                     {
-
-                        //string line = sr.ReadToEnd();
-                        
 
                         for (int i = 0; i < 6; i++)
                         {
                             string line = sr.ReadLine();
-                            MessageBox.Show(line);
+                            
                             Encrypted_Bytes[i] = new byte[(line.Length) / 2];
                             for (int d = 0; d < line.Length; d += 2)
                             {
@@ -60,12 +54,12 @@ namespace Password_Manager
                         }
                         
 
-                        
+                        /*
                         foreach (var item in Encrypted_Bytes[0])
                         {
                             MessageBox.Show(string.Format("byte_{0}", item));
                         }
-                        
+                        */
                     }
                 }
             }
@@ -75,8 +69,7 @@ namespace Password_Manager
             TripleDESCryptoServiceProvider TripleDES = new TripleDESCryptoServiceProvider
             {
                 //klucz wprowadzony przez użytkownika zahashowany md5
-                //Key = md5.ComputeHash(utf8.GetBytes(Key)),
-                Key = md5.ComputeHash(utf8.GetBytes("aaa")),
+                Key = Key,
 
                 //Parametry dla 3DES
                 Mode = CipherMode.ECB,
@@ -85,8 +78,6 @@ namespace Password_Manager
 
             //utworzenie nowej instancji deszyfratora
             ICryptoTransform Decryptor = TripleDES.CreateDecryptor();
-
-            MessageBox.Show(Encrypted_Bytes[0].Length.ToString());
 
             //deszyfrowanie tablicy z bajtami od pierwszego elementu do końca, a następnie przetworzenie do łańcucha znakowego i wysłanie do textBox'a
             textBox_Site1.Text = utf8.GetString(Decryptor.TransformFinalBlock(Encrypted_Bytes[0], 0, Encrypted_Bytes[0].Length));
@@ -105,8 +96,7 @@ namespace Password_Manager
             TripleDESCryptoServiceProvider TripleDES = new TripleDESCryptoServiceProvider
             {
                 //klucz wprowadzony przez użytkownika zahashowany md5
-                //Key = md5.ComputeHash(utf8.GetBytes(textBox_Site1.Text)),
-                Key = md5.ComputeHash(utf8.GetBytes("aaa")),
+                Key = Key,
 
                 //Parametry dla 3DES
                 Mode = CipherMode.ECB,
@@ -149,7 +139,7 @@ namespace Password_Manager
 
         }
 
-        private void button_New_Click(object sender, EventArgs e)
+        private void Button_New_Click(object sender, EventArgs e)
         {
             using (Form3 form3 = new Form3())
             {
@@ -158,15 +148,12 @@ namespace Password_Manager
 
                 if (dr == DialogResult.OK)
                 {
-                    MessageBox.Show("Test");
-                    /*
-                    using (StreamReader sr = new StreamReader(Form2.PathToDatabase))
-                    {
-                        MessageBox.Show("Test");
-
-
-                    }
-                    */
+                    textBox_Site1.Text = null;
+                    textBox_Site2.Text = null;
+                    textBox_Login1.Text = null;
+                    textBox_Login2.Text = null;
+                    textBox_Pass1.Text = null;
+                    textBox_Pass2.Text = null;
                 }
             }
         }
@@ -180,7 +167,7 @@ namespace Password_Manager
 
                 if (dr == DialogResult.OK)
                 {
-                    MessageBox.Show("Test");
+                    MessageBox.Show("The Key has been changed.");
 
                 }
             }
@@ -194,8 +181,7 @@ namespace Password_Manager
             TripleDESCryptoServiceProvider TripleDES = new TripleDESCryptoServiceProvider
             {
                 //klucz wprowadzony przez użytkownika zahashowany md5
-                //Key = md5.ComputeHash(utf8.GetBytes(textBox_Site1.Text)),
-                Key = md5.ComputeHash(utf8.GetBytes("aaa")),
+                Key = Key,
 
                 //Parametry dla 3DES
                 Mode = CipherMode.ECB,
