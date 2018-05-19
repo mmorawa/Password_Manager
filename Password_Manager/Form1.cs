@@ -21,6 +21,9 @@ namespace Password_Manager
 
         //tablica bajtowa z zaszyfrowanymi danymi
         byte[] Encrypted_Bytes;
+        //klucz
+        public static string Key { get; set; }
+        public static string PathToDatabase { get; set; }
 
         private void Button_Open_Click(object sender, EventArgs e)
         {
@@ -64,7 +67,7 @@ namespace Password_Manager
             TripleDESCryptoServiceProvider TripleDES = new TripleDESCryptoServiceProvider
             {
                 //klucz wprowadzony przez użytkownika zahashowany md5
-                Key = md5.ComputeHash(utf8.GetBytes(Form2.Key)),
+                Key = md5.ComputeHash(utf8.GetBytes(Key)),
 
                 //Parametry dla 3DES
                 Mode = CipherMode.ECB,
@@ -85,6 +88,90 @@ namespace Password_Manager
         private void Button_Save_Click(object sender, EventArgs e)
         {
 
+            //utworzenie instacji kryptograficznej funkcji skrótu md5
+            MD5CryptoServiceProvider md5 = new MD5CryptoServiceProvider();
+
+            //zdefiniowanie kodowania utf8 w celu późniejszej zamiany tekstu wprowadzanego przez użytkownika na bajty
+            UTF8Encoding utf8 = new UTF8Encoding();
+
+            //utworzenie instacji szyfrowania 3DES
+            TripleDESCryptoServiceProvider TripleDES = new TripleDESCryptoServiceProvider
+            {
+                //klucz wprowadzony przez użytkownika zahashowany md5
+                Key = md5.ComputeHash(utf8.GetBytes(textBox_Site1.Text)),
+
+                //Parametry dla 3DES
+                Mode = CipherMode.ECB,
+                Padding = PaddingMode.PKCS7
+            };
+
+            //utworzenie nowej instancji szyfratora
+            ICryptoTransform Encryptor = TripleDES.CreateEncryptor();
+
+
+            //konwersja zaszyfrowanych bajtów do łańcucha znakowego i przypisanie tego łańcucha do textBoxa'a w celu jego wyświetlenia
+            //textBox_Encrypted.Text = BitConverter.ToString(Encrypted_Bytes);
+
+
+
+            //szyfrowanie wpisanego przez użytkownika tekstu od pierwszego znaku do ostatniego
+            Encrypted_Bytes = Encryptor.TransformFinalBlock(utf8.GetBytes(textBox_Login1.Text), 0, utf8.GetBytes(textBox_Login1.Text).Length);
+
+            /* test
+            foreach (var item in Encrypted_Bytes)
+            {
+                MessageBox.Show(string.Format("byte_{0}", item));
+            }
+            */
+
+
+            using (StreamWriter sw = new StreamWriter(File.Create(PathToDatabase)))
+            {
+                sw.WriteLine(BitConverter.ToString(Encrypted_Bytes).Replace("-", ""));
+                sw.Dispose();
+            }
+
+        }
+
+        private void button_New_Click(object sender, EventArgs e)
+        {
+            using (Form3 form3 = new Form3())
+            {
+                DialogResult dr = form3.ShowDialog();
+
+
+                if (dr == DialogResult.OK)
+                {
+                    MessageBox.Show("Test");
+                    /*
+                    using (StreamReader sr = new StreamReader(Form2.PathToDatabase))
+                    {
+                        MessageBox.Show("Test");
+
+
+                    }
+                    */
+                }
+            }
+        }
+
+        private void Button_change_Click(object sender, EventArgs e)
+        {
+            using (Form4 form4 = new Form4())
+            {
+                DialogResult dr = form4.ShowDialog();
+
+
+                if (dr == DialogResult.OK)
+                {
+                    MessageBox.Show("Test");
+
+                }
+            }
+        }
+
+        private void Button_SaveAs_Click(object sender, EventArgs e)
+        {
             //utworzenie instacji kryptograficznej funkcji skrótu md5
             MD5CryptoServiceProvider md5 = new MD5CryptoServiceProvider();
 
@@ -133,43 +220,6 @@ namespace Password_Manager
                 {
                     sw.WriteLine(BitConverter.ToString(Encrypted_Bytes).Replace("-", ""));
                     sw.Dispose();
-                }
-            }
-        }
-
-        private void button_New_Click(object sender, EventArgs e)
-        {
-            using (Form3 form3 = new Form3())
-            {
-                DialogResult dr = form3.ShowDialog();
-
-
-                if (dr == DialogResult.OK)
-                {
-                    MessageBox.Show("Test");
-                    /*
-                    using (StreamReader sr = new StreamReader(Form2.PathToDatabase))
-                    {
-                        MessageBox.Show("Test");
-
-
-                    }
-                    */
-                }
-            }
-        }
-
-        private void Button_change_Click(object sender, EventArgs e)
-        {
-            using (Form4 form4 = new Form4())
-            {
-                DialogResult dr = form4.ShowDialog();
-
-
-                if (dr == DialogResult.OK)
-                {
-                        MessageBox.Show("Test");
-
                 }
             }
         }

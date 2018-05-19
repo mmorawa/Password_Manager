@@ -10,7 +10,7 @@ namespace Password_Manager
             InitializeComponent();
         }
 
-        public static string Key { get; set; }
+        
         public static string PathToDatabase { get; set; }
 
         private void Button_Load_Click(object sender, EventArgs e)
@@ -34,7 +34,7 @@ namespace Password_Manager
 
         private void Button_OK_Click(object sender, EventArgs e)
         {
-            Key = textBox_Key.Text;
+            Form1.Key = textBox_Key.Text;
         }
 
     }

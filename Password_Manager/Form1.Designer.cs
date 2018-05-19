@@ -41,6 +41,7 @@
             this.textBox_Login2 = new System.Windows.Forms.TextBox();
             this.textBox_Site2 = new System.Windows.Forms.TextBox();
             this.button_New = new System.Windows.Forms.Button();
+            this.Button_SaveAs = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // Button_Save
@@ -167,11 +168,23 @@
             this.button_New.UseVisualStyleBackColor = true;
             this.button_New.Click += new System.EventHandler(this.button_New_Click);
             // 
+            // Button_SaveAs
+            // 
+            this.Button_SaveAs.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.Button_SaveAs.Location = new System.Drawing.Point(542, 45);
+            this.Button_SaveAs.Name = "Button_SaveAs";
+            this.Button_SaveAs.Size = new System.Drawing.Size(116, 34);
+            this.Button_SaveAs.TabIndex = 17;
+            this.Button_SaveAs.Text = "Save as";
+            this.Button_SaveAs.UseVisualStyleBackColor = true;
+            this.Button_SaveAs.Click += new System.EventHandler(this.Button_SaveAs_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(725, 648);
+            this.Controls.Add(this.Button_SaveAs);
             this.Controls.Add(this.button_New);
             this.Controls.Add(this.textBox_Pass2);
             this.Controls.Add(this.textBox_Login2);
@@ -207,6 +220,7 @@
         private System.Windows.Forms.TextBox textBox_Login2;
         private System.Windows.Forms.TextBox textBox_Site2;
         private System.Windows.Forms.Button button_New;
+        private System.Windows.Forms.Button Button_SaveAs;
     }
 }
 

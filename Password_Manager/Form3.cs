@@ -17,9 +17,6 @@ namespace Password_Manager
             InitializeComponent();
         }
 
-        public static string Key { get; set; }
-        public static string PathToDatabase { get; set; }
-
         private void Button_Save_Click(object sender, EventArgs e)
         {
             SaveFileDialog saveFile = new SaveFileDialog
@@ -36,16 +33,14 @@ namespace Password_Manager
             if (dr2 == DialogResult.OK)
             {
                 textBox_Filename.Text = saveFile.FileName;
-                PathToDatabase = saveFile.FileName;
+                //TODO if cancel
+                Form1.PathToDatabase = saveFile.FileName;
             }
         }
 
         private void Button_OK_Click(object sender, EventArgs e)
         {
-            Key = textBox_Key.Text;
+            Form1.Key = textBox_Key.Text;
         }
-
-
-
     }
 }
