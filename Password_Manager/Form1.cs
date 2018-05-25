@@ -20,7 +20,7 @@ namespace Password_Manager
         }
 
         //tablica bajtowa wielowymiarowa z zaszyfrowanymi danymi
-        byte[][] Encrypted_Bytes = new byte [6][];
+        byte[][] Encrypted_Bytes = new byte [8][];
 
         //klucz
         public static byte[] Key { get; set; }
@@ -29,6 +29,7 @@ namespace Password_Manager
         //zdefiniowanie kodowania utf8 w celu późniejszej zamiany tekstu wprowadzanego przez użytkownika na bajty
         UTF8Encoding utf8 = new UTF8Encoding();
 
+        //TODO zabezpieczenia
         private void Button_Open_Click(object sender, EventArgs e)
         {
 
@@ -42,7 +43,7 @@ namespace Password_Manager
                     using (StreamReader sr = new StreamReader(PathToDatabase))
                     {
 
-                        for (int i = 0; i < 6; i++)
+                        for (int i = 0; i < 8; i++)
                         {
                             string line = sr.ReadLine();
                             
@@ -52,7 +53,7 @@ namespace Password_Manager
                                 Encrypted_Bytes[i][d / 2] = Convert.ToByte(line.Substring(d, 2), 16);
                             }
                         }
-                        
+
 
                         /*
                         foreach (var item in Encrypted_Bytes[0])
@@ -60,32 +61,42 @@ namespace Password_Manager
                             MessageBox.Show(string.Format("byte_{0}", item));
                         }
                         */
+
+                        label_Site.Visible = true;
+                        label_Login.Visible = true;
+                        label_Password.Visible = true;
+
+                        panel1.Visible = true;
+                        panel2.Visible = true;
+
+                        //utworzenie instacji szyfrowania 3DES
+                        TripleDESCryptoServiceProvider TripleDES = new TripleDESCryptoServiceProvider
+                        {
+                            //klucz wprowadzony przez użytkownika zahashowany md5
+                            Key = Key,
+
+                            //Parametry dla 3DES
+                            Mode = CipherMode.ECB,
+                            Padding = PaddingMode.PKCS7
+                        };
+
+                        //utworzenie nowej instancji deszyfratora
+                        ICryptoTransform Decryptor = TripleDES.CreateDecryptor();
+
+                        //deszyfrowanie tablicy z bajtami od pierwszego elementu do końca, a następnie przetworzenie do łańcucha znakowego i wysłanie do textBox'a
+                        textBox_Site1.Text = utf8.GetString(Decryptor.TransformFinalBlock(Encrypted_Bytes[0], 0, Encrypted_Bytes[0].Length));
+                        textBox_Site2.Text = utf8.GetString(Decryptor.TransformFinalBlock(Encrypted_Bytes[1], 0, Encrypted_Bytes[1].Length));
+                        textBox_URL1.Text = utf8.GetString(Decryptor.TransformFinalBlock(Encrypted_Bytes[2], 0, Encrypted_Bytes[2].Length));
+                        textBox_URL2.Text = utf8.GetString(Decryptor.TransformFinalBlock(Encrypted_Bytes[3], 0, Encrypted_Bytes[3].Length));
+                        textBox_Login1.Text = utf8.GetString(Decryptor.TransformFinalBlock(Encrypted_Bytes[4], 0, Encrypted_Bytes[4].Length));
+                        textBox_Login2.Text = utf8.GetString(Decryptor.TransformFinalBlock(Encrypted_Bytes[5], 0, Encrypted_Bytes[5].Length));
+                        textBox_Pass1.Text = utf8.GetString(Decryptor.TransformFinalBlock(Encrypted_Bytes[6], 0, Encrypted_Bytes[6].Length));
+                        textBox_Pass2.Text = utf8.GetString(Decryptor.TransformFinalBlock(Encrypted_Bytes[7], 0, Encrypted_Bytes[7].Length));
                     }
                 }
             }
 
 
-            //utworzenie instacji szyfrowania 3DES
-            TripleDESCryptoServiceProvider TripleDES = new TripleDESCryptoServiceProvider
-            {
-                //klucz wprowadzony przez użytkownika zahashowany md5
-                Key = Key,
-
-                //Parametry dla 3DES
-                Mode = CipherMode.ECB,
-                Padding = PaddingMode.PKCS7
-            };
-
-            //utworzenie nowej instancji deszyfratora
-            ICryptoTransform Decryptor = TripleDES.CreateDecryptor();
-
-            //deszyfrowanie tablicy z bajtami od pierwszego elementu do końca, a następnie przetworzenie do łańcucha znakowego i wysłanie do textBox'a
-            textBox_Site1.Text = utf8.GetString(Decryptor.TransformFinalBlock(Encrypted_Bytes[0], 0, Encrypted_Bytes[0].Length));
-            textBox_Site2.Text = utf8.GetString(Decryptor.TransformFinalBlock(Encrypted_Bytes[1], 0, Encrypted_Bytes[1].Length));
-            textBox_Login1.Text = utf8.GetString(Decryptor.TransformFinalBlock(Encrypted_Bytes[2], 0, Encrypted_Bytes[2].Length));
-            textBox_Login2.Text = utf8.GetString(Decryptor.TransformFinalBlock(Encrypted_Bytes[3], 0, Encrypted_Bytes[3].Length));
-            textBox_Pass1.Text = utf8.GetString(Decryptor.TransformFinalBlock(Encrypted_Bytes[4], 0, Encrypted_Bytes[4].Length));
-            textBox_Pass2.Text = utf8.GetString(Decryptor.TransformFinalBlock(Encrypted_Bytes[5], 0, Encrypted_Bytes[5].Length));
 
         }
 
@@ -109,10 +120,12 @@ namespace Password_Manager
             //szyfrowanie wpisanego przez użytkownika tekstu od pierwszego znaku do ostatniego
             Encrypted_Bytes[0] = Encryptor.TransformFinalBlock(utf8.GetBytes(textBox_Site1.Text), 0, utf8.GetBytes(textBox_Site1.Text).Length);
             Encrypted_Bytes[1] = Encryptor.TransformFinalBlock(utf8.GetBytes(textBox_Site2.Text), 0, utf8.GetBytes(textBox_Site2.Text).Length);
-            Encrypted_Bytes[2] = Encryptor.TransformFinalBlock(utf8.GetBytes(textBox_Login1.Text), 0, utf8.GetBytes(textBox_Login1.Text).Length);
-            Encrypted_Bytes[3] = Encryptor.TransformFinalBlock(utf8.GetBytes(textBox_Login2.Text), 0, utf8.GetBytes(textBox_Login2.Text).Length);
-            Encrypted_Bytes[4] = Encryptor.TransformFinalBlock(utf8.GetBytes(textBox_Pass1.Text), 0, utf8.GetBytes(textBox_Pass1.Text).Length);
-            Encrypted_Bytes[5] = Encryptor.TransformFinalBlock(utf8.GetBytes(textBox_Pass2.Text), 0, utf8.GetBytes(textBox_Pass2.Text).Length);
+            Encrypted_Bytes[2] = Encryptor.TransformFinalBlock(utf8.GetBytes(textBox_URL1.Text), 0, utf8.GetBytes(textBox_URL1.Text).Length);
+            Encrypted_Bytes[3] = Encryptor.TransformFinalBlock(utf8.GetBytes(textBox_URL2.Text), 0, utf8.GetBytes(textBox_URL2.Text).Length);
+            Encrypted_Bytes[4] = Encryptor.TransformFinalBlock(utf8.GetBytes(textBox_Login1.Text), 0, utf8.GetBytes(textBox_Login1.Text).Length);
+            Encrypted_Bytes[5] = Encryptor.TransformFinalBlock(utf8.GetBytes(textBox_Login2.Text), 0, utf8.GetBytes(textBox_Login2.Text).Length);
+            Encrypted_Bytes[6] = Encryptor.TransformFinalBlock(utf8.GetBytes(textBox_Pass1.Text), 0, utf8.GetBytes(textBox_Pass1.Text).Length);
+            Encrypted_Bytes[7] = Encryptor.TransformFinalBlock(utf8.GetBytes(textBox_Pass2.Text), 0, utf8.GetBytes(textBox_Pass2.Text).Length);
 
 
             /*
@@ -124,7 +137,7 @@ namespace Password_Manager
 
             using (StreamWriter sw = new StreamWriter(File.Create(PathToDatabase)))
             {
-                for (int i = 0; i < 6; i++)
+                for (int i = 0; i < 8; i++)
                 {
                     sw.WriteLine(BitConverter.ToString(Encrypted_Bytes[i]).Replace("-", ""));
                 }
@@ -154,6 +167,13 @@ namespace Password_Manager
                     textBox_Login2.Text = null;
                     textBox_Pass1.Text = null;
                     textBox_Pass2.Text = null;
+
+                    label_Site.Visible = true;
+                    label_Login.Visible = true;
+                    label_Password.Visible = true;
+                    label_URL.Visible = true;
+                    panel1.Visible = true;
+                    panel2.Visible = true;
                 }
             }
         }
@@ -209,10 +229,12 @@ namespace Password_Manager
                 //szyfrowanie wpisanego przez użytkownika tekstu od pierwszego znaku do ostatniego
                 Encrypted_Bytes[0] = Encryptor.TransformFinalBlock(utf8.GetBytes(textBox_Site1.Text), 0, utf8.GetBytes(textBox_Site1.Text).Length);
                 Encrypted_Bytes[1] = Encryptor.TransformFinalBlock(utf8.GetBytes(textBox_Site2.Text), 0, utf8.GetBytes(textBox_Site2.Text).Length);
-                Encrypted_Bytes[2] = Encryptor.TransformFinalBlock(utf8.GetBytes(textBox_Login1.Text), 0, utf8.GetBytes(textBox_Login1.Text).Length);
-                Encrypted_Bytes[3] = Encryptor.TransformFinalBlock(utf8.GetBytes(textBox_Login2.Text), 0, utf8.GetBytes(textBox_Login2.Text).Length);
-                Encrypted_Bytes[4] = Encryptor.TransformFinalBlock(utf8.GetBytes(textBox_Pass1.Text), 0, utf8.GetBytes(textBox_Pass1.Text).Length);
-                Encrypted_Bytes[5] = Encryptor.TransformFinalBlock(utf8.GetBytes(textBox_Pass2.Text), 0, utf8.GetBytes(textBox_Pass2.Text).Length);
+                Encrypted_Bytes[2] = Encryptor.TransformFinalBlock(utf8.GetBytes(textBox_URL1.Text), 0, utf8.GetBytes(textBox_URL1.Text).Length);
+                Encrypted_Bytes[3] = Encryptor.TransformFinalBlock(utf8.GetBytes(textBox_URL2.Text), 0, utf8.GetBytes(textBox_URL2.Text).Length);
+                Encrypted_Bytes[4] = Encryptor.TransformFinalBlock(utf8.GetBytes(textBox_Login1.Text), 0, utf8.GetBytes(textBox_Login1.Text).Length);
+                Encrypted_Bytes[5] = Encryptor.TransformFinalBlock(utf8.GetBytes(textBox_Login2.Text), 0, utf8.GetBytes(textBox_Login2.Text).Length);
+                Encrypted_Bytes[6] = Encryptor.TransformFinalBlock(utf8.GetBytes(textBox_Pass1.Text), 0, utf8.GetBytes(textBox_Pass1.Text).Length);
+                Encrypted_Bytes[7] = Encryptor.TransformFinalBlock(utf8.GetBytes(textBox_Pass2.Text), 0, utf8.GetBytes(textBox_Pass2.Text).Length);
 
 
                 /*
@@ -248,7 +270,47 @@ namespace Password_Manager
             textBox_Pass1.Text = null;
             textBox_Pass2.Text = null;
 
+            label_Site.Visible = false;
+            label_Login.Visible = false;
+            label_Password.Visible = false;
+            label_URL.Visible = false;
+            panel1.Visible = false;
+            panel2.Visible = false;
+
             MessageBox.Show("Database has been successfully closed.");
+        }
+
+        private void Button_Quit_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void Button_Show1_Click(object sender, EventArgs e)
+        {
+            bool state = textBox_Pass1.UseSystemPasswordChar;
+
+            if (state == true)
+            {
+                textBox_Pass1.UseSystemPasswordChar = false;
+            }
+            else
+            {
+                textBox_Pass1.UseSystemPasswordChar = true;
+            }
+        }
+
+        private void Button_Show2_Click(object sender, EventArgs e)
+        {
+            bool state = textBox_Pass2.UseSystemPasswordChar;
+
+            if (state == true)
+            {
+                textBox_Pass2.UseSystemPasswordChar = false;
+            }
+            else
+            {
+                textBox_Pass2.UseSystemPasswordChar = true;
+            }
         }
     }
 }
