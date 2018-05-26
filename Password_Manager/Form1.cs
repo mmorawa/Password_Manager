@@ -20,7 +20,7 @@ namespace Password_Manager
         }
 
         //tablica bajtowa wielowymiarowa z zaszyfrowanymi danymi
-        byte[][] Encrypted_Bytes = new byte[8][];
+        byte[][] Encrypted_Bytes; 
 
         //klucz
         public static byte[] Key { get; set; }
@@ -34,7 +34,7 @@ namespace Password_Manager
         //TODO zabezpieczenia
         private void Button_Open_Click(object sender, EventArgs e)
         {
-
+            CloseDatabase();
             using (Form2 form2 = new Form2())
             {
                 DialogResult dr = form2.ShowDialog();
@@ -45,8 +45,9 @@ namespace Password_Manager
                     using (StreamReader sr = new StreamReader(PathToDatabase))
                     {
                         int lineCount = File.ReadLines(PathToDatabase).Count();
-                        MessageBox.Show(lineCount.ToString());
+                        //MessageBox.Show(lineCount.ToString());
 
+                        Encrypted_Bytes = new byte[lineCount][];
                         for (int i = 0; i < lineCount; i++)
                         {
                             string line = sr.ReadLine();
@@ -205,6 +206,11 @@ namespace Password_Manager
 
         private void Button_Save_Click(object sender, EventArgs e)
         {
+            if (Entries.Count == 0)
+            {
+                MessageBox.Show("There is nothing to save.");
+                return;
+            }
 
             //utworzenie instacji szyfrowania 3DES
             TripleDESCryptoServiceProvider TripleDES = new TripleDESCryptoServiceProvider
@@ -220,21 +226,42 @@ namespace Password_Manager
             //utworzenie nowej instancji szyfratora
             ICryptoTransform Encryptor = TripleDES.CreateEncryptor();
 
-            //szyfrowanie wpisanego przez użytkownika tekstu od pierwszego znaku do ostatniego
-            Encrypted_Bytes[0] = Encryptor.TransformFinalBlock(utf8.GetBytes(textBox_Site1.Text), 0, utf8.GetBytes(textBox_Site1.Text).Length);
-            Encrypted_Bytes[1] = Encryptor.TransformFinalBlock(utf8.GetBytes(textBox_Site2.Text), 0, utf8.GetBytes(textBox_Site2.Text).Length);
-            Encrypted_Bytes[2] = Encryptor.TransformFinalBlock(utf8.GetBytes(textBox_URL1.Text), 0, utf8.GetBytes(textBox_URL1.Text).Length);
-            Encrypted_Bytes[3] = Encryptor.TransformFinalBlock(utf8.GetBytes(textBox_URL2.Text), 0, utf8.GetBytes(textBox_URL2.Text).Length);
-            Encrypted_Bytes[4] = Encryptor.TransformFinalBlock(utf8.GetBytes(textBox_Login1.Text), 0, utf8.GetBytes(textBox_Login1.Text).Length);
-            Encrypted_Bytes[5] = Encryptor.TransformFinalBlock(utf8.GetBytes(textBox_Login2.Text), 0, utf8.GetBytes(textBox_Login2.Text).Length);
-            Encrypted_Bytes[6] = Encryptor.TransformFinalBlock(utf8.GetBytes(textBox_Pass1.Text), 0, utf8.GetBytes(textBox_Pass1.Text).Length);
-            Encrypted_Bytes[7] = Encryptor.TransformFinalBlock(utf8.GetBytes(textBox_Pass2.Text), 0, utf8.GetBytes(textBox_Pass2.Text).Length);
+            Encrypted_Bytes = new byte[Entries.Count * 4][];
+            string[] Data = new string[Entries.Count * 4];
+            int position = 0;
 
+            for (int i = 0; i < Entries.Count; i++)
+            {
+                Control[] ctrls0 = Entries[i].Controls.Find("textBox_Site", false);
+                TextBox textBox_Site_Encrypt = (TextBox)ctrls0[0];
+                Data[position] = textBox_Site_Encrypt.Text;
+                position++;
+
+                Control[] ctrls1 = Entries[i].Controls.Find("textBox_URL", false);
+                TextBox textBox_URL_Encrypt = (TextBox)ctrls1[0];
+                Data[position] = textBox_URL_Encrypt.Text;
+                position++;
+
+                Control[] ctrls2 = Entries[i].Controls.Find("textBox_Login", false);
+                TextBox textBox_Login_Encrypt = (TextBox)ctrls2[0];
+                Data[position] = textBox_Login_Encrypt.Text;
+                position++;
+
+                Control[] ctrls3 = Entries[i].Controls.Find("textBox_Pass", false);
+                TextBox textBox_Pass_Encrypt = (TextBox)ctrls3[0];
+                Data[position] = textBox_Pass_Encrypt.Text;
+                position++;
+            }
+
+            for (int i = 0; i < Entries.Count * 4; i++)
+            {
+                Encrypted_Bytes[i] = Encryptor.TransformFinalBlock(utf8.GetBytes(Data[i]), 0, utf8.GetBytes(Data[i]).Length);
+            }
 
 
             using (StreamWriter sw = new StreamWriter(File.Create(PathToDatabase)))
             {
-                for (int i = 0; i < 8; i++)
+                for (int i = 0; i < Entries.Count * 4; i++)
                 {
                     sw.WriteLine(BitConverter.ToString(Encrypted_Bytes[i]).Replace("-", ""));
                 }
@@ -242,15 +269,13 @@ namespace Password_Manager
                 sw.Dispose();
             }
 
-            //konwersja zaszyfrowanych bajtów do łańcucha znakowego i przypisanie tego łańcucha do textBoxa'a w celu jego wyświetlenia
-            //textBox_Encrypted.Text = BitConverter.ToString(Encrypted_Bytes);
-
             MessageBox.Show("Database has been successfully saved.");
 
         }
 
         private void Button_New_Click(object sender, EventArgs e)
         {
+            CloseDatabase();
             using (Form3 form3 = new Form3())
             {
                 DialogResult dr = form3.ShowDialog();
@@ -385,7 +410,11 @@ namespace Password_Manager
 
         private void Button_SaveAs_Click(object sender, EventArgs e)
         {
-
+            if (Entries.Count == 0)
+            {
+                MessageBox.Show("There is nothing to save.");
+                return;
+            }
 
             //utworzenie instacji szyfrowania 3DES
             TripleDESCryptoServiceProvider TripleDES = new TripleDESCryptoServiceProvider
@@ -402,9 +431,6 @@ namespace Password_Manager
             ICryptoTransform Encryptor = TripleDES.CreateEncryptor();
 
 
-            //konwersja zaszyfrowanych bajtów do łańcucha znakowego i przypisanie tego łańcucha do textBoxa'a w celu jego wyświetlenia
-            //textBox_Encrypted.Text = BitConverter.ToString(Encrypted_Bytes);
-
             SaveFileDialog saveFile = new SaveFileDialog
             {
                 Filter = "File name | *.txt",
@@ -415,23 +441,42 @@ namespace Password_Manager
             if (saveFile.ShowDialog() == DialogResult.OK)
             {
 
+                Encrypted_Bytes = new byte[Entries.Count * 4][];
+                string[] Data = new string[Entries.Count * 4];
+                int position = 0;
 
-                //szyfrowanie wpisanego przez użytkownika tekstu od pierwszego znaku do ostatniego
-                Encrypted_Bytes[0] = Encryptor.TransformFinalBlock(utf8.GetBytes(textBox_Site1.Text), 0, utf8.GetBytes(textBox_Site1.Text).Length);
-                Encrypted_Bytes[1] = Encryptor.TransformFinalBlock(utf8.GetBytes(textBox_Site2.Text), 0, utf8.GetBytes(textBox_Site2.Text).Length);
-                Encrypted_Bytes[2] = Encryptor.TransformFinalBlock(utf8.GetBytes(textBox_URL1.Text), 0, utf8.GetBytes(textBox_URL1.Text).Length);
-                Encrypted_Bytes[3] = Encryptor.TransformFinalBlock(utf8.GetBytes(textBox_URL2.Text), 0, utf8.GetBytes(textBox_URL2.Text).Length);
-                Encrypted_Bytes[4] = Encryptor.TransformFinalBlock(utf8.GetBytes(textBox_Login1.Text), 0, utf8.GetBytes(textBox_Login1.Text).Length);
-                Encrypted_Bytes[5] = Encryptor.TransformFinalBlock(utf8.GetBytes(textBox_Login2.Text), 0, utf8.GetBytes(textBox_Login2.Text).Length);
-                Encrypted_Bytes[6] = Encryptor.TransformFinalBlock(utf8.GetBytes(textBox_Pass1.Text), 0, utf8.GetBytes(textBox_Pass1.Text).Length);
-                Encrypted_Bytes[7] = Encryptor.TransformFinalBlock(utf8.GetBytes(textBox_Pass2.Text), 0, utf8.GetBytes(textBox_Pass2.Text).Length);
+                for (int i = 0; i < Entries.Count; i++)
+                {
+                    Control[] ctrls0 = Entries[i].Controls.Find("textBox_Site", false);
+                    TextBox textBox_Site_Encrypt = (TextBox)ctrls0[0];
+                    Data[position] = textBox_Site_Encrypt.Text;
+                    position++;
 
+                    Control[] ctrls1 = Entries[i].Controls.Find("textBox_URL", false);
+                    TextBox textBox_URL_Encrypt = (TextBox)ctrls1[0];
+                    Data[position] = textBox_URL_Encrypt.Text;
+                    position++;
 
+                    Control[] ctrls2 = Entries[i].Controls.Find("textBox_Login", false);
+                    TextBox textBox_Login_Encrypt = (TextBox)ctrls2[0];
+                    Data[position] = textBox_Login_Encrypt.Text;
+                    position++;
+
+                    Control[] ctrls3 = Entries[i].Controls.Find("textBox_Pass", false);
+                    TextBox textBox_Pass_Encrypt = (TextBox)ctrls3[0];
+                    Data[position] = textBox_Pass_Encrypt.Text;
+                    position++;
+                }
+
+                for (int i = 0; i < Entries.Count * 4; i++)
+                {
+                    Encrypted_Bytes[i] = Encryptor.TransformFinalBlock(utf8.GetBytes(Data[i]), 0, utf8.GetBytes(Data[i]).Length);
+                }
 
                 string path = saveFile.FileName;
                 using (StreamWriter sw = new StreamWriter(File.Create(path)))
                 {
-                    for (int i = 0; i < 6; i++)
+                    for (int i = 0; i < Entries.Count * 4; i++)
                     {
                         sw.WriteLine(BitConverter.ToString(Encrypted_Bytes[i]).Replace("-", ""));
                     }
@@ -444,6 +489,23 @@ namespace Password_Manager
         }
 
         private void Button_Close_Click(object sender, EventArgs e)
+        {
+            if (Entries.Count == 0)
+            {
+                MessageBox.Show("There is nothing to close.");
+                return;
+            }
+            CloseDatabase();
+            MessageBox.Show("Database has been successfully closed.");
+        }
+
+        private void Button_Quit_Click(object sender, EventArgs e)
+        {
+            CloseDatabase();
+            Application.Exit();
+        }
+
+        private void CloseDatabase()
         {
             Key = null;
 
@@ -459,14 +521,7 @@ namespace Password_Manager
 
             Entries.Clear();
 
-            MessageBox.Show("Database has been successfully closed.");
         }
-
-        private void Button_Quit_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
-
 
         private void Button_Show_Click(object sender, EventArgs e)
         {
