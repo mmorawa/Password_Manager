@@ -44,8 +44,10 @@ namespace Password_Manager
                 {
                     using (StreamReader sr = new StreamReader(PathToDatabase))
                     {
+                        int lineCount = File.ReadLines(PathToDatabase).Count();
+                        MessageBox.Show(lineCount.ToString());
 
-                        for (int i = 0; i < 8; i++)
+                        for (int i = 0; i < lineCount; i++)
                         {
                             string line = sr.ReadLine();
 
@@ -55,23 +57,6 @@ namespace Password_Manager
                                 Encrypted_Bytes[i][d / 2] = Convert.ToByte(line.Substring(d, 2), 16);
                             }
                         }
-
-
-                        /*
-                        foreach (var item in Encrypted_Bytes[0])
-                        {
-                            MessageBox.Show(string.Format("byte_{0}", item));
-                        }
-                        */
-
-                        label_Site.Visible = true;
-                        label_Login.Visible = true;
-                        label_Password.Visible = true;
-                        label_URL.Visible = true;
-
-                        panel1.Visible = true;
-                        panel2.Visible = true;
-
 
 
                         //utworzenie instacji szyfrowania 3DES
@@ -88,15 +73,128 @@ namespace Password_Manager
                         //utworzenie nowej instancji deszyfratora
                         ICryptoTransform Decryptor = TripleDES.CreateDecryptor();
 
-                        //deszyfrowanie tablicy z bajtami od pierwszego elementu do końca, a następnie przetworzenie do łańcucha znakowego i wysłanie do textBox'a
-                        textBox_Site1.Text = utf8.GetString(Decryptor.TransformFinalBlock(Encrypted_Bytes[0], 0, Encrypted_Bytes[0].Length));
-                        textBox_Site2.Text = utf8.GetString(Decryptor.TransformFinalBlock(Encrypted_Bytes[1], 0, Encrypted_Bytes[1].Length));
-                        textBox_URL1.Text = utf8.GetString(Decryptor.TransformFinalBlock(Encrypted_Bytes[2], 0, Encrypted_Bytes[2].Length));
-                        textBox_URL2.Text = utf8.GetString(Decryptor.TransformFinalBlock(Encrypted_Bytes[3], 0, Encrypted_Bytes[3].Length));
-                        textBox_Login1.Text = utf8.GetString(Decryptor.TransformFinalBlock(Encrypted_Bytes[4], 0, Encrypted_Bytes[4].Length));
-                        textBox_Login2.Text = utf8.GetString(Decryptor.TransformFinalBlock(Encrypted_Bytes[5], 0, Encrypted_Bytes[5].Length));
-                        textBox_Pass1.Text = utf8.GetString(Decryptor.TransformFinalBlock(Encrypted_Bytes[6], 0, Encrypted_Bytes[6].Length));
-                        textBox_Pass2.Text = utf8.GetString(Decryptor.TransformFinalBlock(Encrypted_Bytes[7], 0, Encrypted_Bytes[7].Length));
+                        string[] Data = new string[lineCount];
+
+                        for (int i = 0; i < lineCount; i++)
+                        {
+                            Data[i] = utf8.GetString(Decryptor.TransformFinalBlock(Encrypted_Bytes[i], 0, Encrypted_Bytes[i].Length));
+                        }
+
+
+                        label_Site.Visible = true;
+                        label_Login.Visible = true;
+                        label_Password.Visible = true;
+                        label_URL.Visible = true;
+
+                        int position = 0;
+                        for (int i = 0; i < lineCount/4; i++)
+                        {
+                            TextBox textBox_Site = new TextBox
+                            {
+                                Font = new Font("Microsoft Sans Serif", 18F, FontStyle.Regular, GraphicsUnit.Point, 238),
+                                Location = new Point(0, 2),
+                                Name = "textBox_Site",
+                                Size = new Size(216, 35),
+                                Text = Data[position],
+                                TabIndex = 4
+                            };
+
+                            position++;
+
+                            TextBox textBox_URL = new TextBox
+                            {
+                                Font = new Font("Microsoft Sans Serif", 18F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(238))),
+                                Location = new Point(222, 2),
+                                Name = "textBox_URL",
+                                Size = new Size(216, 35),
+                                Text = Data[position],
+                                TabIndex = 19
+                            };
+
+                            position++;
+
+                            TextBox textBox_Login = new TextBox
+                            {
+                                Font = new Font("Microsoft Sans Serif", 18F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(238))),
+                                Location = new Point(444, 2),
+                                Name = "textBox_Login",
+                                Size = new Size(216, 35),
+                                Text = Data[position],
+                                TabIndex = 5
+                            };
+
+                            position++;
+                            
+                            TextBox textBox_Pass = new TextBox
+                            {
+                                Font = new Font("Microsoft Sans Serif", 18F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(238))),
+                                Location = new Point(666, 2),
+                                Name = "textBox_Pass",
+                                Size = new Size(216, 35),
+                                Text = Data[position],
+                                TabIndex = 12,
+                                UseSystemPasswordChar = true
+                            };
+
+                            position++;
+
+                            Button Button_Show = new Button
+                            {
+                                Image = Properties.Resources.OneEye,
+                                Location = new Point(888, 2),
+                                Name = "Button_Show",
+                                Tag = i,
+                                Size = new Size(35, 35),
+                                TabIndex = 24,
+                                UseVisualStyleBackColor = true
+                            };
+                            Button_Show.Click += new EventHandler(Button_Show_Click);
+
+                            Button Button_Plus = new Button
+                            {
+                                Image = Properties.Resources.Plus,
+                                Location = new Point(929, 2),
+                                Name = "Button_Plus",
+                                Tag = i,
+                                Size = new Size(35, 35),
+                                TabIndex = 26,
+                                UseVisualStyleBackColor = true
+                            };
+                            Button_Plus.Click += new EventHandler(Button_Plus_Click);
+
+                            Button Button_Minus = new Button
+                            {
+                                Image = Properties.Resources.Minus,
+                                Location = new Point(970, 2),
+                                Name = "Button_Minus",
+                                Tag = i,
+                                Size = new Size(35, 35),
+                                TabIndex = 28,
+                                UseVisualStyleBackColor = true
+                            };
+                            Button_Minus.Click += new EventHandler(Button_Minus_Click);
+
+                            Panel Entry = new Panel
+                            {
+                                Location = new Point(12, 160 + i * 43),
+                                Name = "Entry",
+                                Size = new Size(1015, 40),
+                                TabIndex = 22,
+                                Visible = true
+                            };
+
+                            Entry.Controls.Add(textBox_URL);
+                            Entry.Controls.Add(Button_Minus);
+                            Entry.Controls.Add(Button_Show);
+                            Entry.Controls.Add(textBox_Site);
+                            Entry.Controls.Add(Button_Plus);
+                            Entry.Controls.Add(textBox_Login);
+                            Entry.Controls.Add(textBox_Pass);
+                            Controls.Add(Entry);
+                            Entries.Add(Entry);
+                        }
+
+
                     }
                 }
             }
@@ -329,12 +427,6 @@ namespace Password_Manager
                 Encrypted_Bytes[7] = Encryptor.TransformFinalBlock(utf8.GetBytes(textBox_Pass2.Text), 0, utf8.GetBytes(textBox_Pass2.Text).Length);
 
 
-                /*
-                foreach (var item in Encrypted_Bytes[0])
-                {
-                    MessageBox.Show(string.Format("byte_{0}", item));
-                }
-                */
 
                 string path = saveFile.FileName;
                 using (StreamWriter sw = new StreamWriter(File.Create(path)))
@@ -355,19 +447,17 @@ namespace Password_Manager
         {
             Key = null;
 
-            textBox_Site1.Text = null;
-            textBox_Site2.Text = null;
-            textBox_Login1.Text = null;
-            textBox_Login2.Text = null;
-            textBox_Pass1.Text = null;
-            textBox_Pass2.Text = null;
-
             label_Site.Visible = false;
             label_Login.Visible = false;
             label_Password.Visible = false;
             label_URL.Visible = false;
-            panel1.Visible = false;
-            panel2.Visible = false;
+
+            foreach (var item in Entries)
+            {
+                Controls.Remove(item);
+            }
+
+            Entries.Clear();
 
             MessageBox.Show("Database has been successfully closed.");
         }
@@ -377,33 +467,6 @@ namespace Password_Manager
             Application.Exit();
         }
 
-        private void Button_Show1_Click(object sender, EventArgs e)
-        {
-            bool state = textBox_Pass1.UseSystemPasswordChar;
-
-            if (state == true)
-            {
-                textBox_Pass1.UseSystemPasswordChar = false;
-            }
-            else
-            {
-                textBox_Pass1.UseSystemPasswordChar = true;
-            }
-        }
-
-        private void Button_Show2_Click(object sender, EventArgs e)
-        {
-            bool state = textBox_Pass2.UseSystemPasswordChar;
-
-            if (state == true)
-            {
-                textBox_Pass2.UseSystemPasswordChar = false;
-            }
-            else
-            {
-                textBox_Pass2.UseSystemPasswordChar = true;
-            }
-        }
 
         private void Button_Show_Click(object sender, EventArgs e)
         {
@@ -572,6 +635,5 @@ namespace Password_Manager
             }
 
         }
-
     }
 }

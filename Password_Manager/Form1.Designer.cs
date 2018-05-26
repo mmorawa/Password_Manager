@@ -47,13 +47,13 @@
             this.label_URL = new System.Windows.Forms.Label();
             this.textBox_URL1 = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.Button_Show1 = new System.Windows.Forms.Button();
-            this.Button_Show2 = new System.Windows.Forms.Button();
-            this.Button_Plus1 = new System.Windows.Forms.Button();
-            this.Button_Plus2 = new System.Windows.Forms.Button();
-            this.Button_Minus2 = new System.Windows.Forms.Button();
             this.Button_Minus1 = new System.Windows.Forms.Button();
+            this.Button_Show1 = new System.Windows.Forms.Button();
+            this.Button_Plus1 = new System.Windows.Forms.Button();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.Button_Minus2 = new System.Windows.Forms.Button();
+            this.Button_Show2 = new System.Windows.Forms.Button();
+            this.Button_Plus2 = new System.Windows.Forms.Button();
             this.Button_Quit = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -250,6 +250,33 @@
             this.panel1.TabIndex = 22;
             this.panel1.Visible = false;
             // 
+            // Button_Minus1
+            // 
+            this.Button_Minus1.Image = global::Password_Manager.Properties.Resources.Minus;
+            this.Button_Minus1.Location = new System.Drawing.Point(970, 2);
+            this.Button_Minus1.Name = "Button_Minus1";
+            this.Button_Minus1.Size = new System.Drawing.Size(35, 35);
+            this.Button_Minus1.TabIndex = 28;
+            this.Button_Minus1.UseVisualStyleBackColor = true;
+            // 
+            // Button_Show1
+            // 
+            this.Button_Show1.Image = global::Password_Manager.Properties.Resources.OneEye;
+            this.Button_Show1.Location = new System.Drawing.Point(888, 2);
+            this.Button_Show1.Name = "Button_Show1";
+            this.Button_Show1.Size = new System.Drawing.Size(35, 35);
+            this.Button_Show1.TabIndex = 24;
+            this.Button_Show1.UseVisualStyleBackColor = true;
+            // 
+            // Button_Plus1
+            // 
+            this.Button_Plus1.Image = global::Password_Manager.Properties.Resources.Plus;
+            this.Button_Plus1.Location = new System.Drawing.Point(929, 2);
+            this.Button_Plus1.Name = "Button_Plus1";
+            this.Button_Plus1.Size = new System.Drawing.Size(35, 35);
+            this.Button_Plus1.TabIndex = 26;
+            this.Button_Plus1.UseVisualStyleBackColor = true;
+            // 
             // panel2
             // 
             this.panel2.Controls.Add(this.Button_Minus2);
@@ -265,44 +292,6 @@
             this.panel2.TabIndex = 23;
             this.panel2.Visible = false;
             // 
-            // Button_Show1
-            // 
-            this.Button_Show1.Image = global::Password_Manager.Properties.Resources.OneEye;
-            this.Button_Show1.Location = new System.Drawing.Point(888, 2);
-            this.Button_Show1.Name = "Button_Show1";
-            this.Button_Show1.Size = new System.Drawing.Size(35, 35);
-            this.Button_Show1.TabIndex = 24;
-            this.Button_Show1.UseVisualStyleBackColor = true;
-            this.Button_Show1.Click += new System.EventHandler(this.Button_Show1_Click);
-            // 
-            // Button_Show2
-            // 
-            this.Button_Show2.Image = global::Password_Manager.Properties.Resources.OneEye;
-            this.Button_Show2.Location = new System.Drawing.Point(888, 2);
-            this.Button_Show2.Name = "Button_Show2";
-            this.Button_Show2.Size = new System.Drawing.Size(35, 35);
-            this.Button_Show2.TabIndex = 25;
-            this.Button_Show2.UseVisualStyleBackColor = true;
-            this.Button_Show2.Click += new System.EventHandler(this.Button_Show2_Click);
-            // 
-            // Button_Plus1
-            // 
-            this.Button_Plus1.Image = global::Password_Manager.Properties.Resources.Plus;
-            this.Button_Plus1.Location = new System.Drawing.Point(929, 2);
-            this.Button_Plus1.Name = "Button_Plus1";
-            this.Button_Plus1.Size = new System.Drawing.Size(35, 35);
-            this.Button_Plus1.TabIndex = 26;
-            this.Button_Plus1.UseVisualStyleBackColor = true;
-            // 
-            // Button_Plus2
-            // 
-            this.Button_Plus2.Image = global::Password_Manager.Properties.Resources.Plus;
-            this.Button_Plus2.Location = new System.Drawing.Point(929, 2);
-            this.Button_Plus2.Name = "Button_Plus2";
-            this.Button_Plus2.Size = new System.Drawing.Size(35, 35);
-            this.Button_Plus2.TabIndex = 27;
-            this.Button_Plus2.UseVisualStyleBackColor = true;
-            // 
             // Button_Minus2
             // 
             this.Button_Minus2.Image = global::Password_Manager.Properties.Resources.Minus;
@@ -312,14 +301,23 @@
             this.Button_Minus2.TabIndex = 29;
             this.Button_Minus2.UseVisualStyleBackColor = true;
             // 
-            // Button_Minus1
+            // Button_Show2
             // 
-            this.Button_Minus1.Image = global::Password_Manager.Properties.Resources.Minus;
-            this.Button_Minus1.Location = new System.Drawing.Point(970, 2);
-            this.Button_Minus1.Name = "Button_Minus1";
-            this.Button_Minus1.Size = new System.Drawing.Size(35, 35);
-            this.Button_Minus1.TabIndex = 28;
-            this.Button_Minus1.UseVisualStyleBackColor = true;
+            this.Button_Show2.Image = global::Password_Manager.Properties.Resources.OneEye;
+            this.Button_Show2.Location = new System.Drawing.Point(888, 2);
+            this.Button_Show2.Name = "Button_Show2";
+            this.Button_Show2.Size = new System.Drawing.Size(35, 35);
+            this.Button_Show2.TabIndex = 25;
+            this.Button_Show2.UseVisualStyleBackColor = true;
+            // 
+            // Button_Plus2
+            // 
+            this.Button_Plus2.Image = global::Password_Manager.Properties.Resources.Plus;
+            this.Button_Plus2.Location = new System.Drawing.Point(929, 2);
+            this.Button_Plus2.Name = "Button_Plus2";
+            this.Button_Plus2.Size = new System.Drawing.Size(35, 35);
+            this.Button_Plus2.TabIndex = 27;
+            this.Button_Plus2.UseVisualStyleBackColor = true;
             // 
             // Button_Quit
             // 
