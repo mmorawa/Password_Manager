@@ -35,13 +35,23 @@ namespace Password_Manager
 
         private void Button_OK_Click(object sender, EventArgs e)
         {
-            //utworzenie instacji kryptograficznej funkcji skrótu md5
-            MD5CryptoServiceProvider md5 = new MD5CryptoServiceProvider();
+            if ((textBox_Key.Text != "") && (textBox_Filename.Text != ""))
+            {
+                //utworzenie instacji kryptograficznej funkcji skrótu md5
+                MD5CryptoServiceProvider md5 = new MD5CryptoServiceProvider();
 
-            //zdefiniowanie kodowania utf8 w celu późniejszej zamiany tekstu wprowadzanego przez użytkownika na bajty
-            UTF8Encoding utf8 = new UTF8Encoding();
+                //zdefiniowanie kodowania utf8 w celu późniejszej zamiany tekstu wprowadzanego przez użytkownika na bajty
+                UTF8Encoding utf8 = new UTF8Encoding();
 
-            Form1.Key = md5.ComputeHash(utf8.GetBytes(textBox_Key.Text));
+                Form1.Key = md5.ComputeHash(utf8.GetBytes(textBox_Key.Text));
+
+            }
+            else
+            {
+                MessageBox.Show("Incorrect data.");
+                DialogResult = DialogResult.None;
+            }
+
         }
     }
 }

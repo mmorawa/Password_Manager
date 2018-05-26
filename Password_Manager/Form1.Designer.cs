@@ -31,32 +31,14 @@
             this.Button_Save = new System.Windows.Forms.Button();
             this.label_Password = new System.Windows.Forms.Label();
             this.label_Login = new System.Windows.Forms.Label();
-            this.textBox_Site1 = new System.Windows.Forms.TextBox();
-            this.textBox_Login1 = new System.Windows.Forms.TextBox();
             this.Button_Open = new System.Windows.Forms.Button();
             this.label_Site = new System.Windows.Forms.Label();
             this.Button_change = new System.Windows.Forms.Button();
-            this.textBox_Pass1 = new System.Windows.Forms.TextBox();
-            this.textBox_Pass2 = new System.Windows.Forms.TextBox();
-            this.textBox_Login2 = new System.Windows.Forms.TextBox();
-            this.textBox_Site2 = new System.Windows.Forms.TextBox();
             this.Button_New = new System.Windows.Forms.Button();
             this.Button_SaveAs = new System.Windows.Forms.Button();
             this.Button_Close = new System.Windows.Forms.Button();
-            this.textBox_URL2 = new System.Windows.Forms.TextBox();
             this.label_URL = new System.Windows.Forms.Label();
-            this.textBox_URL1 = new System.Windows.Forms.TextBox();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.Button_Minus1 = new System.Windows.Forms.Button();
-            this.Button_Show1 = new System.Windows.Forms.Button();
-            this.Button_Plus1 = new System.Windows.Forms.Button();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.Button_Minus2 = new System.Windows.Forms.Button();
-            this.Button_Show2 = new System.Windows.Forms.Button();
-            this.Button_Plus2 = new System.Windows.Forms.Button();
             this.Button_Quit = new System.Windows.Forms.Button();
-            this.panel1.SuspendLayout();
-            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // Button_Save
@@ -92,22 +74,6 @@
             this.label_Login.Text = "Login:";
             this.label_Login.Visible = false;
             // 
-            // textBox_Site1
-            // 
-            this.textBox_Site1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.textBox_Site1.Location = new System.Drawing.Point(0, 2);
-            this.textBox_Site1.Name = "textBox_Site1";
-            this.textBox_Site1.Size = new System.Drawing.Size(216, 35);
-            this.textBox_Site1.TabIndex = 4;
-            // 
-            // textBox_Login1
-            // 
-            this.textBox_Login1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.textBox_Login1.Location = new System.Drawing.Point(444, 2);
-            this.textBox_Login1.Name = "textBox_Login1";
-            this.textBox_Login1.Size = new System.Drawing.Size(216, 35);
-            this.textBox_Login1.TabIndex = 5;
-            // 
             // Button_Open
             // 
             this.Button_Open.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
@@ -140,40 +106,6 @@
             this.Button_change.Text = "Change Key";
             this.Button_change.UseVisualStyleBackColor = true;
             this.Button_change.Click += new System.EventHandler(this.Button_change_Click);
-            // 
-            // textBox_Pass1
-            // 
-            this.textBox_Pass1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.textBox_Pass1.Location = new System.Drawing.Point(666, 2);
-            this.textBox_Pass1.Name = "textBox_Pass1";
-            this.textBox_Pass1.Size = new System.Drawing.Size(216, 35);
-            this.textBox_Pass1.TabIndex = 12;
-            this.textBox_Pass1.UseSystemPasswordChar = true;
-            // 
-            // textBox_Pass2
-            // 
-            this.textBox_Pass2.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.textBox_Pass2.Location = new System.Drawing.Point(666, 2);
-            this.textBox_Pass2.Name = "textBox_Pass2";
-            this.textBox_Pass2.Size = new System.Drawing.Size(216, 35);
-            this.textBox_Pass2.TabIndex = 15;
-            this.textBox_Pass2.UseSystemPasswordChar = true;
-            // 
-            // textBox_Login2
-            // 
-            this.textBox_Login2.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.textBox_Login2.Location = new System.Drawing.Point(444, 2);
-            this.textBox_Login2.Name = "textBox_Login2";
-            this.textBox_Login2.Size = new System.Drawing.Size(216, 35);
-            this.textBox_Login2.TabIndex = 14;
-            // 
-            // textBox_Site2
-            // 
-            this.textBox_Site2.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.textBox_Site2.Location = new System.Drawing.Point(0, 2);
-            this.textBox_Site2.Name = "textBox_Site2";
-            this.textBox_Site2.Size = new System.Drawing.Size(216, 35);
-            this.textBox_Site2.TabIndex = 13;
             // 
             // Button_New
             // 
@@ -208,14 +140,6 @@
             this.Button_Close.UseVisualStyleBackColor = true;
             this.Button_Close.Click += new System.EventHandler(this.Button_Close_Click);
             // 
-            // textBox_URL2
-            // 
-            this.textBox_URL2.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.textBox_URL2.Location = new System.Drawing.Point(222, 2);
-            this.textBox_URL2.Name = "textBox_URL2";
-            this.textBox_URL2.Size = new System.Drawing.Size(216, 35);
-            this.textBox_URL2.TabIndex = 21;
-            // 
             // label_URL
             // 
             this.label_URL.AutoSize = true;
@@ -226,98 +150,6 @@
             this.label_URL.TabIndex = 20;
             this.label_URL.Text = "URL:";
             this.label_URL.Visible = false;
-            // 
-            // textBox_URL1
-            // 
-            this.textBox_URL1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.textBox_URL1.Location = new System.Drawing.Point(222, 2);
-            this.textBox_URL1.Name = "textBox_URL1";
-            this.textBox_URL1.Size = new System.Drawing.Size(216, 35);
-            this.textBox_URL1.TabIndex = 19;
-            // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.textBox_URL1);
-            this.panel1.Controls.Add(this.Button_Minus1);
-            this.panel1.Controls.Add(this.Button_Show1);
-            this.panel1.Controls.Add(this.textBox_Site1);
-            this.panel1.Controls.Add(this.Button_Plus1);
-            this.panel1.Controls.Add(this.textBox_Login1);
-            this.panel1.Controls.Add(this.textBox_Pass1);
-            this.panel1.Location = new System.Drawing.Point(12, 160);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1015, 40);
-            this.panel1.TabIndex = 22;
-            this.panel1.Visible = false;
-            // 
-            // Button_Minus1
-            // 
-            this.Button_Minus1.Image = global::Password_Manager.Properties.Resources.Minus;
-            this.Button_Minus1.Location = new System.Drawing.Point(970, 2);
-            this.Button_Minus1.Name = "Button_Minus1";
-            this.Button_Minus1.Size = new System.Drawing.Size(35, 35);
-            this.Button_Minus1.TabIndex = 28;
-            this.Button_Minus1.UseVisualStyleBackColor = true;
-            // 
-            // Button_Show1
-            // 
-            this.Button_Show1.Image = global::Password_Manager.Properties.Resources.OneEye;
-            this.Button_Show1.Location = new System.Drawing.Point(888, 2);
-            this.Button_Show1.Name = "Button_Show1";
-            this.Button_Show1.Size = new System.Drawing.Size(35, 35);
-            this.Button_Show1.TabIndex = 24;
-            this.Button_Show1.UseVisualStyleBackColor = true;
-            // 
-            // Button_Plus1
-            // 
-            this.Button_Plus1.Image = global::Password_Manager.Properties.Resources.Plus;
-            this.Button_Plus1.Location = new System.Drawing.Point(929, 2);
-            this.Button_Plus1.Name = "Button_Plus1";
-            this.Button_Plus1.Size = new System.Drawing.Size(35, 35);
-            this.Button_Plus1.TabIndex = 26;
-            this.Button_Plus1.UseVisualStyleBackColor = true;
-            // 
-            // panel2
-            // 
-            this.panel2.Controls.Add(this.Button_Minus2);
-            this.panel2.Controls.Add(this.Button_Show2);
-            this.panel2.Controls.Add(this.Button_Plus2);
-            this.panel2.Controls.Add(this.textBox_URL2);
-            this.panel2.Controls.Add(this.textBox_Site2);
-            this.panel2.Controls.Add(this.textBox_Login2);
-            this.panel2.Controls.Add(this.textBox_Pass2);
-            this.panel2.Location = new System.Drawing.Point(12, 203);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1015, 40);
-            this.panel2.TabIndex = 23;
-            this.panel2.Visible = false;
-            // 
-            // Button_Minus2
-            // 
-            this.Button_Minus2.Image = global::Password_Manager.Properties.Resources.Minus;
-            this.Button_Minus2.Location = new System.Drawing.Point(970, 2);
-            this.Button_Minus2.Name = "Button_Minus2";
-            this.Button_Minus2.Size = new System.Drawing.Size(35, 35);
-            this.Button_Minus2.TabIndex = 29;
-            this.Button_Minus2.UseVisualStyleBackColor = true;
-            // 
-            // Button_Show2
-            // 
-            this.Button_Show2.Image = global::Password_Manager.Properties.Resources.OneEye;
-            this.Button_Show2.Location = new System.Drawing.Point(888, 2);
-            this.Button_Show2.Name = "Button_Show2";
-            this.Button_Show2.Size = new System.Drawing.Size(35, 35);
-            this.Button_Show2.TabIndex = 25;
-            this.Button_Show2.UseVisualStyleBackColor = true;
-            // 
-            // Button_Plus2
-            // 
-            this.Button_Plus2.Image = global::Password_Manager.Properties.Resources.Plus;
-            this.Button_Plus2.Location = new System.Drawing.Point(929, 2);
-            this.Button_Plus2.Name = "Button_Plus2";
-            this.Button_Plus2.Size = new System.Drawing.Size(35, 35);
-            this.Button_Plus2.TabIndex = 27;
-            this.Button_Plus2.UseVisualStyleBackColor = true;
             // 
             // Button_Quit
             // 
@@ -336,8 +168,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1039, 648);
             this.Controls.Add(this.Button_Quit);
-            this.Controls.Add(this.panel2);
-            this.Controls.Add(this.panel1);
             this.Controls.Add(this.label_URL);
             this.Controls.Add(this.Button_Close);
             this.Controls.Add(this.Button_SaveAs);
@@ -350,10 +180,6 @@
             this.Controls.Add(this.Button_Save);
             this.Name = "Form1";
             this.Text = "Password Manager";
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -364,29 +190,13 @@
         private System.Windows.Forms.Button Button_Save;
         private System.Windows.Forms.Label label_Password;
         private System.Windows.Forms.Label label_Login;
-        private System.Windows.Forms.TextBox textBox_Site1;
-        private System.Windows.Forms.TextBox textBox_Login1;
         private System.Windows.Forms.Button Button_Open;
         private System.Windows.Forms.Label label_Site;
         private System.Windows.Forms.Button Button_change;
-        private System.Windows.Forms.TextBox textBox_Pass1;
-        private System.Windows.Forms.TextBox textBox_Pass2;
-        private System.Windows.Forms.TextBox textBox_Login2;
-        private System.Windows.Forms.TextBox textBox_Site2;
         private System.Windows.Forms.Button Button_New;
         private System.Windows.Forms.Button Button_SaveAs;
         private System.Windows.Forms.Button Button_Close;
-        private System.Windows.Forms.TextBox textBox_URL2;
         private System.Windows.Forms.Label label_URL;
-        private System.Windows.Forms.TextBox textBox_URL1;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Button Button_Show1;
-        private System.Windows.Forms.Button Button_Show2;
-        private System.Windows.Forms.Button Button_Minus1;
-        private System.Windows.Forms.Button Button_Plus1;
-        private System.Windows.Forms.Button Button_Minus2;
-        private System.Windows.Forms.Button Button_Plus2;
         private System.Windows.Forms.Button Button_Quit;
     }
 }

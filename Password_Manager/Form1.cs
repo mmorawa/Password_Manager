@@ -42,166 +42,169 @@ namespace Password_Manager
 
                 if (dr == DialogResult.OK)
                 {
-                    using (StreamReader sr = new StreamReader(PathToDatabase))
+                    try
                     {
-                        int lineCount = File.ReadLines(PathToDatabase).Count();
-                        //MessageBox.Show(lineCount.ToString());
-
-                        Encrypted_Bytes = new byte[lineCount][];
-                        for (int i = 0; i < lineCount; i++)
+                        using (StreamReader sr = new StreamReader(PathToDatabase))
                         {
-                            string line = sr.ReadLine();
+                            int lineCount = File.ReadLines(PathToDatabase).Count();
+                            //MessageBox.Show(lineCount.ToString());
 
-                            Encrypted_Bytes[i] = new byte[(line.Length) / 2];
-                            for (int d = 0; d < line.Length; d += 2)
+                            Encrypted_Bytes = new byte[lineCount][];
+                            for (int i = 0; i < lineCount; i++)
                             {
-                                Encrypted_Bytes[i][d / 2] = Convert.ToByte(line.Substring(d, 2), 16);
+                                string line = sr.ReadLine();
+
+                                Encrypted_Bytes[i] = new byte[(line.Length) / 2];
+                                for (int d = 0; d < line.Length; d += 2)
+                                {
+                                    Encrypted_Bytes[i][d / 2] = Convert.ToByte(line.Substring(d, 2), 16);
+                                }
                             }
+
+
+                            //utworzenie instacji szyfrowania 3DES
+                            TripleDESCryptoServiceProvider TripleDES = new TripleDESCryptoServiceProvider
+                            {
+                                //klucz wprowadzony przez użytkownika zahashowany md5
+                                Key = Key,
+
+                                //Parametry dla 3DES
+                                Mode = CipherMode.ECB,
+                                Padding = PaddingMode.PKCS7
+                            };
+
+                            //utworzenie nowej instancji deszyfratora
+                            ICryptoTransform Decryptor = TripleDES.CreateDecryptor();
+
+                            string[] Data = new string[lineCount];
+
+                            for (int i = 0; i < lineCount; i++)
+                            {
+                                Data[i] = utf8.GetString(Decryptor.TransformFinalBlock(Encrypted_Bytes[i], 0, Encrypted_Bytes[i].Length));
+                            }
+
+
+                            label_Site.Visible = true;
+                            label_Login.Visible = true;
+                            label_Password.Visible = true;
+                            label_URL.Visible = true;
+
+                            int position = 0;
+                            for (int i = 0; i < lineCount / 4; i++)
+                            {
+                                TextBox textBox_Site = new TextBox
+                                {
+                                    Font = new Font("Microsoft Sans Serif", 18F, FontStyle.Regular, GraphicsUnit.Point, 238),
+                                    Location = new Point(0, 2),
+                                    Name = "textBox_Site",
+                                    Size = new Size(216, 35),
+                                    Text = Data[position],
+                                    TabIndex = 4
+                                };
+
+                                position++;
+
+                                TextBox textBox_URL = new TextBox
+                                {
+                                    Font = new Font("Microsoft Sans Serif", 18F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(238))),
+                                    Location = new Point(222, 2),
+                                    Name = "textBox_URL",
+                                    Size = new Size(216, 35),
+                                    Text = Data[position],
+                                    TabIndex = 19
+                                };
+
+                                position++;
+
+                                TextBox textBox_Login = new TextBox
+                                {
+                                    Font = new Font("Microsoft Sans Serif", 18F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(238))),
+                                    Location = new Point(444, 2),
+                                    Name = "textBox_Login",
+                                    Size = new Size(216, 35),
+                                    Text = Data[position],
+                                    TabIndex = 5
+                                };
+
+                                position++;
+
+                                TextBox textBox_Pass = new TextBox
+                                {
+                                    Font = new Font("Microsoft Sans Serif", 18F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(238))),
+                                    Location = new Point(666, 2),
+                                    Name = "textBox_Pass",
+                                    Size = new Size(216, 35),
+                                    Text = Data[position],
+                                    TabIndex = 12,
+                                    UseSystemPasswordChar = true
+                                };
+
+                                position++;
+
+                                Button Button_Show = new Button
+                                {
+                                    Image = Properties.Resources.OneEye,
+                                    Location = new Point(888, 2),
+                                    Name = "Button_Show",
+                                    Tag = i,
+                                    Size = new Size(35, 35),
+                                    TabIndex = 24,
+                                    UseVisualStyleBackColor = true
+                                };
+                                Button_Show.Click += new EventHandler(Button_Show_Click);
+
+                                Button Button_Plus = new Button
+                                {
+                                    Image = Properties.Resources.Plus,
+                                    Location = new Point(929, 2),
+                                    Name = "Button_Plus",
+                                    Tag = i,
+                                    Size = new Size(35, 35),
+                                    TabIndex = 26,
+                                    UseVisualStyleBackColor = true
+                                };
+                                Button_Plus.Click += new EventHandler(Button_Plus_Click);
+
+                                Button Button_Minus = new Button
+                                {
+                                    Image = Properties.Resources.Minus,
+                                    Location = new Point(970, 2),
+                                    Name = "Button_Minus",
+                                    Tag = i,
+                                    Size = new Size(35, 35),
+                                    TabIndex = 28,
+                                    UseVisualStyleBackColor = true
+                                };
+                                Button_Minus.Click += new EventHandler(Button_Minus_Click);
+
+                                Panel Entry = new Panel
+                                {
+                                    Location = new Point(12, 160 + i * 43),
+                                    Name = "Entry",
+                                    Size = new Size(1015, 40),
+                                    TabIndex = 22,
+                                    Visible = true
+                                };
+
+                                Entry.Controls.Add(textBox_URL);
+                                Entry.Controls.Add(Button_Minus);
+                                Entry.Controls.Add(Button_Show);
+                                Entry.Controls.Add(textBox_Site);
+                                Entry.Controls.Add(Button_Plus);
+                                Entry.Controls.Add(textBox_Login);
+                                Entry.Controls.Add(textBox_Pass);
+                                Controls.Add(Entry);
+                                Entries.Add(Entry);
+                            }
+
                         }
-
-
-                        //utworzenie instacji szyfrowania 3DES
-                        TripleDESCryptoServiceProvider TripleDES = new TripleDESCryptoServiceProvider
-                        {
-                            //klucz wprowadzony przez użytkownika zahashowany md5
-                            Key = Key,
-
-                            //Parametry dla 3DES
-                            Mode = CipherMode.ECB,
-                            Padding = PaddingMode.PKCS7
-                        };
-
-                        //utworzenie nowej instancji deszyfratora
-                        ICryptoTransform Decryptor = TripleDES.CreateDecryptor();
-
-                        string[] Data = new string[lineCount];
-
-                        for (int i = 0; i < lineCount; i++)
-                        {
-                            Data[i] = utf8.GetString(Decryptor.TransformFinalBlock(Encrypted_Bytes[i], 0, Encrypted_Bytes[i].Length));
-                        }
-
-
-                        label_Site.Visible = true;
-                        label_Login.Visible = true;
-                        label_Password.Visible = true;
-                        label_URL.Visible = true;
-
-                        int position = 0;
-                        for (int i = 0; i < lineCount/4; i++)
-                        {
-                            TextBox textBox_Site = new TextBox
-                            {
-                                Font = new Font("Microsoft Sans Serif", 18F, FontStyle.Regular, GraphicsUnit.Point, 238),
-                                Location = new Point(0, 2),
-                                Name = "textBox_Site",
-                                Size = new Size(216, 35),
-                                Text = Data[position],
-                                TabIndex = 4
-                            };
-
-                            position++;
-
-                            TextBox textBox_URL = new TextBox
-                            {
-                                Font = new Font("Microsoft Sans Serif", 18F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(238))),
-                                Location = new Point(222, 2),
-                                Name = "textBox_URL",
-                                Size = new Size(216, 35),
-                                Text = Data[position],
-                                TabIndex = 19
-                            };
-
-                            position++;
-
-                            TextBox textBox_Login = new TextBox
-                            {
-                                Font = new Font("Microsoft Sans Serif", 18F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(238))),
-                                Location = new Point(444, 2),
-                                Name = "textBox_Login",
-                                Size = new Size(216, 35),
-                                Text = Data[position],
-                                TabIndex = 5
-                            };
-
-                            position++;
-                            
-                            TextBox textBox_Pass = new TextBox
-                            {
-                                Font = new Font("Microsoft Sans Serif", 18F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(238))),
-                                Location = new Point(666, 2),
-                                Name = "textBox_Pass",
-                                Size = new Size(216, 35),
-                                Text = Data[position],
-                                TabIndex = 12,
-                                UseSystemPasswordChar = true
-                            };
-
-                            position++;
-
-                            Button Button_Show = new Button
-                            {
-                                Image = Properties.Resources.OneEye,
-                                Location = new Point(888, 2),
-                                Name = "Button_Show",
-                                Tag = i,
-                                Size = new Size(35, 35),
-                                TabIndex = 24,
-                                UseVisualStyleBackColor = true
-                            };
-                            Button_Show.Click += new EventHandler(Button_Show_Click);
-
-                            Button Button_Plus = new Button
-                            {
-                                Image = Properties.Resources.Plus,
-                                Location = new Point(929, 2),
-                                Name = "Button_Plus",
-                                Tag = i,
-                                Size = new Size(35, 35),
-                                TabIndex = 26,
-                                UseVisualStyleBackColor = true
-                            };
-                            Button_Plus.Click += new EventHandler(Button_Plus_Click);
-
-                            Button Button_Minus = new Button
-                            {
-                                Image = Properties.Resources.Minus,
-                                Location = new Point(970, 2),
-                                Name = "Button_Minus",
-                                Tag = i,
-                                Size = new Size(35, 35),
-                                TabIndex = 28,
-                                UseVisualStyleBackColor = true
-                            };
-                            Button_Minus.Click += new EventHandler(Button_Minus_Click);
-
-                            Panel Entry = new Panel
-                            {
-                                Location = new Point(12, 160 + i * 43),
-                                Name = "Entry",
-                                Size = new Size(1015, 40),
-                                TabIndex = 22,
-                                Visible = true
-                            };
-
-                            Entry.Controls.Add(textBox_URL);
-                            Entry.Controls.Add(Button_Minus);
-                            Entry.Controls.Add(Button_Show);
-                            Entry.Controls.Add(textBox_Site);
-                            Entry.Controls.Add(Button_Plus);
-                            Entry.Controls.Add(textBox_Login);
-                            Entry.Controls.Add(textBox_Pass);
-                            Controls.Add(Entry);
-                            Entries.Add(Entry);
-                        }
-
-
                     }
+                    catch (Exception)
+                    {
+                        MessageBox.Show("Bad data or invalid password.");
+                    }  
                 }
             }
-
-
-
         }
 
         private void Button_Save_Click(object sender, EventArgs e)
@@ -275,7 +278,10 @@ namespace Password_Manager
 
         private void Button_New_Click(object sender, EventArgs e)
         {
+            //TODO ostrzeżenie
+
             CloseDatabase();
+
             using (Form3 form3 = new Form3())
             {
                 DialogResult dr = form3.ShowDialog();
@@ -283,12 +289,6 @@ namespace Password_Manager
 
                 if (dr == DialogResult.OK)
                 {
-                    textBox_Site1.Text = null;
-                    textBox_Site2.Text = null;
-                    textBox_Login1.Text = null;
-                    textBox_Login2.Text = null;
-                    textBox_Pass1.Text = null;
-                    textBox_Pass2.Text = null;
 
                     label_Site.Visible = true;
                     label_Login.Visible = true;
@@ -395,6 +395,12 @@ namespace Password_Manager
 
         private void Button_change_Click(object sender, EventArgs e)
         {
+            if (Entries.Count == 0)
+            {
+                MessageBox.Show("First open or load Database.");
+                return;
+            }
+
             using (Form4 form4 = new Form4())
             {
                 DialogResult dr = form4.ShowDialog();
@@ -435,7 +441,7 @@ namespace Password_Manager
             {
                 Filter = "File name | *.txt",
                 FileName = "Database.txt",
-                Title = "Sava Database:"
+                Title = "Save Database:"
             };
 
             if (saveFile.ShowDialog() == DialogResult.OK)
