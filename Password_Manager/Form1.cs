@@ -17,7 +17,7 @@ namespace Password_Manager
         }
 
         //tablica bajtowa wielowymiarowa z zaszyfrowanymi danymi
-        byte[][] Encrypted_Bytes; 
+        byte[][] Encrypted_Bytes;
 
         //klucz
         public static byte[] Key { get; set; }
@@ -193,13 +193,13 @@ namespace Password_Manager
                                 Controls.Add(Entry);
                                 Entries.Add(Entry);
                             }
-                            
+
                         }
                     }
                     catch (Exception)
                     {
                         MessageBox.Show("Bad data or invalid password.", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }  
+                    }
                 }
             }
         }
@@ -502,7 +502,7 @@ namespace Password_Manager
             MessageBox.Show("Database has been successfully closed.", "Information");
         }
 
-        private void Button_Quit_Click(object sender, EventArgs e)
+        private void Button_Exit_Click(object sender, EventArgs e)
         {
             CloseDatabase();
             Application.Exit();
@@ -572,7 +572,7 @@ namespace Password_Manager
 
                 Entries[i].Location = new Point(12, 160 + i * 43);
             }
-            
+
 
         }
 
@@ -675,7 +675,7 @@ namespace Password_Manager
             Controls.Add(Entry);
             Entries.Insert(Entry_Nr + 1, Entry);
 
-            for (int i = Entry_Nr + 2; i  < Entries.Count; i ++)
+            for (int i = Entry_Nr + 2; i < Entries.Count; i++)
             {
                 Control[] ctrls0 = Entries[i].Controls.Find("Button_Show", false);
                 Button Button_Show_Change = (Button)ctrls0[0];
@@ -692,6 +692,83 @@ namespace Password_Manager
                 Entries[i].Location = new Point(12, 160 + i * 43);
             }
 
+        }
+
+        private void NewToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Button_New_Click(sender, e);
+        }
+
+        private void OpenToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Button_Open_Click(sender, e);
+        }
+
+        private void SaveToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Button_Save_Click(sender, e);
+        }
+
+        private void SaveAsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Button_SaveAs_Click(sender, e);
+        }
+
+        private void CloseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Button_Close_Click(sender, e);
+        }
+
+        private void ExitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Button_Exit_Click(sender, e);
+        }
+
+        private void ChangeKeyToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Button_change_Click(sender, e);
+        }
+
+        private void CutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Control ctrl = ActiveControl;
+
+            if (ctrl != null)
+            {
+                if (ctrl is TextBox)
+                {
+                    TextBox textBox_Cut = (TextBox)ctrl;
+                    textBox_Cut.Cut();
+                }
+            }
+        }
+
+        private void CopyToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Control ctrl = ActiveControl;
+
+            if (ctrl != null)
+            {
+                if (ctrl is TextBox)
+                {
+                    TextBox textBox_Copy = (TextBox)ctrl;
+                    textBox_Copy.Copy();
+                }
+            }
+
+        }
+
+        private void PasteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Control ctrl = ActiveControl;
+            if (ctrl != null)
+            {
+                if (ctrl is TextBox)
+                {
+                    TextBox textBox_Paste = (TextBox)ctrl;
+                    textBox_Paste.Paste();
+                }
+            }
         }
     }
 }
