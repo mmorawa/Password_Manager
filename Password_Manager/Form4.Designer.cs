@@ -98,6 +98,7 @@
             this.Controls.Add(this.label_key);
             this.Controls.Add(this.Button_OK);
             this.Name = "Form4";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Change Key";
             this.ResumeLayout(false);
             this.PerformLayout();

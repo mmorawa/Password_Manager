@@ -124,6 +124,7 @@
             this.Controls.Add(this.Button_Save);
             this.Controls.Add(this.Button_OK);
             this.Name = "Form3";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "New Database";
             this.ResumeLayout(false);
             this.PerformLayout();

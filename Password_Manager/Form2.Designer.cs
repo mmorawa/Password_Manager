@@ -124,6 +124,7 @@
             this.Controls.Add(this.Button_Load);
             this.Controls.Add(this.Button_OK);
             this.Name = "Form2";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Load";
             this.ResumeLayout(false);
             this.PerformLayout();
