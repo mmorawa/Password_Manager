@@ -770,5 +770,18 @@ namespace Password_Manager
                 }
             }
         }
+
+        private void AboutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            using (AboutBox Abox = new AboutBox())
+            {
+                DialogResult dr = Abox.ShowDialog();
+
+                if (dr == DialogResult.OK)
+                {
+                    //TODO info
+                }
+            }
+        }
     }
 }
