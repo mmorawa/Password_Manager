@@ -38,7 +38,7 @@
             // textBox_Key
             // 
             this.textBox_Key.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.textBox_Key.Location = new System.Drawing.Point(97, 81);
+            this.textBox_Key.Location = new System.Drawing.Point(97, 70);
             this.textBox_Key.Name = "textBox_Key";
             this.textBox_Key.Size = new System.Drawing.Size(489, 35);
             this.textBox_Key.TabIndex = 22;
@@ -48,7 +48,7 @@
             // 
             this.label_key.AutoSize = true;
             this.label_key.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label_key.Location = new System.Drawing.Point(27, 84);
+            this.label_key.Location = new System.Drawing.Point(27, 73);
             this.label_key.Name = "label_key";
             this.label_key.Size = new System.Drawing.Size(64, 29);
             this.label_key.TabIndex = 21;
@@ -58,7 +58,7 @@
             // 
             this.Button_OK.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.Button_OK.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.Button_OK.Location = new System.Drawing.Point(242, 167);
+            this.Button_OK.Location = new System.Drawing.Point(180, 133);
             this.Button_OK.Name = "Button_OK";
             this.Button_OK.Size = new System.Drawing.Size(116, 34);
             this.Button_OK.TabIndex = 20;
@@ -70,7 +70,7 @@
             // 
             this.Button_Cancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.Button_Cancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.Button_Cancel.Location = new System.Drawing.Point(374, 167);
+            this.Button_Cancel.Location = new System.Drawing.Point(302, 133);
             this.Button_Cancel.Name = "Button_Cancel";
             this.Button_Cancel.Size = new System.Drawing.Size(116, 34);
             this.Button_Cancel.TabIndex = 23;
@@ -83,15 +83,15 @@
             this.label_Info.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label_Info.Location = new System.Drawing.Point(27, 21);
             this.label_Info.Name = "label_Info";
-            this.label_Info.Size = new System.Drawing.Size(184, 29);
+            this.label_Info.Size = new System.Drawing.Size(188, 29);
             this.label_Info.TabIndex = 24;
-            this.label_Info.Text = "Enter new key:";
+            this.label_Info.Text = "Enter new Key:";
             // 
             // Form4
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(615, 237);
+            this.ClientSize = new System.Drawing.Size(608, 191);
             this.Controls.Add(this.label_Info);
             this.Controls.Add(this.Button_Cancel);
             this.Controls.Add(this.textBox_Key);

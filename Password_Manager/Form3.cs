@@ -48,7 +48,7 @@ namespace Password_Manager
             }
             else
             {
-                MessageBox.Show("Incorrect data.");
+                MessageBox.Show("Incorrect data.", "Warning!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 DialogResult = DialogResult.None;
             }
 

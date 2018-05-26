@@ -96,9 +96,9 @@
             this.label_Info.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label_Info.Location = new System.Drawing.Point(30, 23);
             this.label_Info.Name = "label_Info";
-            this.label_Info.Size = new System.Drawing.Size(392, 29);
+            this.label_Info.Size = new System.Drawing.Size(406, 29);
             this.label_Info.TabIndex = 15;
-            this.label_Info.Text = "Load the base and enter the key.";
+            this.label_Info.Text = "Load Database and enter the Key.";
             // 
             // Button_Cancel
             // 

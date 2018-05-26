@@ -43,9 +43,9 @@
             this.label_Info.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label_Info.Location = new System.Drawing.Point(22, 23);
             this.label_Info.Name = "label_Info";
-            this.label_Info.Size = new System.Drawing.Size(416, 29);
+            this.label_Info.Size = new System.Drawing.Size(473, 29);
             this.label_Info.TabIndex = 21;
-            this.label_Info.Text = "Save new base and enter new key.";
+            this.label_Info.Text = "Save new Database and enter new Key.";
             // 
             // textBox_Filename
             // 
@@ -54,7 +54,7 @@
             this.textBox_Filename.Multiline = true;
             this.textBox_Filename.Name = "textBox_Filename";
             this.textBox_Filename.ReadOnly = true;
-            this.textBox_Filename.Size = new System.Drawing.Size(554, 33);
+            this.textBox_Filename.Size = new System.Drawing.Size(595, 33);
             this.textBox_Filename.TabIndex = 20;
             // 
             // textBox_Key
@@ -62,7 +62,7 @@
             this.textBox_Key.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.textBox_Key.Location = new System.Drawing.Point(87, 102);
             this.textBox_Key.Name = "textBox_Key";
-            this.textBox_Key.Size = new System.Drawing.Size(489, 35);
+            this.textBox_Key.Size = new System.Drawing.Size(530, 35);
             this.textBox_Key.TabIndex = 19;
             this.textBox_Key.UseSystemPasswordChar = true;
             // 
@@ -80,7 +80,7 @@
             // 
             this.Button_Save.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.Button_Save.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.Button_Save.Location = new System.Drawing.Point(444, 18);
+            this.Button_Save.Location = new System.Drawing.Point(501, 21);
             this.Button_Save.Name = "Button_Save";
             this.Button_Save.Size = new System.Drawing.Size(116, 34);
             this.Button_Save.TabIndex = 17;
@@ -104,7 +104,7 @@
             // 
             this.Button_Cancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.Button_Cancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.Button_Cancel.Location = new System.Drawing.Point(367, 169);
+            this.Button_Cancel.Location = new System.Drawing.Point(354, 169);
             this.Button_Cancel.Name = "Button_Cancel";
             this.Button_Cancel.Size = new System.Drawing.Size(116, 34);
             this.Button_Cancel.TabIndex = 22;
@@ -115,7 +115,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(615, 237);
+            this.ClientSize = new System.Drawing.Size(641, 237);
             this.Controls.Add(this.Button_Cancel);
             this.Controls.Add(this.label_Info);
             this.Controls.Add(this.textBox_Filename);

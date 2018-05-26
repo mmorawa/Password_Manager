@@ -1,11 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Security.Cryptography;
 using System.IO;
@@ -196,12 +193,12 @@ namespace Password_Manager
                                 Controls.Add(Entry);
                                 Entries.Add(Entry);
                             }
-
+                            
                         }
                     }
                     catch (Exception)
                     {
-                        MessageBox.Show("Bad data or invalid password.");
+                        MessageBox.Show("Bad data or invalid password.", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }  
                 }
             }
@@ -211,7 +208,7 @@ namespace Password_Manager
         {
             if (Entries.Count == 0)
             {
-                MessageBox.Show("There is nothing to save.");
+                MessageBox.Show("There is nothing to save.", "Warning!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
 
@@ -272,7 +269,7 @@ namespace Password_Manager
                 sw.Dispose();
             }
 
-            MessageBox.Show("Database has been successfully saved.");
+            MessageBox.Show("Database has been successfully saved.", "Information");
 
         }
 
@@ -397,7 +394,7 @@ namespace Password_Manager
         {
             if (Entries.Count == 0)
             {
-                MessageBox.Show("First open or load Database.");
+                MessageBox.Show("First open or load Database.", "Warning!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
 
@@ -408,7 +405,7 @@ namespace Password_Manager
 
                 if (dr == DialogResult.OK)
                 {
-                    MessageBox.Show("The Key has been changed.");
+                    MessageBox.Show("The Key has been changed.", "Information");
 
                 }
             }
@@ -418,7 +415,7 @@ namespace Password_Manager
         {
             if (Entries.Count == 0)
             {
-                MessageBox.Show("There is nothing to save.");
+                MessageBox.Show("There is nothing to save.", "Warning!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
 
@@ -490,7 +487,7 @@ namespace Password_Manager
                     sw.Dispose();
                 }
 
-                MessageBox.Show("Database has been successfully saved.");
+                MessageBox.Show("Database has been successfully saved.", "Information");
             }
         }
 
@@ -498,11 +495,11 @@ namespace Password_Manager
         {
             if (Entries.Count == 0)
             {
-                MessageBox.Show("There is nothing to close.");
+                MessageBox.Show("There is nothing to close.", "Warning!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
             CloseDatabase();
-            MessageBox.Show("Database has been successfully closed.");
+            MessageBox.Show("Database has been successfully closed.", "Information");
         }
 
         private void Button_Quit_Click(object sender, EventArgs e)
