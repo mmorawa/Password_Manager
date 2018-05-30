@@ -1,5 +1,5 @@
 ﻿/*! \file Form4.cs
-\brief Plik Form4.cs zawiera Formularz .NET z oknem odpowiedzialnym za zmianę klucza do bazy z hasłami.
+\brief Plik Form4.cs zawiera klasę Form4 odpowiedzialną za zmianę klucza do bazy z hasłami.
 
 Plik Form4.cs zawiera kod okna aplikacji, w którym użytkownik może dokonać zmiany klucza szyfrującego do bazy z hasłami.
 */
@@ -9,8 +9,8 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Windows.Forms;
 
-//! Przestrzeń nazw Password_Manager, która obejmuje całą aplikację Menedżera Haseł.
-/*! Password_Manager to przestrzeń nazw, która obejmuje całą aplikację Menedżera Haseł, ze wszystkimi klasami Form. */
+//! Przestrzeń nazw Password_Manager obejmuje całą aplikację Menedżera Haseł.
+/*! Password_Manager to przestrzeń nazw obejmuje całą aplikację Menedżera Haseł, ze wszystkimi klasami Form. */
 namespace Password_Manager
 {
     //! Klasa Form4 zawiera okno aplikacji, w której użytkownik dokonuje zmiany klucza szyfrującego do bazy z hasłami.

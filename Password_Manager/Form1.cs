@@ -1,5 +1,5 @@
 ﻿/*! \file Form1.cs
-\brief Plik Form1.cs zawiera Formularz .NET z głównym oknem aplikacji.
+\brief Plik Form1.cs zawiera klasę Form1 z głównym oknem aplikacji.
 
 Plik Form1.cs zawiera rdzeń programu czyli główne okno aplikacji wraz z menu, pozwalającym na dokonanie wyboru różnych opcji menadżera zadań takich jak: szyfrowanie/deszyfrowanie bazy danych.
 */
@@ -13,8 +13,8 @@ using System.Windows.Forms;
 using System.Security.Cryptography;
 using System.IO;
 
-//! Przestrzeń nazw Password_Manager, która obejmuje całą aplikację Menedżera Haseł.
-/*! Password_Manager to przestrzeń nazw, która obejmuje całą aplikację Menedżera Haseł, ze wszystkimi klasami Form. */
+//! Przestrzeń nazw Password_Manager obejmuje całą aplikację Menedżera Haseł.
+/*! Password_Manager to przestrzeń nazw obejmuje całą aplikację Menedżera Haseł, ze wszystkimi klasami Form. */
 namespace Password_Manager
 {
     //! Klasa Form1 zawiera główne okno aplikacji.
@@ -762,7 +762,7 @@ namespace Password_Manager
         }
 
         //! Metoda wywoływana po naciśnięciu przycisku Save As na pasku Menu.
-        /*! Metoda SaveToolStripMenuItem_Click jest wywoływana po naciśnięciu przycisku Save As na pasku Menu.
+        /*! Metoda SaveAsToolStripMenuItem_Click jest wywoływana po naciśnięciu przycisku Save As na pasku Menu.
          * Powoduje ona zamknięcie aktywnej bazy poprzez wywołanie metody CloseDatabase.
          */
         private void SaveAsToolStripMenuItem_Click(object sender, EventArgs e)
@@ -771,7 +771,7 @@ namespace Password_Manager
         }
 
         //! Metoda wywoływana po naciśnięciu przycisku Close na pasku Menu.
-        /*! Metoda SaveToolStripMenuItem_Click jest wywoływana po naciśnięciu przycisku Close na pasku Menu.
+        /*! Metoda CloseToolStripMenuItem_Click jest wywoływana po naciśnięciu przycisku Close na pasku Menu.
          * Skutkuje ona zamknięciem aktywnej bazy poprzez wywołanie metody CloseDatabase oraz wyjściem z programu.
          */
         private void CloseToolStripMenuItem_Click(object sender, EventArgs e)
@@ -780,7 +780,7 @@ namespace Password_Manager
         }
 
         //! Metoda wywoływana po naciśnięciu przycisku Exit na pasku Menu.
-        /*! Metoda SaveToolStripMenuItem_Click jest wywoływana po naciśnięciu przycisku Exit na pasku Menu.
+        /*! Metoda ExitToolStripMenuItem_Click jest wywoływana po naciśnięciu przycisku Exit na pasku Menu.
          * Skutkuje ona zamknięciem aktywnej bazy poprzez wywołanie metody CloseDatabase oraz wyjściem z programu.
          */
         private void ExitToolStripMenuItem_Click(object sender, EventArgs e)
@@ -789,7 +789,7 @@ namespace Password_Manager
         }
 
         //! Metoda wywoływana po naciśnięciu przycisku Change Key na pasku Menu.
-        /*! Metoda SaveToolStripMenuItem_Click jest wywoływana po naciśnięciu przycisku Change Key na pasku Menu.
+        /*! Metoda ChangeKeyToolStripMenuItem_Click jest wywoływana po naciśnięciu przycisku Change Key na pasku Menu.
          * Umożliwia ona zmianę klucza szyfrującego bazę z hasłami.
          */
         private void ChangeKeyToolStripMenuItem_Click(object sender, EventArgs e)
@@ -798,7 +798,7 @@ namespace Password_Manager
         }
 
         //! Metoda wywoływana po naciśnięciu przycisku Cut na pasku Menu.
-        /*! Metoda SaveToolStripMenuItem_Click jest wywoływana po naciśnięciu przycisku Cut na pasku Menu.
+        /*! Metoda CutToolStripMenuItem_Click jest wywoływana po naciśnięciu przycisku Cut na pasku Menu.
          * Wycina ona zaznaczony tekst i przechowuje go w schowku systemowym.
          */
         private void CutToolStripMenuItem_Click(object sender, EventArgs e)
@@ -857,11 +857,6 @@ namespace Password_Manager
             using (AboutBox Abox = new AboutBox())
             {
                 DialogResult dr = Abox.ShowDialog();
-
-                if (dr == DialogResult.OK)
-                {
-                    //TODO info
-                }
             }
         }
     }

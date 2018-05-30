@@ -1,5 +1,5 @@
 ﻿/*! \file Form3.cs
-\brief Plik Form3.cs zawiera Formularz .NET z oknem odpowiedzialnym za zapisanie klucza i ścieżki do nowo utworzonej bazy z hasłami.
+\brief Plik Form3.cs zawiera klasę Form3 odpowiedzialną za zapisanie klucza i ścieżki do nowo utworzonej bazy z hasłami.
 
 Plik Form3.cs zawiera kod okna aplikacji, w którym użytkownik w oknie dialogowym wybiera plik, do którego zostanie zapisana nowo utworzona baza z hasłami a następnie podaje klucz do niej.
 */
@@ -9,8 +9,8 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Windows.Forms;
 
-//! Przestrzeń nazw Password_Manager, która obejmuje całą aplikację Menedżera Haseł.
-/*! Password_Manager to przestrzeń nazw, która obejmuje całą aplikację Menedżera Haseł, ze wszystkimi klasami Form. */
+//! Przestrzeń nazw Password_Manager obejmuje całą aplikację Menedżera Haseł.
+/*! Password_Manager to przestrzeń nazw obejmuje całą aplikację Menedżera Haseł, ze wszystkimi klasami Form. */
 namespace Password_Manager
 {
     //! Klasa Form3 zawiera okno aplikacji, w której użytkownik podaje dane dla nowej bazy z hasłami.

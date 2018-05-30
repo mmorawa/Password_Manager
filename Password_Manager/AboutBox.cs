@@ -1,11 +1,25 @@
-﻿using System;
+﻿/*! \file AboutBox.cs
+\brief Plik AboutBox.cs zawiera klasę AboutBox z oknem informacyjnym aplikacji.
+
+Plik AboutBox.cs zawiera kod okna wyświetlającego informacje o aplikacji oraz jej licencji. 
+*/
+
+using System;
 using System.Reflection;
 using System.Windows.Forms;
 
+//! Przestrzeń nazw Password_Manager obejmuje całą aplikację Menedżera Haseł.
+/*! Password_Manager to przestrzeń nazw obejmuje całą aplikację Menedżera Haseł, ze wszystkimi klasami Form. */
 namespace Password_Manager
 {
+    //! Klasa AboutBox zawiera kod okna wyświetlającego podstawowe informacje o aplikacji. 
+    /*! W klasie AboutBox znajduje się okno informacyjne, otwierane po naciśnięciu przycisku About z paska menu.
+     * Można dowiedzieć się z niego takich danych jak: nazwa aplikacji, jej licencja czy krótki opis. 
+     */
     partial class AboutBox : Form
     {
+        //! Konstruktor klasy AboutBox.
+        /*! Inicjalizuje komponenty klasy AboutBox oraz jej atrybuty. */
         public AboutBox()
         {
             InitializeComponent();
@@ -18,6 +32,8 @@ namespace Password_Manager
 
         #region Assembly Attribute Accessors
 
+        //! Nazwa projektu.
+        /*! Właściwość AssemblyTitle pobiera nazwę projektu z ustawień projektu. */
         public string AssemblyTitle
         {
             get
@@ -35,6 +51,8 @@ namespace Password_Manager
             }
         }
 
+        //! Wersja aplikacji.
+        /*! Właściwość AssemblyVersion pobiera wersję aplikacji z ustawień projektu. */
         public string AssemblyVersion
         {
             get
@@ -43,6 +61,8 @@ namespace Password_Manager
             }
         }
 
+        //! Opis aplikacji.
+        /*! Właściwość AssemblyDescription pobiera opis aplikacji z ustawień projektu. */
         public string AssemblyDescription
         {
             get
@@ -56,6 +76,8 @@ namespace Password_Manager
             }
         }
 
+        //! Nazwa aplikacji.
+        /*! Właściwość AssemblyProduct pobiera nazwę aplikacji z ustawień projektu. */
         public string AssemblyProduct
         {
             get
@@ -69,6 +91,8 @@ namespace Password_Manager
             }
         }
 
+        //! Licencja.
+        /*! Właściwość AssemblyCopyright pobiera typ licencji z ustawień projektu. */
         public string AssemblyCopyright
         {
             get
