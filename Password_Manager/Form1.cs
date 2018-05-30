@@ -388,8 +388,9 @@ namespace Password_Manager
 
                 if (dr == DialogResult.OK)
                 {
-                    MessageBox.Show("The Key has been changed.", "Information");
+                    SaveDatabase(PathToDatabase);
 
+                    MessageBox.Show("The Key has been changed.", "Information");
                 }
             }
         }
@@ -397,7 +398,7 @@ namespace Password_Manager
 
         //! Metoda wywoływana naciśnięciem przycisku Save.
         /*! Metoda Button_Save_Click jest wywoływana poprzez wciśnięcie przycisku Save w menu głównym aplikacji.
-         * Powoduje ona automatyczne zaszyfrowanie wpisów z hasłami, znajdujących w głównym oknie programu bez konieczności podania ścieżki do pliku bazy.
+         * Powoduje ona wywołanie metody SaveDatabase, która automatycznie szyfruje wpisy z hasłami, znajdujące się w głównym oknie programu bez konieczności podania ścieżki do pliku bazy.
          */
         private void Button_Save_Click(object sender, EventArgs e)
         {
@@ -407,72 +408,14 @@ namespace Password_Manager
                 return;
             }
 
-            //Utworzenie instacji szyfrowania 3DES.
-            TripleDESCryptoServiceProvider TripleDES = new TripleDESCryptoServiceProvider
-            {
-                //Klucz wprowadzony przez użytkownika zahashowany md5.
-                Key = Key,
-
-                //Parametry dla 3DES.
-                Mode = CipherMode.ECB,
-                Padding = PaddingMode.PKCS7
-            };
-
-            //Utworzenie nowej instancji szyfratora.
-            ICryptoTransform Encryptor = TripleDES.CreateEncryptor();
-
-            Encrypted_Bytes = new byte[Entries.Count * 4][];
-            string[] Data = new string[Entries.Count * 4];
-            int position = 0;
-
-            //Wstawienie danych z Textboxów do tablicy Data, która zostanie zaszyfrowana.
-            for (int i = 0; i < Entries.Count; i++)
-            {
-                Control[] ctrls0 = Entries[i].Controls.Find("textBox_Site", false);
-                TextBox textBox_Site_Encrypt = (TextBox)ctrls0[0];
-                Data[position] = textBox_Site_Encrypt.Text;
-                position++;
-
-                Control[] ctrls1 = Entries[i].Controls.Find("textBox_URL", false);
-                TextBox textBox_URL_Encrypt = (TextBox)ctrls1[0];
-                Data[position] = textBox_URL_Encrypt.Text;
-                position++;
-
-                Control[] ctrls2 = Entries[i].Controls.Find("textBox_Login", false);
-                TextBox textBox_Login_Encrypt = (TextBox)ctrls2[0];
-                Data[position] = textBox_Login_Encrypt.Text;
-                position++;
-
-                Control[] ctrls3 = Entries[i].Controls.Find("textBox_Pass", false);
-                TextBox textBox_Pass_Encrypt = (TextBox)ctrls3[0];
-                Data[position] = textBox_Pass_Encrypt.Text;
-                position++;
-            }
-
-            //Zaszyfrowanie danych.
-            for (int i = 0; i < Entries.Count * 4; i++)
-            {
-                Encrypted_Bytes[i] = Encryptor.TransformFinalBlock(utf8.GetBytes(Data[i]), 0, utf8.GetBytes(Data[i]).Length);
-            }
-
-            //Zapisanie danych do pliku.
-            using (StreamWriter sw = new StreamWriter(File.Create(PathToDatabase)))
-            {
-                for (int i = 0; i < Entries.Count * 4; i++)
-                {
-                    sw.WriteLine(BitConverter.ToString(Encrypted_Bytes[i]).Replace("-", ""));
-                }
-
-                sw.Dispose();
-            }
+            SaveDatabase(PathToDatabase);
 
             MessageBox.Show("Database has been successfully saved.", "Information");
-
         }
 
         //! Metoda wywoływana naciśnięciem przycisku Save As.
         /*! Metoda Button_SaveAs_Click jest wywoływana poprzez wciśnięcie przycisku Save As w menu głównym aplikacji.
-         * W wyniku jej użycia pojawia się nowe okno dialogowe, w którym możemy wybrać ścieżkę do pliku bazy, po czym następuje szyfrowanie wpisów z hasłami, znajdujących w głównym oknie programu.
+         * W wyniku jej użycia pojawia się nowe okno dialogowe, w którym możemy wybrać ścieżkę do pliku bazy, po czym następuje wywołanie metody SaveDatabase, która szyfruje wpisy z hasłami, znajdujące się w głównym oknie programu.
          */
         private void Button_SaveAs_Click(object sender, EventArgs e)
         {
@@ -481,21 +424,6 @@ namespace Password_Manager
                 MessageBox.Show("There is nothing to save.", "Warning!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
-
-            //utworzenie instancji szyfrowania 3DES
-            TripleDESCryptoServiceProvider TripleDES = new TripleDESCryptoServiceProvider
-            {
-                //klucz wprowadzony przez użytkownika zahashowany md5
-                Key = Key,
-
-                //Parametry dla 3DES
-                Mode = CipherMode.ECB,
-                Padding = PaddingMode.PKCS7
-            };
-
-            //utworzenie nowej instancji szyfratora
-            ICryptoTransform Encryptor = TripleDES.CreateEncryptor();
-
 
             SaveFileDialog saveFile = new SaveFileDialog
             {
@@ -506,52 +434,10 @@ namespace Password_Manager
 
             if (saveFile.ShowDialog() == DialogResult.OK)
             {
-
-                Encrypted_Bytes = new byte[Entries.Count * 4][];
-                string[] Data = new string[Entries.Count * 4];
-                int position = 0;
-
-                //Wstawienie danych z Textboxów do tablicy Data, która zostanie zaszyfrowana.
-                for (int i = 0; i < Entries.Count; i++)
-                {
-                    Control[] ctrls0 = Entries[i].Controls.Find("textBox_Site", false);
-                    TextBox textBox_Site_Encrypt = (TextBox)ctrls0[0];
-                    Data[position] = textBox_Site_Encrypt.Text;
-                    position++;
-
-                    Control[] ctrls1 = Entries[i].Controls.Find("textBox_URL", false);
-                    TextBox textBox_URL_Encrypt = (TextBox)ctrls1[0];
-                    Data[position] = textBox_URL_Encrypt.Text;
-                    position++;
-
-                    Control[] ctrls2 = Entries[i].Controls.Find("textBox_Login", false);
-                    TextBox textBox_Login_Encrypt = (TextBox)ctrls2[0];
-                    Data[position] = textBox_Login_Encrypt.Text;
-                    position++;
-
-                    Control[] ctrls3 = Entries[i].Controls.Find("textBox_Pass", false);
-                    TextBox textBox_Pass_Encrypt = (TextBox)ctrls3[0];
-                    Data[position] = textBox_Pass_Encrypt.Text;
-                    position++;
-                }
-
-                //Zaszyfrowanie danych.
-                for (int i = 0; i < Entries.Count * 4; i++)
-                {
-                    Encrypted_Bytes[i] = Encryptor.TransformFinalBlock(utf8.GetBytes(Data[i]), 0, utf8.GetBytes(Data[i]).Length);
-                }
-
                 //Zapisanie danych do pliku.
                 string path = saveFile.FileName;
-                using (StreamWriter sw = new StreamWriter(File.Create(path)))
-                {
-                    for (int i = 0; i < Entries.Count * 4; i++)
-                    {
-                        sw.WriteLine(BitConverter.ToString(Encrypted_Bytes[i]).Replace("-", ""));
-                    }
 
-                    sw.Dispose();
-                }
+                SaveDatabase(path);
 
                 MessageBox.Show("Database has been successfully saved.", "Information");
             }
@@ -600,6 +486,73 @@ namespace Password_Manager
 
             Entries.Clear();
 
+        }
+
+        //! Metoda wywoływana przy zapisywaniu aktywnej bazy.
+        /*! Metoda SaveDatabase służy do zapisania aktywnej bazy poprzez utworzenie nowego obiektu szyfratora i dokonanie transformacji blokowej tablicy bajtowej z danymi.
+         * Po zaszyfrowaniu dane zostają zapisane do pliku tekstowego z bazą.
+         */
+        private void SaveDatabase(string PathDB)
+        {
+            //Utworzenie instacji szyfrowania 3DES.
+            TripleDESCryptoServiceProvider TripleDES = new TripleDESCryptoServiceProvider
+            {
+                //Klucz wprowadzony przez użytkownika zahashowany md5.
+                Key = Key,
+
+                //Parametry dla 3DES.
+                Mode = CipherMode.ECB,
+                Padding = PaddingMode.PKCS7
+            };
+
+            //Utworzenie nowej instancji szyfratora.
+            ICryptoTransform Encryptor = TripleDES.CreateEncryptor();
+
+            Encrypted_Bytes = new byte[Entries.Count * 4][];
+            string[] Data = new string[Entries.Count * 4];
+            int position = 0;
+
+
+            //Wstawienie danych z Textboxów do tablicy Data, która zostanie zaszyfrowana.
+            for (int i = 0; i < Entries.Count; i++)
+            {
+                Control[] ctrls0 = Entries[i].Controls.Find("textBox_Site", false);
+                TextBox textBox_Site_Encrypt = (TextBox)ctrls0[0];
+                Data[position] = textBox_Site_Encrypt.Text;
+                position++;
+
+                Control[] ctrls1 = Entries[i].Controls.Find("textBox_URL", false);
+                TextBox textBox_URL_Encrypt = (TextBox)ctrls1[0];
+                Data[position] = textBox_URL_Encrypt.Text;
+                position++;
+
+                Control[] ctrls2 = Entries[i].Controls.Find("textBox_Login", false);
+                TextBox textBox_Login_Encrypt = (TextBox)ctrls2[0];
+                Data[position] = textBox_Login_Encrypt.Text;
+                position++;
+
+                Control[] ctrls3 = Entries[i].Controls.Find("textBox_Pass", false);
+                TextBox textBox_Pass_Encrypt = (TextBox)ctrls3[0];
+                Data[position] = textBox_Pass_Encrypt.Text;
+                position++;
+            }
+
+            //Zaszyfrowanie danych.
+            for (int i = 0; i < Entries.Count * 4; i++)
+            {
+                Encrypted_Bytes[i] = Encryptor.TransformFinalBlock(utf8.GetBytes(Data[i]), 0, utf8.GetBytes(Data[i]).Length);
+            }
+
+            //Zapisanie danych do pliku.
+            using (StreamWriter sw = new StreamWriter(File.Create(PathDB)))
+            {
+                for (int i = 0; i < Entries.Count * 4; i++)
+                {
+                    sw.WriteLine(BitConverter.ToString(Encrypted_Bytes[i]).Replace("-", ""));
+                }
+
+                sw.Dispose();
+            }
         }
 
         //! Metoda wywoływana po naciśnięciu przycisku z ikoną oka.
