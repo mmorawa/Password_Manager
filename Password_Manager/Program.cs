@@ -8,7 +8,7 @@ using System;
 using System.Windows.Forms;
 
 //! Przestrzeń nazw Password_Manager obejmuje całą aplikację Menedżera Haseł.
-/*! Password_Manager to przestrzeń nazw obejmuje całą aplikację Menedżera Haseł, ze wszystkimi klasami Form. */
+/*! Password_Manager to przestrzeń nazw, która obejmuje całą aplikację Menedżera Haseł, ze wszystkimi klasami Form. */
 namespace Password_Manager
 {
     //! Klasa Program to podstawowa klasa dla każdej aplikacji.

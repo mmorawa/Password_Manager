@@ -1,4 +1,10 @@
-﻿using System.Reflection;
+﻿/*! \file Program.cs
+\brief Plik AssemblyInfo.cs zawiera podstawowe informacje o aplikacji.
+
+Plik AssemblyInfo.cs zawiera takie dane jak: nazwa aplikacji, jej wersja, licencja czy krótki opis. 
+*/
+
+using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
