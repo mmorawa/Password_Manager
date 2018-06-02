@@ -1,16 +1,26 @@
-﻿namespace Password_Manager
+﻿/*! \file Form1.Designer.cs
+\brief Plik Form1.Designer.cs zawiera klasę Form1 z kodem wygenerowanym przez Designera.
+
+Plik Form1.Designer.cs zawiera klasę Form1 z kodem automatycznie wygenerowanym przez Designera Visual Studio na podstawie zaprojektowanego okna aplikacji.
+*/
+
+//! Przestrzeń nazw Password_Manager obejmuje całą aplikację Menedżera Haseł.
+/*! Password_Manager to przestrzeń nazw, która obejmuje całą aplikację Menedżera Haseł, ze wszystkimi klasami Form. */
+namespace Password_Manager
 {
+    //! Klasa Form1 zawiera główne okno aplikacji.
+    /*! W klasie Form1 znajduje się menu główne aplikacji, przyciski oraz Textboxy z danymi, oraz warstwa logiczna aplikacji */
     partial class Form1
     {
         /// <summary>
-        /// Required designer variable.
+        /// Zmienna wymagana przez Designera.
         /// </summary>
         private System.ComponentModel.IContainer components = null;
 
         /// <summary>
-        /// Clean up any resources being used.
+        /// Zwolnienie używanych zasobów. 
         /// </summary>
-        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        /// <param name="disposing">parametr typu bool - prawda, jeśli zasób ma być zwolniony, w przeciwynym wypadku fałsz.</param>
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -23,8 +33,8 @@
         #region Windows Form Designer generated code
 
         /// <summary>
-        /// Required method for Designer support - do not modify
-        /// the contents of this method with the code editor.
+        /// Metoda wymagana przez Designera.
+        /// Nie należy modyfikować jej zawartości w edytorze kodu.
         /// </summary>
         private void InitializeComponent()
         {
@@ -384,22 +394,50 @@
 
         #endregion
 
+        //! Przycisk Save.
+        /*! Przycisk Save powoduje wywołanie metody SaveDatabase, która automatycznie szyfruje wpisy z hasłami, znajdujące się w głównym oknie programu bez konieczności podania ścieżki do pliku bazy. */
         private System.Windows.Forms.Button Button_Save;
+        
+        //! Etykieta Password
         private System.Windows.Forms.Label label_Password;
+        
+        //! Etykieta Login
         private System.Windows.Forms.Label label_Login;
+        
+        //! Przycisk Open.
+        /*! Przycisk Open odpowiada za wczytanie pliku z bazą haseł a następnie jego odszyfrowanie przy użyciu podanego przez użytkownika klucza.
+         * Następnie generowane zostają Panele z Textboxami, do których podstawiane są odszyfrowane dane tekstowe.
+         */
         private System.Windows.Forms.Button Button_Open;
+        
+        //! Etykieta Site
         private System.Windows.Forms.Label label_Site;
+
+        //! Przycisk Change.
+        /*! Przycisk Change umożliwia zmianę klucza szyfrującego bazę z hasłami.
+         */
         private System.Windows.Forms.Button Button_change;
+
         private System.Windows.Forms.Button Button_New;
         private System.Windows.Forms.Button Button_SaveAs;
         private System.Windows.Forms.Button Button_Close;
+        //! Etykieta URL
         private System.Windows.Forms.Label label_URL;
         private System.Windows.Forms.Button Button_Exit;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem FileToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem NewToolStripMenuItem;
+
+        //! Przycisk Open w pasku menu.
+        /*! Przycisk Open w pasku menu odpowiada za wczytanie pliku z bazą haseł a następnie jego odszyfrowanie przy użyciu podanego przez użytkownika klucza.
+         * Następnie generowane zostają Panele z Textboxami, do których podstawiane są odszyfrowane dane tekstowe.
+         */
         private System.Windows.Forms.ToolStripMenuItem OpenToolStripMenuItem;
+
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator;
+        //! Przycisk Save w pasku menu.
+        /*! Przycisk Save w pasku menu powoduje wywołanie metody SaveDatabase, która automatycznie szyfruje wpisy z hasłami, znajdujące się w głównym oknie programu bez konieczności podania ścieżki do pliku bazy. */
+
         private System.Windows.Forms.ToolStripMenuItem SaveToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem SaveAsToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
@@ -409,6 +447,10 @@
         private System.Windows.Forms.ToolStripMenuItem CopyToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem PasteToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem optionsToolStripMenuItem;
+
+        //! Przycisk Change w pasku menu.
+        /*! Przycisk Change w pasku menu umożliwia zmianę klucza szyfrującego bazę z hasłami.
+         */
         private System.Windows.Forms.ToolStripMenuItem ChangeKeyToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem AboutToolStripMenuItem;

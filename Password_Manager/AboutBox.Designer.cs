@@ -1,14 +1,22 @@
-﻿namespace Password_Manager
+﻿/*! \file AboutBox.Designer.cs
+\brief Plik AboutBox.Designer.cs zawiera klasę AboutBox z kodem wygenerowanym przez Designera.
+
+Plik AboutBox.Designer.cs zawiera klasę AboutBox z kodem automatycznie wygenerowanym przez Designera Visual Studio na podstawie zaprojektowanego okna aplikacji.
+*/
+
+//! Przestrzeń nazw Password_Manager obejmuje całą aplikację Menedżera Haseł.
+/*! Password_Manager to przestrzeń nazw, która obejmuje całą aplikację Menedżera Haseł, ze wszystkimi klasami Form. */
+namespace Password_Manager
 {
     partial class AboutBox
     {
         /// <summary>
-        /// Required designer variable.
+        /// Zmienna wymagana przez Designera.
         /// </summary>
         private System.ComponentModel.IContainer components = null;
 
         /// <summary>
-        /// Clean up any resources being used.
+        /// Zwolnienie używanych zasobów. 
         /// </summary>
         protected override void Dispose(bool disposing)
         {
@@ -22,8 +30,8 @@
         #region Windows Form Designer generated code
 
         /// <summary>
-        /// Required method for Designer support - do not modify
-        /// the contents of this method with the code editor.
+        /// Metoda wymagana przez Designera.
+        /// Nie należy modyfikować jej zawartości w edytorze kodu.
         /// </summary>
         private void InitializeComponent()
         {

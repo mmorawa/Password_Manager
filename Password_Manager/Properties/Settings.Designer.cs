@@ -7,7 +7,17 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
+/*! \file Settings.Designer.cs
+\brief Plik Settings.Designer.cs zawiera klasę Password_Manager.Properties z ustawieniami aplikacji.
 
+Plik Settings.Designer.cs zawiera klasę Password_Manager.Properties z ustawieniami aplikacji.
+Plik ten jest generowany automatycznie przez Visual Studio i nie powinnien być modyfikowany ręcznie.
+*/
+
+//! Przestrzeń nazw Password_Manager.Properties zawiera ustawienia aplikacji.
+/*! Password_Manager.Properties jest generowana automatycznie przez Visual Studio i nie powinna być zmieniania ręcznie. 
+ * Definiuje ona ustawienia aplikacji oraz wykorzystywane przez nią zasoby.
+ */
 namespace Password_Manager.Properties
 {
 

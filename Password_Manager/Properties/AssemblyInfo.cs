@@ -1,4 +1,4 @@
-﻿/*! \file Program.cs
+﻿/*! \file AssemblyInfo.cs
 \brief Plik AssemblyInfo.cs zawiera podstawowe informacje o aplikacji.
 
 Plik AssemblyInfo.cs zawiera takie dane jak: nazwa aplikacji, jej wersja, licencja czy krótki opis. 

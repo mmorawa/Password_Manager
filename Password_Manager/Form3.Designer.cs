@@ -1,16 +1,24 @@
-﻿namespace Password_Manager
+﻿/*! \file Form3.Designer.cs
+\brief Plik Form3.Designer.cs zawiera klasę Form3 z kodem wygenerowanym przez Designera.
+
+Plik Form3.Designer.cs zawiera klasę Form1 z kodem automatycznie wygenerowanym przez Designera Visual Studio na podstawie zaprojektowanego okna aplikacji.
+*/
+
+//! Przestrzeń nazw Password_Manager obejmuje całą aplikację Menedżera Haseł.
+/*! Password_Manager to przestrzeń nazw, która obejmuje całą aplikację Menedżera Haseł, ze wszystkimi klasami Form. */
+namespace Password_Manager
 {
     partial class Form3
     {
         /// <summary>
-        /// Required designer variable.
+        /// Zmienna wymagana przez Designera.
         /// </summary>
         private System.ComponentModel.IContainer components = null;
 
         /// <summary>
-        /// Clean up any resources being used.
+        /// Zwolnienie używanych zasobów. 
         /// </summary>
-        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        /// <param name="disposing">parametr typu bool - prawda, jeśli zasób ma być zwolniony, w przeciwynym wypadku fałsz.</param>
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -23,8 +31,8 @@
         #region Windows Form Designer generated code
 
         /// <summary>
-        /// Required method for Designer support - do not modify
-        /// the contents of this method with the code editor.
+        /// Metoda wymagana przez Designera.
+        /// Nie należy modyfikować jej zawartości w edytorze kodu.
         /// </summary>
         private void InitializeComponent()
         {
