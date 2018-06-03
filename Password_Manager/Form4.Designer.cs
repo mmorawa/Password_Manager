@@ -116,9 +116,11 @@ namespace Password_Manager
         #endregion
 
         //! Textbox, w którym można wpisać nowy klucz szyfrujący.
+        /*! Textbox, w którym można wpisać nowy klucz szyfrujący. */
         private System.Windows.Forms.TextBox textBox_Key;
 
         //! Etykieta ze słowem klucz.
+        /*! Etykieta ze słowem klucz. */
         private System.Windows.Forms.Label label_key;
 
         //! Przycisk OK.
@@ -130,6 +132,7 @@ namespace Password_Manager
         private System.Windows.Forms.Button Button_Cancel;
 
         //! Etykieta informacyjna.
+        /*! Etykieta informacyjna. */
         private System.Windows.Forms.Label label_Info;
     }
 }

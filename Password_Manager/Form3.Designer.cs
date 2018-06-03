@@ -142,15 +142,19 @@ namespace Password_Manager
         #endregion
 
         //! Etykieta informacyjna.
+        /*! Etykieta informacyjna. */
         private System.Windows.Forms.Label label_Info;
 
         //! Textbox, w którym wyświetla się nazwa nowej bazy.
+        /*! Textbox, w którym wyświetla się nazwa nowej bazy. */
         private System.Windows.Forms.TextBox textBox_Filename;
 
         //! Textbox, w którym można wpisać klucz szyfrujący.
+        /*! Textbox, w którym można wpisać klucz szyfrujący. */
         private System.Windows.Forms.TextBox textBox_Key;
 
         //! Etykieta ze słowem klucz.
+        /*! Etykieta ze słowem klucz. */
         private System.Windows.Forms.Label label_key;
 
         //! Przycisk Load.

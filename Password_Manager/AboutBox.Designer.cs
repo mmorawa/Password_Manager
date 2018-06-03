@@ -173,21 +173,27 @@ namespace Password_Manager
         #endregion
 
         //! Panel dynamicznie wyświetlający zawartość na planszy z wieloma rzędami i kolumnami.
+        /*! Panel dynamicznie wyświetlający zawartość na planszy z wieloma rzędami i kolumnami. */
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel;
 
         //! Etykieta Copyright.
+        /*! Etykieta Copyright. */
         private System.Windows.Forms.PictureBox logoPictureBox;
 
         //! Etykieta nazwa aplikacji.
+        /*! Etykieta nazwa aplikacji. */
         private System.Windows.Forms.Label labelProductName;
 
         //! Etykieta wersja aplikacji.
+        /*! Etykieta wersja aplikacji. */
         private System.Windows.Forms.Label labelVersion;
 
         //! Etykieta Copyright.
+        /*! Etykieta Copyright. */
         private System.Windows.Forms.Label labelCopyright;
 
         //! Textbox z opisem aplikacji.
+        /*! Textbox z opisem aplikacji. */
         private System.Windows.Forms.TextBox textBoxDescription;
 
         //! Przycisk OK.

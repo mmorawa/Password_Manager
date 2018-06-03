@@ -397,11 +397,13 @@ namespace Password_Manager
         //! Przycisk Save.
         /*! Użycie przycisku Save powoduje wywołanie metody SaveDatabase, która automatycznie szyfruje wpisy z hasłami, znajdujące się w głównym oknie programu bez konieczności podania ścieżki do pliku bazy. */
         private System.Windows.Forms.Button Button_Save;
-        
-        //! Etykieta Password
+
+        //! Etykieta Password.
+        /*! Etykieta Password. */
         private System.Windows.Forms.Label label_Password;
-        
+
         //! Etykieta Login.
+        /*! Etykieta Login. */
         private System.Windows.Forms.Label label_Login;
 
         //! Przycisk Open.
@@ -409,8 +411,9 @@ namespace Password_Manager
          * Następnie generowane zostają Panele z Textboxami, do których podstawiane są odszyfrowane dane tekstowe.
          */
         private System.Windows.Forms.Button Button_Open;
-        
-        //! Etykieta Site
+
+        //! Etykieta Site.
+        /*! Etykieta Site. */
         private System.Windows.Forms.Label label_Site;
 
         //! Przycisk Change.
@@ -431,6 +434,7 @@ namespace Password_Manager
         private System.Windows.Forms.Button Button_Close;
 
         //! Etykieta URL.
+        /*! Etykieta URL. */
         private System.Windows.Forms.Label label_URL;
 
         //! Przycisk Exit.
@@ -438,9 +442,11 @@ namespace Password_Manager
         private System.Windows.Forms.Button Button_Exit;
 
         //! Pasek Menu.
+        /*! Pasek Menu. */
         private System.Windows.Forms.MenuStrip menuStrip1;
 
         //! Zakładka File w pasku menu.
+        /*! Zakładka File w pasku menu. */
         private System.Windows.Forms.ToolStripMenuItem FileToolStripMenuItem;
 
         //! Przycisk New w pasku menu.
@@ -454,6 +460,7 @@ namespace Password_Manager
         private System.Windows.Forms.ToolStripMenuItem OpenToolStripMenuItem;
 
         //! Separator w pasku menu.
+        /*! Separator w pasku menu. */
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator;
 
         //! Przycisk Save w pasku menu.
@@ -465,6 +472,7 @@ namespace Password_Manager
         private System.Windows.Forms.ToolStripMenuItem SaveAsToolStripMenuItem;
 
         //! Separator w pasku menu.
+        /*! Separator w pasku menu. */
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
 
         //! Przycisk Exit w pasku menu.
@@ -472,6 +480,7 @@ namespace Password_Manager
         private System.Windows.Forms.ToolStripMenuItem ExitToolStripMenuItem;
 
         //! Zakładka Edit w pasku menu.
+        /*! Zakładka Edit w pasku menu. */
         private System.Windows.Forms.ToolStripMenuItem editToolStripMenuItem;
 
         //! Przycisk Cut na pasku menu.
@@ -487,6 +496,7 @@ namespace Password_Manager
         private System.Windows.Forms.ToolStripMenuItem PasteToolStripMenuItem;
 
         //! Zakładka Options w pasku menu.
+        /*! Zakładka Options w pasku menu. */
         private System.Windows.Forms.ToolStripMenuItem optionsToolStripMenuItem;
 
         //! Przycisk Change w pasku menu.
@@ -494,6 +504,7 @@ namespace Password_Manager
         private System.Windows.Forms.ToolStripMenuItem ChangeKeyToolStripMenuItem;
 
         //! Zakładka Help w pasku menu.
+        /*! Zakładka Help w pasku menu. */
         private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
 
         //! Przycisk About na pasku menu.
@@ -501,6 +512,7 @@ namespace Password_Manager
         private System.Windows.Forms.ToolStripMenuItem AboutToolStripMenuItem;
 
         //! Separator w pasku menu.
+        /*! Separator w pasku menu. */
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
 
         //! Przycisk Close w pasku menu.

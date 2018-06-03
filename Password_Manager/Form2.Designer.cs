@@ -152,15 +152,19 @@ namespace Password_Manager
         private System.Windows.Forms.Button Button_Load;
 
         //! Textbox, w którym można wpisać klucz szyfrujący.
+        /*! Textbox, w którym można wpisać klucz szyfrujący. */
         private System.Windows.Forms.TextBox textBox_Key;
 
         //! Etykieta ze słowem klucz.
+        /*! Etykieta ze słowem klucz. */
         private System.Windows.Forms.Label label_key;
 
         //! Textbox, w którym wyświetla się nazwa bazy do wczytania.
+        /*! Textbox, w którym wyświetla się nazwa bazy do wczytania. */
         private System.Windows.Forms.TextBox textBox_Filename;
 
         //! Etykieta informacyjna.
+        /*! Etykieta informacyjna. */
         private System.Windows.Forms.Label label_Info;
 
         //! Przycisk Cancel.
