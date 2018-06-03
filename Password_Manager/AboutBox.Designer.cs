@@ -172,12 +172,26 @@ namespace Password_Manager
 
         #endregion
 
+        //! Panel dynamicznie wyświetlający zawartość na planszy z wieloma rzędami i kolumnami.
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel;
+
+        //! Etykieta Copyright.
         private System.Windows.Forms.PictureBox logoPictureBox;
+
+        //! Etykieta nazwa aplikacji.
         private System.Windows.Forms.Label labelProductName;
+
+        //! Etykieta wersja aplikacji.
         private System.Windows.Forms.Label labelVersion;
+
+        //! Etykieta Copyright.
         private System.Windows.Forms.Label labelCopyright;
+
+        //! Textbox z opisem aplikacji.
         private System.Windows.Forms.TextBox textBoxDescription;
+
+        //! Przycisk OK.
+        /*! Przycisk OK powoduje zamknięcie okna dialogowego AboutBox. */
         private System.Windows.Forms.Button okButton;
     }
 }

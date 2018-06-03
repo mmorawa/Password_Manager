@@ -141,12 +141,30 @@ namespace Password_Manager
 
         #endregion
 
+        //! Etykieta informacyjna.
         private System.Windows.Forms.Label label_Info;
+
+        //! Textbox, w którym wyświetla się nazwa nowej bazy.
         private System.Windows.Forms.TextBox textBox_Filename;
+
+        //! Textbox, w którym można wpisać klucz szyfrujący.
         private System.Windows.Forms.TextBox textBox_Key;
+
+        //! Etykieta ze słowem klucz.
         private System.Windows.Forms.Label label_key;
+
+        //! Przycisk Load.
+        /*! Użycie przycisku Load otwiera okno dialogowe, w którym można wybrać plik, do którego zapisana będzie nowo utworzona baza z hasłami.
+         * Nowy plik tekstowy z bazą nie będzie zawierał żadnych wpisów z hasłami aż do momentu ich wprowadzenia w oknie głównym aplikacji i zapisania ich.
+         */
         private System.Windows.Forms.Button Button_Save;
+
+        //! Przycisk OK.
+        /*! Użycie przycisku OK powoduje sprawdzenie czy użytkownik podał wszystkie wymagane dane a następnie użycie funkcji skrótu md5 w odniesieniu do podanego przez użytkownika hasła. */
         private System.Windows.Forms.Button Button_OK;
+
+        //! Przycisk Cancel.
+        /*! Użycie przycisku Cancel spowoduje anulowanie utworzenia nowej bazy z hasłami. */
         private System.Windows.Forms.Button Button_Cancel;
     }
 }

@@ -32,7 +32,7 @@ namespace Password_Manager
 
         //! Metoda otwierająca okno dialogowe, w którym można wybrać bazę do wczytania.
         /*! Metoda Button_Load_Click otwieraja okno dialogowe, w którym można wybrać bazę do wczytania.
-         * Plik z bazą obsługiwane przez aplikację mają postać plików tekstowych z rozszerzeniem .txt.
+         * Pliki bazy obsługiwane przez aplikację mają postać plików tekstowych z rozszerzeniem .txt.
          */
         private void Button_Load_Click(object sender, EventArgs e)
         {

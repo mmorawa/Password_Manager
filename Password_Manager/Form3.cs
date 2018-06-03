@@ -32,7 +32,7 @@ namespace Password_Manager
 
         //! Metoda otwierająca okno dialogowe, w którym można wybrać plik, do którego zapisana będzie nowo utworzona baza z hasłami. 
         /*! Metoda Button_Save_Click otwiera okno dialogowe, w którym można wybrać plik, do którego zapisana będzie nowo utworzona baza z hasłami.
-         * Nowy plik tekstowy z bazą będzie pusty aż do momentu wprowadzenia nowych wpisów w oknie głównym aplikacji i zapisania ich.
+         * Nowy plik tekstowy nie będzie zawierał żadnych wpisów z hasłami aż do momentu ich wprowadzenia w oknie głównym aplikacji i zapisania ich.
          */
         private void Button_Save_Click(object sender, EventArgs e)
         {

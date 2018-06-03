@@ -115,10 +115,21 @@ namespace Password_Manager
 
         #endregion
 
+        //! Textbox, w którym można wpisać nowy klucz szyfrujący.
         private System.Windows.Forms.TextBox textBox_Key;
+
+        //! Etykieta ze słowem klucz.
         private System.Windows.Forms.Label label_key;
+
+        //! Przycisk OK.
+        /*! Użycie przycisku OK powoduje sprawdzenie czy użytkownik podał nowy klucz szyfrujący a następnie użycie funkcji skrótu md5 w odniesieniu do niego. */
         private System.Windows.Forms.Button Button_OK;
+
+        //! Przycisk Cancel.
+        /*! Użycie przycisku Cancel spowoduje anulowanie zmiany klucza szyfrującego. */
         private System.Windows.Forms.Button Button_Cancel;
+
+        //! Etykieta informacyjna.
         private System.Windows.Forms.Label label_Info;
     }
 }

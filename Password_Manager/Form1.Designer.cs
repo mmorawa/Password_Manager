@@ -395,17 +395,17 @@ namespace Password_Manager
         #endregion
 
         //! Przycisk Save.
-        /*! Przycisk Save powoduje wywołanie metody SaveDatabase, która automatycznie szyfruje wpisy z hasłami, znajdujące się w głównym oknie programu bez konieczności podania ścieżki do pliku bazy. */
+        /*! Użycie przycisku Save powoduje wywołanie metody SaveDatabase, która automatycznie szyfruje wpisy z hasłami, znajdujące się w głównym oknie programu bez konieczności podania ścieżki do pliku bazy. */
         private System.Windows.Forms.Button Button_Save;
         
         //! Etykieta Password
         private System.Windows.Forms.Label label_Password;
         
-        //! Etykieta Login
+        //! Etykieta Login.
         private System.Windows.Forms.Label label_Login;
-        
+
         //! Przycisk Open.
-        /*! Przycisk Open odpowiada za wczytanie pliku z bazą haseł a następnie jego odszyfrowanie przy użyciu podanego przez użytkownika klucza.
+        /*! Użycie przycisku Open odpowiada za wczytanie pliku z bazą haseł a następnie jego odszyfrowanie przy użyciu podanego przez użytkownika klucza.
          * Następnie generowane zostają Panele z Textboxami, do których podstawiane są odszyfrowane dane tekstowe.
          */
         private System.Windows.Forms.Button Button_Open;
@@ -414,47 +414,97 @@ namespace Password_Manager
         private System.Windows.Forms.Label label_Site;
 
         //! Przycisk Change.
-        /*! Przycisk Change umożliwia zmianę klucza szyfrującego bazę z hasłami.
+        /*! Użycie przycisku Change umożliwia zmianę klucza szyfrującego bazę z hasłami.
          */
         private System.Windows.Forms.Button Button_change;
 
+        //! Przycisk New.
+        /*! Użycie przycisku New otwiera nowe okno, gdzie pyta użytkownika o podstawowe dane odnośnie nowej bazy a następnie tworzy pierwszy Panel, w którym użytkownik może zacząć wpisywać swoje dane. */
         private System.Windows.Forms.Button Button_New;
+
+        //! Przycisk Save As.
+        /*! Użycie przycisku Save As powoduje pojawienie się nowego okna dialogowego, w którym możemy wybrać ścieżkę do pliku bazy, po czym następuje wywołanie metody SaveDatabase, która szyfruje wpisy z hasłami, znajdujące się w głównym oknie programu. */
         private System.Windows.Forms.Button Button_SaveAs;
+
+        //! Przycisk Close.
+        /*! Użycie przycisku Close powoduje zamknięcie aktywnej bazy poprzez wywołanie metody CloseDatabase. */
         private System.Windows.Forms.Button Button_Close;
-        //! Etykieta URL
+
+        //! Etykieta URL.
         private System.Windows.Forms.Label label_URL;
+
+        //! Przycisk Exit.
+        /*! Użycie przycisku Exit skutkuje zamknięciem aktywnej bazy poprzez wywołanie metody CloseDatabase oraz wyjście z programu. */
         private System.Windows.Forms.Button Button_Exit;
+
+        //! Pasek Menu.
         private System.Windows.Forms.MenuStrip menuStrip1;
+
+        //! Zakładka File w pasku menu.
         private System.Windows.Forms.ToolStripMenuItem FileToolStripMenuItem;
+
+        //! Przycisk New w pasku menu.
+        /*! Użycie przycisku New w pasku menu otwiera nowe okno, gdzie pyta użytkownika o podstawowe dane odnośnie nowej bazy a następnie tworzy pierwszy Panel, w którym użytkownik może zacząć wpisywać swoje dane. */
         private System.Windows.Forms.ToolStripMenuItem NewToolStripMenuItem;
 
         //! Przycisk Open w pasku menu.
-        /*! Przycisk Open w pasku menu odpowiada za wczytanie pliku z bazą haseł a następnie jego odszyfrowanie przy użyciu podanego przez użytkownika klucza.
+        /*! Użycie przycisku Open w pasku menu odpowiada za wczytanie pliku z bazą haseł a następnie jego odszyfrowanie przy użyciu podanego przez użytkownika klucza.
          * Następnie generowane zostają Panele z Textboxami, do których podstawiane są odszyfrowane dane tekstowe.
          */
         private System.Windows.Forms.ToolStripMenuItem OpenToolStripMenuItem;
 
+        //! Separator w pasku menu.
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator;
-        //! Przycisk Save w pasku menu.
-        /*! Przycisk Save w pasku menu powoduje wywołanie metody SaveDatabase, która automatycznie szyfruje wpisy z hasłami, znajdujące się w głównym oknie programu bez konieczności podania ścieżki do pliku bazy. */
 
+        //! Przycisk Save w pasku menu.
+        /*! Użycie przycisku Save w pasku menu powoduje wywołanie metody SaveDatabase, która automatycznie szyfruje wpisy z hasłami, znajdujące się w głównym oknie programu bez konieczności podania ścieżki do pliku bazy. */
         private System.Windows.Forms.ToolStripMenuItem SaveToolStripMenuItem;
+
+        //! Przycisk Save As w pasku menu.
+        /*! Użycie przycisku Save As w pasku menu powoduje pojawienie się nowego okna dialogowego, w którym możemy wybrać ścieżkę do pliku bazy, po czym następuje wywołanie metody SaveDatabase, która szyfruje wpisy z hasłami, znajdujące się w głównym oknie programu. */
         private System.Windows.Forms.ToolStripMenuItem SaveAsToolStripMenuItem;
+
+        //! Separator w pasku menu.
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+
+        //! Przycisk Exit w pasku menu.
+        /*! Użycie przycisku Exit w pasku menu skutkuje zamknięciem aktywnej bazy poprzez wywołanie metody CloseDatabase oraz wyjście z programu. */
         private System.Windows.Forms.ToolStripMenuItem ExitToolStripMenuItem;
+
+        //! Zakładka Edit w pasku menu.
         private System.Windows.Forms.ToolStripMenuItem editToolStripMenuItem;
+
+        //! Przycisk Cut na pasku menu.
+        /*! Użycie przycisku Cut na pasku Menu wycina zaznaczony tekst i przechowuje go w schowku systemowym. */
         private System.Windows.Forms.ToolStripMenuItem CutToolStripMenuItem;
+
+        //! Przycisk Copy na pasku menu.
+        /*! Użycie przycisku Copy na pasku Menu kopiuje zaznaczony tekst i przechowuje go w schowku systemowym. */
         private System.Windows.Forms.ToolStripMenuItem CopyToolStripMenuItem;
+
+        //! Przycisk Paste na pasku menu.
+        /*! Użycie przycisku Paste na pasku menu wkleja tekst ze schowka systemowego w miejscu, gdzie znajduje się aktywny kursor. */
         private System.Windows.Forms.ToolStripMenuItem PasteToolStripMenuItem;
+
+        //! Zakładka Options w pasku menu.
         private System.Windows.Forms.ToolStripMenuItem optionsToolStripMenuItem;
 
         //! Przycisk Change w pasku menu.
-        /*! Przycisk Change w pasku menu umożliwia zmianę klucza szyfrującego bazę z hasłami.
-         */
+        /*! Użycie przycisku Change w pasku menu umożliwia zmianę klucza szyfrującego bazę z hasłami. */
         private System.Windows.Forms.ToolStripMenuItem ChangeKeyToolStripMenuItem;
+
+        //! Zakładka Help w pasku menu.
         private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
+
+        //! Przycisk About na pasku menu.
+        /*! Użycie przycisku About na pasku menu powoduje wyświetlenie się okna z informacjami o aplikacji. */
         private System.Windows.Forms.ToolStripMenuItem AboutToolStripMenuItem;
+
+        //! Separator w pasku menu.
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
+
+        //! Przycisk Close w pasku menu.
+        /*! Użycie przycisku Close w pasku menu powoduje zamknięcie aktywnej bazy poprzez wywołanie metody CloseDatabase. */
         private System.Windows.Forms.ToolStripMenuItem CloseToolStripMenuItem;
     }
 }
