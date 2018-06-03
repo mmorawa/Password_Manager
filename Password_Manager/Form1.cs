@@ -22,6 +22,8 @@ namespace Password_Manager
         //tablica bajtowa wielowymiarowa z zaszyfrowanymi danymi
         byte[][] Encrypted_Bytes = new byte [8][];
 
+        byte[] IV;
+
         //klucz
         public static byte[] Key { get; set; }
         public static string PathToDatabase { get; set; }
@@ -42,6 +44,13 @@ namespace Password_Manager
                 {
                     using (StreamReader sr = new StreamReader(PathToDatabase))
                     {
+                        string lineIV = sr.ReadLine();
+                        IV = new byte[8];
+
+                        for (int m = 0; m < lineIV.Length; m += 2)
+                        {
+                            IV[m / 2] = Convert.ToByte(lineIV.Substring(m, 2), 16);
+                        }
 
                         for (int i = 0; i < 8; i++)
                         {
@@ -53,14 +62,6 @@ namespace Password_Manager
                                 Encrypted_Bytes[i][d / 2] = Convert.ToByte(line.Substring(d, 2), 16);
                             }
                         }
-
-
-                        /*
-                        foreach (var item in Encrypted_Bytes[0])
-                        {
-                            MessageBox.Show(string.Format("byte_{0}", item));
-                        }
-                        */
 
                         label_Site.Visible = true;
                         label_Login.Visible = true;
@@ -74,14 +75,14 @@ namespace Password_Manager
                         {
                             //klucz wprowadzony przez użytkownika zahashowany md5
                             Key = Key,
-
+                            IV = IV,
                             //Parametry dla 3DES
-                            Mode = CipherMode.ECB,
+                            Mode = CipherMode.CBC,
                             Padding = PaddingMode.PKCS7
                         };
 
                         //utworzenie nowej instancji deszyfratora
-                        ICryptoTransform Decryptor = TripleDES.CreateDecryptor();
+                        ICryptoTransform Decryptor = TripleDES.CreateDecryptor(TripleDES.Key, TripleDES.IV);
 
                         //deszyfrowanie tablicy z bajtami od pierwszego elementu do końca, a następnie przetworzenie do łańcucha znakowego i wysłanie do textBox'a
                         textBox_Site1.Text = utf8.GetString(Decryptor.TransformFinalBlock(Encrypted_Bytes[0], 0, Encrypted_Bytes[0].Length));
@@ -110,12 +111,22 @@ namespace Password_Manager
                 Key = Key,
 
                 //Parametry dla 3DES
-                Mode = CipherMode.ECB,
+                Mode = CipherMode.CBC,
                 Padding = PaddingMode.PKCS7
             };
 
+            TripleDES.GenerateIV();
+            IV = TripleDES.IV;
+
+            /*
+            foreach (var item in IV)
+            {
+                MessageBox.Show(string.Format("byte_", item));
+            }
+            */
+
             //utworzenie nowej instancji szyfratora
-            ICryptoTransform Encryptor = TripleDES.CreateEncryptor();
+            ICryptoTransform Encryptor = TripleDES.CreateEncryptor(TripleDES.Key, TripleDES.IV);
 
             //szyfrowanie wpisanego przez użytkownika tekstu od pierwszego znaku do ostatniego
             Encrypted_Bytes[0] = Encryptor.TransformFinalBlock(utf8.GetBytes(textBox_Site1.Text), 0, utf8.GetBytes(textBox_Site1.Text).Length);
@@ -128,15 +139,13 @@ namespace Password_Manager
             Encrypted_Bytes[7] = Encryptor.TransformFinalBlock(utf8.GetBytes(textBox_Pass2.Text), 0, utf8.GetBytes(textBox_Pass2.Text).Length);
 
 
-            /*
-            foreach (var item in Encrypted_Bytes[0])
-            {
-                MessageBox.Show(string.Format("byte_{0}", item));
-            }
-            */
+            
+
 
             using (StreamWriter sw = new StreamWriter(File.Create(PathToDatabase)))
             {
+                sw.WriteLine(BitConverter.ToString(IV).Replace("-", ""));
+
                 for (int i = 0; i < 8; i++)
                 {
                     sw.WriteLine(BitConverter.ToString(Encrypted_Bytes[i]).Replace("-", ""));
@@ -163,10 +172,13 @@ namespace Password_Manager
                 {
                     textBox_Site1.Text = null;
                     textBox_Site2.Text = null;
+                    textBox_URL1.Text = null;
+                    textBox_URL2.Text = null;
                     textBox_Login1.Text = null;
                     textBox_Login2.Text = null;
                     textBox_Pass1.Text = null;
                     textBox_Pass2.Text = null;
+
 
                     label_Site.Visible = true;
                     label_Login.Visible = true;
@@ -204,12 +216,15 @@ namespace Password_Manager
                 Key = Key,
 
                 //Parametry dla 3DES
-                Mode = CipherMode.ECB,
+                Mode = CipherMode.CBC,
                 Padding = PaddingMode.PKCS7
             };
 
+            TripleDES.GenerateIV();
+            IV = TripleDES.IV;
+
             //utworzenie nowej instancji szyfratora
-            ICryptoTransform Encryptor = TripleDES.CreateEncryptor();
+            ICryptoTransform Encryptor = TripleDES.CreateEncryptor(TripleDES.Key, TripleDES.IV);
 
 
             //konwersja zaszyfrowanych bajtów do łańcucha znakowego i przypisanie tego łańcucha do textBoxa'a w celu jego wyświetlenia
@@ -247,7 +262,9 @@ namespace Password_Manager
                 string path = saveFile.FileName;
                 using (StreamWriter sw = new StreamWriter(File.Create(path)))
                 {
-                    for (int i = 0; i < 6; i++)
+                    sw.WriteLine(BitConverter.ToString(IV).Replace("-", ""));
+
+                    for (int i = 0; i < 8; i++)
                     {
                         sw.WriteLine(BitConverter.ToString(Encrypted_Bytes[i]).Replace("-", ""));
                     }
@@ -262,13 +279,22 @@ namespace Password_Manager
         private void Button_Close_Click(object sender, EventArgs e)
         {
             Key = null;
-
+            IV = null;
+            /*
+            for (int i = 0; i < Encrypted_Bytes.Length; i++)
+            {
+                Encrypted_Bytes[i] = null;
+            }
+            */
             textBox_Site1.Text = null;
             textBox_Site2.Text = null;
+            textBox_URL1.Text = null;
+            textBox_URL2.Text = null;
             textBox_Login1.Text = null;
             textBox_Login2.Text = null;
             textBox_Pass1.Text = null;
             textBox_Pass2.Text = null;
+
 
             label_Site.Visible = false;
             label_Login.Visible = false;
