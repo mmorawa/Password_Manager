@@ -37,8 +37,12 @@ namespace Password_Manager
         /*! Tablica Encrypted_Bytes jest wykorzystywana pomocniczo do przechowywania danych przed ich zaszyfrowaniem lub odszyfrowaniem. */
         byte[][] Encrypted_Bytes;
 
+        //! Wektor inicjalizujący.
+        /*! Wektor inicjalizujący wymagany przez tryb Cipher Block Chaining (CBC). */
+        byte[] IV;
+
         //! Klucz szyfrujący.
-        /*! Właściwość Key zawiera hash md5 klucza, który szyfruje dane. */ 
+        /*! Właściwość Key zawiera hash md5 klucza, który szyfruje dane. */
         public static byte[] Key { get; set; }
 
         //! Ścieżka do pliku.
@@ -205,10 +209,19 @@ namespace Password_Manager
                     {
                         using (StreamReader sr = new StreamReader(PathToDatabase))
                         {
-                            int lineCount = File.ReadLines(PathToDatabase).Count();
+                            int lineCount = File.ReadLines(PathToDatabase).Count() - 1;
+
+                            string lineIV = sr.ReadLine();
+                            IV = new byte[8];
+
+                            for (int m = 0; m < lineIV.Length; m += 2)
+                            {
+                                IV[m / 2] = Convert.ToByte(lineIV.Substring(m, 2), 16);
+                            }
 
                             //odczytanie danych z pliku i przekonwertowanie do tablicy z bajtami
                             Encrypted_Bytes = new byte[lineCount][];
+
                             for (int i = 0; i < lineCount; i++)
                             {
                                 string line = sr.ReadLine();
@@ -226,14 +239,14 @@ namespace Password_Manager
                             {
                                 //klucz wprowadzony przez użytkownika zahashowany md5
                                 Key = Key,
-
+                                IV = IV,
                                 //Parametry dla 3DES
-                                Mode = CipherMode.ECB,
+                                Mode = CipherMode.CBC,
                                 Padding = PaddingMode.PKCS7
                             };
 
                             //utworzenie nowej instancji deszyfratora
-                            ICryptoTransform Decryptor = TripleDES.CreateDecryptor();
+                            ICryptoTransform Decryptor = TripleDES.CreateDecryptor(TripleDES.Key, TripleDES.IV);
 
                             string[] Data = new string[lineCount];
 
@@ -501,12 +514,15 @@ namespace Password_Manager
                 Key = Key,
 
                 //Parametry dla 3DES.
-                Mode = CipherMode.ECB,
+                Mode = CipherMode.CBC,
                 Padding = PaddingMode.PKCS7
             };
 
+            TripleDES.GenerateIV();
+            IV = TripleDES.IV;
+
             //Utworzenie nowej instancji szyfratora.
-            ICryptoTransform Encryptor = TripleDES.CreateEncryptor();
+            ICryptoTransform Encryptor = TripleDES.CreateEncryptor(TripleDES.Key, TripleDES.IV);
 
             Encrypted_Bytes = new byte[Entries.Count * 4][];
             string[] Data = new string[Entries.Count * 4];
@@ -546,6 +562,8 @@ namespace Password_Manager
             //Zapisanie danych do pliku.
             using (StreamWriter sw = new StreamWriter(File.Create(PathDB)))
             {
+                sw.WriteLine(BitConverter.ToString(IV).Replace("-", ""));
+
                 for (int i = 0; i < Entries.Count * 4; i++)
                 {
                     sw.WriteLine(BitConverter.ToString(Encrypted_Bytes[i]).Replace("-", ""));
@@ -707,6 +725,12 @@ namespace Password_Manager
          */
         private void Button_Minus_Click(object sender, EventArgs e)
         {
+            if (Entries.Count == 1)
+            {
+                MessageBox.Show("You can't delete the last entry.", "Warning!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+
             Button Button_Minus = (sender as Button);
             int Entry_Nr = (int)Button_Minus.Tag;
             Controls.Remove(Entries[Entry_Nr]);
