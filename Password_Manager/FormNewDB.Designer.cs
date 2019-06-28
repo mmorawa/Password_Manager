@@ -48,16 +48,16 @@ namespace Password_Manager
             // label_Info
             // 
             this.label_Info.AutoSize = true;
-            this.label_Info.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label_Info.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label_Info.Location = new System.Drawing.Point(22, 23);
             this.label_Info.Name = "label_Info";
-            this.label_Info.Size = new System.Drawing.Size(473, 29);
+            this.label_Info.Size = new System.Drawing.Size(344, 24);
             this.label_Info.TabIndex = 21;
             this.label_Info.Text = "Save new Database and enter new Key.";
             // 
             // textBox_Filename
             // 
-            this.textBox_Filename.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.textBox_Filename.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.textBox_Filename.Location = new System.Drawing.Point(22, 63);
             this.textBox_Filename.Multiline = true;
             this.textBox_Filename.Name = "textBox_Filename";
@@ -67,20 +67,20 @@ namespace Password_Manager
             // 
             // textBox_Key
             // 
-            this.textBox_Key.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.textBox_Key.Location = new System.Drawing.Point(87, 102);
+            this.textBox_Key.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.textBox_Key.Location = new System.Drawing.Point(70, 102);
             this.textBox_Key.Name = "textBox_Key";
-            this.textBox_Key.Size = new System.Drawing.Size(530, 35);
+            this.textBox_Key.Size = new System.Drawing.Size(547, 29);
             this.textBox_Key.TabIndex = 19;
             this.textBox_Key.UseSystemPasswordChar = true;
             // 
             // label_key
             // 
             this.label_key.AutoSize = true;
-            this.label_key.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label_key.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label_key.Location = new System.Drawing.Point(17, 108);
             this.label_key.Name = "label_key";
-            this.label_key.Size = new System.Drawing.Size(64, 29);
+            this.label_key.Size = new System.Drawing.Size(47, 24);
             this.label_key.TabIndex = 18;
             this.label_key.Text = "Key:";
             // 

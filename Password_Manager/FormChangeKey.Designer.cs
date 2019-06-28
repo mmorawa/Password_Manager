@@ -45,20 +45,20 @@ namespace Password_Manager
             // 
             // textBox_Key
             // 
-            this.textBox_Key.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.textBox_Key.Location = new System.Drawing.Point(97, 70);
+            this.textBox_Key.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.textBox_Key.Location = new System.Drawing.Point(85, 70);
             this.textBox_Key.Name = "textBox_Key";
-            this.textBox_Key.Size = new System.Drawing.Size(489, 35);
+            this.textBox_Key.Size = new System.Drawing.Size(501, 29);
             this.textBox_Key.TabIndex = 22;
             this.textBox_Key.UseSystemPasswordChar = true;
             // 
             // label_key
             // 
             this.label_key.AutoSize = true;
-            this.label_key.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label_key.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label_key.Location = new System.Drawing.Point(27, 73);
             this.label_key.Name = "label_key";
-            this.label_key.Size = new System.Drawing.Size(64, 29);
+            this.label_key.Size = new System.Drawing.Size(47, 24);
             this.label_key.TabIndex = 21;
             this.label_key.Text = "Key:";
             // 
@@ -88,10 +88,10 @@ namespace Password_Manager
             // label_Info
             // 
             this.label_Info.AutoSize = true;
-            this.label_Info.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label_Info.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label_Info.Location = new System.Drawing.Point(27, 21);
             this.label_Info.Name = "label_Info";
-            this.label_Info.Size = new System.Drawing.Size(188, 29);
+            this.label_Info.Size = new System.Drawing.Size(138, 24);
             this.label_Info.TabIndex = 24;
             this.label_Info.Text = "Enter new Key:";
             // 

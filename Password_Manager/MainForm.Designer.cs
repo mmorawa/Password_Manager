@@ -52,23 +52,23 @@ namespace Password_Manager
             this.Button_Exit = new System.Windows.Forms.Button();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.FileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.NewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.OpenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator = new System.Windows.Forms.ToolStripSeparator();
+            this.SaveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.SaveAsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.CloseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.ExitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.optionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.ChangeKeyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.AboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.CloseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.NewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.OpenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.SaveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.CutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.CopyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.PasteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.optionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ChangeKeyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.AboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -86,10 +86,10 @@ namespace Password_Manager
             // label_Password
             // 
             this.label_Password.AutoSize = true;
-            this.label_Password.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label_Password.Location = new System.Drawing.Point(718, 128);
+            this.label_Password.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label_Password.Location = new System.Drawing.Point(731, 127);
             this.label_Password.Name = "label_Password";
-            this.label_Password.Size = new System.Drawing.Size(135, 29);
+            this.label_Password.Size = new System.Drawing.Size(97, 24);
             this.label_Password.TabIndex = 1;
             this.label_Password.Text = "Password:";
             this.label_Password.Visible = false;
@@ -97,10 +97,10 @@ namespace Password_Manager
             // label_Login
             // 
             this.label_Login.AutoSize = true;
-            this.label_Login.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label_Login.Location = new System.Drawing.Point(531, 128);
+            this.label_Login.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label_Login.Location = new System.Drawing.Point(535, 127);
             this.label_Login.Name = "label_Login";
-            this.label_Login.Size = new System.Drawing.Size(85, 29);
+            this.label_Login.Size = new System.Drawing.Size(62, 24);
             this.label_Login.TabIndex = 2;
             this.label_Login.Text = "Login:";
             this.label_Login.Visible = false;
@@ -119,10 +119,10 @@ namespace Password_Manager
             // label_Site
             // 
             this.label_Site.AutoSize = true;
-            this.label_Site.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label_Site.Location = new System.Drawing.Point(82, 128);
+            this.label_Site.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label_Site.Location = new System.Drawing.Point(94, 127);
             this.label_Site.Name = "label_Site";
-            this.label_Site.Size = new System.Drawing.Size(66, 29);
+            this.label_Site.Size = new System.Drawing.Size(46, 24);
             this.label_Site.TabIndex = 9;
             this.label_Site.Text = "Site:";
             this.label_Site.Visible = false;
@@ -174,10 +174,10 @@ namespace Password_Manager
             // label_URL
             // 
             this.label_URL.AutoSize = true;
-            this.label_URL.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label_URL.Location = new System.Drawing.Point(312, 128);
+            this.label_URL.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label_URL.Location = new System.Drawing.Point(312, 127);
             this.label_URL.Name = "label_URL";
-            this.label_URL.Size = new System.Drawing.Size(70, 29);
+            this.label_URL.Size = new System.Drawing.Size(51, 24);
             this.label_URL.TabIndex = 20;
             this.label_URL.Text = "URL:";
             this.label_URL.Visible = false;
@@ -224,10 +224,40 @@ namespace Password_Manager
             this.FileToolStripMenuItem.Size = new System.Drawing.Size(45, 24);
             this.FileToolStripMenuItem.Text = "&File";
             // 
+            // NewToolStripMenuItem
+            // 
+            this.NewToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("NewToolStripMenuItem.Image")));
+            this.NewToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.NewToolStripMenuItem.Name = "NewToolStripMenuItem";
+            this.NewToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.N)));
+            this.NewToolStripMenuItem.Size = new System.Drawing.Size(171, 24);
+            this.NewToolStripMenuItem.Text = "&New";
+            this.NewToolStripMenuItem.Click += new System.EventHandler(this.NewToolStripMenuItem_Click);
+            // 
+            // OpenToolStripMenuItem
+            // 
+            this.OpenToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("OpenToolStripMenuItem.Image")));
+            this.OpenToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.OpenToolStripMenuItem.Name = "OpenToolStripMenuItem";
+            this.OpenToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O)));
+            this.OpenToolStripMenuItem.Size = new System.Drawing.Size(171, 24);
+            this.OpenToolStripMenuItem.Text = "&Open";
+            this.OpenToolStripMenuItem.Click += new System.EventHandler(this.OpenToolStripMenuItem_Click);
+            // 
             // toolStripSeparator
             // 
             this.toolStripSeparator.Name = "toolStripSeparator";
             this.toolStripSeparator.Size = new System.Drawing.Size(168, 6);
+            // 
+            // SaveToolStripMenuItem
+            // 
+            this.SaveToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("SaveToolStripMenuItem.Image")));
+            this.SaveToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.SaveToolStripMenuItem.Name = "SaveToolStripMenuItem";
+            this.SaveToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
+            this.SaveToolStripMenuItem.Size = new System.Drawing.Size(171, 24);
+            this.SaveToolStripMenuItem.Text = "&Save";
+            this.SaveToolStripMenuItem.Click += new System.EventHandler(this.SaveToolStripMenuItem_Click);
             // 
             // SaveAsToolStripMenuItem
             // 
@@ -235,6 +265,18 @@ namespace Password_Manager
             this.SaveAsToolStripMenuItem.Size = new System.Drawing.Size(171, 24);
             this.SaveAsToolStripMenuItem.Text = "Save &As";
             this.SaveAsToolStripMenuItem.Click += new System.EventHandler(this.SaveAsToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(168, 6);
+            // 
+            // CloseToolStripMenuItem
+            // 
+            this.CloseToolStripMenuItem.Name = "CloseToolStripMenuItem";
+            this.CloseToolStripMenuItem.Size = new System.Drawing.Size(171, 24);
+            this.CloseToolStripMenuItem.Text = "Close";
+            this.CloseToolStripMenuItem.Click += new System.EventHandler(this.CloseToolStripMenuItem_Click);
             // 
             // toolStripSeparator1
             // 
@@ -258,80 +300,6 @@ namespace Password_Manager
             this.editToolStripMenuItem.Name = "editToolStripMenuItem";
             this.editToolStripMenuItem.Size = new System.Drawing.Size(48, 24);
             this.editToolStripMenuItem.Text = "&Edit";
-            // 
-            // optionsToolStripMenuItem
-            // 
-            this.optionsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.ChangeKeyToolStripMenuItem});
-            this.optionsToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.optionsToolStripMenuItem.Name = "optionsToolStripMenuItem";
-            this.optionsToolStripMenuItem.Size = new System.Drawing.Size(76, 24);
-            this.optionsToolStripMenuItem.Text = "&Options";
-            // 
-            // helpToolStripMenuItem
-            // 
-            this.helpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.AboutToolStripMenuItem});
-            this.helpToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
-            this.helpToolStripMenuItem.Size = new System.Drawing.Size(53, 24);
-            this.helpToolStripMenuItem.Text = "&Help";
-            // 
-            // ChangeKeyToolStripMenuItem
-            // 
-            this.ChangeKeyToolStripMenuItem.Name = "ChangeKeyToolStripMenuItem";
-            this.ChangeKeyToolStripMenuItem.Size = new System.Drawing.Size(160, 24);
-            this.ChangeKeyToolStripMenuItem.Text = "Change &Key";
-            this.ChangeKeyToolStripMenuItem.Click += new System.EventHandler(this.ChangeKeyToolStripMenuItem_Click);
-            // 
-            // AboutToolStripMenuItem
-            // 
-            this.AboutToolStripMenuItem.Name = "AboutToolStripMenuItem";
-            this.AboutToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
-            this.AboutToolStripMenuItem.Text = "&About";
-            this.AboutToolStripMenuItem.Click += new System.EventHandler(this.AboutToolStripMenuItem_Click);
-            // 
-            // CloseToolStripMenuItem
-            // 
-            this.CloseToolStripMenuItem.Name = "CloseToolStripMenuItem";
-            this.CloseToolStripMenuItem.Size = new System.Drawing.Size(171, 24);
-            this.CloseToolStripMenuItem.Text = "Close";
-            this.CloseToolStripMenuItem.Click += new System.EventHandler(this.CloseToolStripMenuItem_Click);
-            // 
-            // toolStripSeparator2
-            // 
-            this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(168, 6);
-            // 
-            // NewToolStripMenuItem
-            // 
-            this.NewToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("NewToolStripMenuItem.Image")));
-            this.NewToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.NewToolStripMenuItem.Name = "NewToolStripMenuItem";
-            this.NewToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.N)));
-            this.NewToolStripMenuItem.Size = new System.Drawing.Size(171, 24);
-            this.NewToolStripMenuItem.Text = "&New";
-            this.NewToolStripMenuItem.Click += new System.EventHandler(this.NewToolStripMenuItem_Click);
-            // 
-            // OpenToolStripMenuItem
-            // 
-            this.OpenToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("OpenToolStripMenuItem.Image")));
-            this.OpenToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.OpenToolStripMenuItem.Name = "OpenToolStripMenuItem";
-            this.OpenToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O)));
-            this.OpenToolStripMenuItem.Size = new System.Drawing.Size(171, 24);
-            this.OpenToolStripMenuItem.Text = "&Open";
-            this.OpenToolStripMenuItem.Click += new System.EventHandler(this.OpenToolStripMenuItem_Click);
-            // 
-            // SaveToolStripMenuItem
-            // 
-            this.SaveToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("SaveToolStripMenuItem.Image")));
-            this.SaveToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.SaveToolStripMenuItem.Name = "SaveToolStripMenuItem";
-            this.SaveToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
-            this.SaveToolStripMenuItem.Size = new System.Drawing.Size(171, 24);
-            this.SaveToolStripMenuItem.Text = "&Save";
-            this.SaveToolStripMenuItem.Click += new System.EventHandler(this.SaveToolStripMenuItem_Click);
             // 
             // CutToolStripMenuItem
             // 
@@ -362,6 +330,38 @@ namespace Password_Manager
             this.PasteToolStripMenuItem.Size = new System.Drawing.Size(171, 24);
             this.PasteToolStripMenuItem.Text = "&Paste";
             this.PasteToolStripMenuItem.Click += new System.EventHandler(this.PasteToolStripMenuItem_Click);
+            // 
+            // optionsToolStripMenuItem
+            // 
+            this.optionsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.ChangeKeyToolStripMenuItem});
+            this.optionsToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.optionsToolStripMenuItem.Name = "optionsToolStripMenuItem";
+            this.optionsToolStripMenuItem.Size = new System.Drawing.Size(76, 24);
+            this.optionsToolStripMenuItem.Text = "&Options";
+            // 
+            // ChangeKeyToolStripMenuItem
+            // 
+            this.ChangeKeyToolStripMenuItem.Name = "ChangeKeyToolStripMenuItem";
+            this.ChangeKeyToolStripMenuItem.Size = new System.Drawing.Size(160, 24);
+            this.ChangeKeyToolStripMenuItem.Text = "Change &Key";
+            this.ChangeKeyToolStripMenuItem.Click += new System.EventHandler(this.ChangeKeyToolStripMenuItem_Click);
+            // 
+            // helpToolStripMenuItem
+            // 
+            this.helpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.AboutToolStripMenuItem});
+            this.helpToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
+            this.helpToolStripMenuItem.Size = new System.Drawing.Size(53, 24);
+            this.helpToolStripMenuItem.Text = "&Help";
+            // 
+            // AboutToolStripMenuItem
+            // 
+            this.AboutToolStripMenuItem.Name = "AboutToolStripMenuItem";
+            this.AboutToolStripMenuItem.Size = new System.Drawing.Size(122, 24);
+            this.AboutToolStripMenuItem.Text = "&About";
+            this.AboutToolStripMenuItem.Click += new System.EventHandler(this.AboutToolStripMenuItem_Click);
             // 
             // MainForm
             // 
