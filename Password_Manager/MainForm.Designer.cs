@@ -1,16 +1,16 @@
-﻿/*! \file Form1.Designer.cs
-\brief Plik Form1.Designer.cs zawiera klasę Form1 z kodem wygenerowanym przez Designera.
+﻿/*! \file MainForm.Designer.cs
+\brief Plik MainForm.Designer.cs zawiera klasę MainForm z kodem wygenerowanym przez Designera.
 
-Plik Form1.Designer.cs zawiera klasę Form1 z kodem automatycznie wygenerowanym przez Designera Visual Studio na podstawie zaprojektowanego okna aplikacji.
+Plik MainForm.Designer.cs zawiera klasę MainForm z kodem automatycznie wygenerowanym przez Designera Visual Studio na podstawie zaprojektowanego okna aplikacji.
 */
 
 //! Przestrzeń nazw Password_Manager obejmuje całą aplikację Menedżera Haseł.
 /*! Password_Manager to przestrzeń nazw, która obejmuje całą aplikację Menedżera Haseł, ze wszystkimi klasami Form. */
 namespace Password_Manager
 {
-    //! Klasa Form1 zawiera główne okno aplikacji.
-    /*! W klasie Form1 znajduje się menu główne aplikacji, przyciski oraz Textboxy z danymi, oraz warstwa logiczna aplikacji */
-    partial class Form1
+    //! Klasa MainForm zawiera główne okno aplikacji.
+    /*! W klasie MainForm znajduje się menu główne aplikacji, przyciski oraz Textboxy z danymi, oraz warstwa logiczna aplikacji */
+    partial class MainForm
     {
         /// <summary>
         /// Zmienna wymagana przez Designera.
@@ -38,7 +38,7 @@ namespace Password_Manager
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.Button_Save = new System.Windows.Forms.Button();
             this.label_Password = new System.Windows.Forms.Label();
             this.label_Login = new System.Windows.Forms.Label();
@@ -363,7 +363,7 @@ namespace Password_Manager
             this.PasteToolStripMenuItem.Text = "&Paste";
             this.PasteToolStripMenuItem.Click += new System.EventHandler(this.PasteToolStripMenuItem_Click);
             // 
-            // Form1
+            // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -383,7 +383,7 @@ namespace Password_Manager
             this.Controls.Add(this.menuStrip1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
-            this.Name = "Form1";
+            this.Name = "MainForm";
             this.Text = "Password Manager";
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();

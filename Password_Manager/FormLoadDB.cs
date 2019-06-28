@@ -1,7 +1,7 @@
-﻿/*! \file Form2.cs
-\brief Plik Form2.cs zawiera klasę Form2 odpowiedzialną za wczytanie bazy z hasłami do aplikacji.
+﻿/*! \file FormLoadDB.cs
+\brief Plik FormLoadDB.cs zawiera klasę FormLoadDB odpowiedzialną za wczytanie bazy z hasłami do aplikacji.
 
-Plik Form2.cs zawiera kod okna aplikacji, w którym użytkownik może wybrać bazę z hasłami oraz podać do niej hasło w celu wczytania jej do głównego okna aplikacji.
+Plik FormLoadDB.cs zawiera kod okna aplikacji, w którym użytkownik może wybrać bazę z hasłami oraz podać do niej hasło w celu wczytania jej do głównego okna aplikacji.
 */
 
 using System;
@@ -13,21 +13,21 @@ using System.Windows.Forms;
 /*! Password_Manager to przestrzeń nazw, która obejmuje całą aplikację Menedżera Haseł, ze wszystkimi klasami Form. */
 namespace Password_Manager
 {
-    //! Klasa Form2 zawiera okno aplikacji wczytujące bazę z hasłami do aplikacji.
-    /*! W klasie Form2 znajduje się okno otwierane po naciśnięciu przycisku Open w głównym oknie aplikacji.
+    //! Klasa FormLoadDB zawiera okno aplikacji wczytujące bazę z hasłami do aplikacji.
+    /*! W klasie FormLoadDB znajduje się okno otwierane po naciśnięciu przycisku Open w głównym oknie aplikacji.
      * Odpowiedzialne jest ono za wybranie bazy i podanie jej hasła w celu wczytania jej do aplikacji. 
      */
-    public partial class Form2 : Form
+    public partial class FormLoadDB : Form
     {
-        //! Konstruktor klasy Form2.
-        /*! Inicjalizuje komponenty klasy Form2. */
-        public Form2()
+        //! Konstruktor klasy FormLoadDB.
+        /*! Inicjalizuje komponenty klasy FormLoadDB. */
+        public FormLoadDB()
         {
             InitializeComponent();
         }
 
         /*******************************************************************************
-        *  Metody klasy Form2.
+        *  Metody klasy FormLoadDB.
         ********************************************************************************/
 
         //! Metoda otwierająca okno dialogowe, w którym można wybrać bazę do wczytania.
@@ -49,7 +49,7 @@ namespace Password_Manager
             if (dr2 == DialogResult.OK)
             {
                 textBox_Filename.Text = openFile.FileName;
-                Form1.PathToDatabase = openFile.FileName;
+                MainForm.PathToDatabase = openFile.FileName;
             }
         }
 
@@ -68,7 +68,7 @@ namespace Password_Manager
                 //zdefiniowanie kodowania utf8 w celu późniejszej zamiany tekstu wprowadzanego przez użytkownika na bajty
                 UTF8Encoding utf8 = new UTF8Encoding();
 
-                Form1.Key = md5.ComputeHash(utf8.GetBytes(textBox_Key.Text));
+                MainForm.Key = md5.ComputeHash(utf8.GetBytes(textBox_Key.Text));
             }
             else
             {

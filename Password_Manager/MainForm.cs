@@ -1,7 +1,7 @@
-﻿/*! \file Form1.cs
-\brief Plik Form1.cs zawiera klasę Form1 z głównym oknem aplikacji.
+﻿/*! \file MainForm.cs
+\brief Plik MainForm.cs zawiera klasę MainForm z głównym oknem aplikacji.
 
-Plik Form1.cs zawiera rdzeń programu czyli główne okno aplikacji wraz z menu, pozwalającym na dokonanie wyboru różnych opcji menadżera zadań takich jak: szyfrowanie/deszyfrowanie bazy danych.
+Plik MainForm.cs zawiera rdzeń programu czyli główne okno aplikacji wraz z menu, pozwalającym na dokonanie wyboru różnych opcji menadżera zadań takich jak: szyfrowanie/deszyfrowanie bazy danych.
 */
 
 using System;
@@ -17,20 +17,20 @@ using System.IO;
 /*! Password_Manager to przestrzeń nazw, która obejmuje całą aplikację Menedżera Haseł, ze wszystkimi klasami Form. */
 namespace Password_Manager
 {
-    //! Klasa Form1 zawiera główne okno aplikacji.
-    /*! W klasie Form1 znajduje się menu główne aplikacji, przyciski oraz Textboxy z danymi, oraz warstwa logiczna aplikacji */
-    public partial class Form1 : Form
+    //! Klasa MainForm zawiera główne okno aplikacji.
+    /*! W klasie MainForm znajduje się menu główne aplikacji, przyciski oraz Textboxy z danymi, oraz warstwa logiczna aplikacji */
+    public partial class MainForm : Form
     {
 
-        //! Konstruktor klasy Form1.
-        /*! Inicjalizuje komponenty klasy Form1. */
-        public Form1()
+        //! Konstruktor klasy MainForm.
+        /*! Inicjalizuje komponenty klasy MainForm. */
+        public MainForm()
         {
             InitializeComponent();
         }
 
         /*******************************************************************************
-        * Atrybuty klasy Form1.
+        * Atrybuty klasy MainForm.
         ********************************************************************************/
 
         //! Tablica bajtowa wielowymiarowa zawierająca zaszyfrowane dane.
@@ -62,7 +62,7 @@ namespace Password_Manager
         //TODO zabezpieczenia
 
         /*******************************************************************************
-        *  Metody klasy Form1.
+        *  Metody klasy MainForm.
         ********************************************************************************/
 
         //! Metoda wywoływana naciśnięciem przycisku New.
@@ -75,8 +75,8 @@ namespace Password_Manager
 
             CloseDatabase();
 
-            //Wywołanie okna Form3.
-            using (Form3 form3 = new Form3())
+            //Wywołanie okna FormNewDB.
+            using (FormNewDB form3 = new FormNewDB())
             {
                 DialogResult dr = form3.ShowDialog();
 
@@ -199,7 +199,7 @@ namespace Password_Manager
             CloseDatabase(); 
 
             //otwarcie nowego okna w celu załadowania wybranej bazy
-            using (Form2 form2 = new Form2())
+            using (FormLoadDB form2 = new FormLoadDB())
             {
                 DialogResult dr = form2.ShowDialog();
 
@@ -394,7 +394,7 @@ namespace Password_Manager
                 return;
             }
 
-            using (Form4 form4 = new Form4())
+            using (FormChangeKey form4 = new FormChangeKey())
             {
                 DialogResult dr = form4.ShowDialog();
 

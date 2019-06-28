@@ -1,14 +1,14 @@
-﻿/*! \file Form2.Designer.cs
-\brief Plik Form2.Designer.cs zawiera klasę Form2 z kodem wygenerowanym przez Designera.
+﻿/*! \file FormLoadDB.Designer.cs
+\brief Plik FormLoadDB.Designer.cs zawiera klasę FormLoadDB z kodem wygenerowanym przez Designera.
 
-Plik Form2.Designer.cs zawiera klasę Form2 z kodem automatycznie wygenerowanym przez Designera Visual Studio na podstawie zaprojektowanego okna aplikacji.
+Plik FormLoadDB.Designer.cs zawiera klasę FormLoadDB z kodem automatycznie wygenerowanym przez Designera Visual Studio na podstawie zaprojektowanego okna aplikacji.
 */
 
 //! Przestrzeń nazw Password_Manager obejmuje całą aplikację Menedżera Haseł.
 /*! Password_Manager to przestrzeń nazw, która obejmuje całą aplikację Menedżera Haseł, ze wszystkimi klasami Form. */
 namespace Password_Manager
 {
-    partial class Form2
+    partial class FormLoadDB
     {
         /// <summary>
         /// Zmienna wymagana przez Designera.
@@ -119,7 +119,7 @@ namespace Password_Manager
             this.Button_Cancel.Text = "Cancel";
             this.Button_Cancel.UseVisualStyleBackColor = true;
             // 
-            // Form2
+            // FormLoadDB
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -131,7 +131,7 @@ namespace Password_Manager
             this.Controls.Add(this.label_key);
             this.Controls.Add(this.Button_Load);
             this.Controls.Add(this.Button_OK);
-            this.Name = "Form2";
+            this.Name = "FormLoadDB";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Load";
             this.ResumeLayout(false);

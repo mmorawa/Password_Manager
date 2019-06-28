@@ -1,7 +1,7 @@
-﻿/*! \file Form4.cs
-\brief Plik Form4.cs zawiera klasę Form4 odpowiedzialną za zmianę klucza do bazy z hasłami.
+﻿/*! \file FormChangeKey.cs
+\brief Plik FormChangeKey.cs zawiera klasę FormChangeKey odpowiedzialną za zmianę klucza do bazy z hasłami.
 
-Plik Form4.cs zawiera kod okna aplikacji, w którym użytkownik może dokonać zmiany klucza szyfrującego do bazy z hasłami.
+Plik FormChangeKey.cs zawiera kod okna aplikacji, w którym użytkownik może dokonać zmiany klucza szyfrującego do bazy z hasłami.
 */
 
 using System;
@@ -13,16 +13,16 @@ using System.Windows.Forms;
 /*! Password_Manager to przestrzeń nazw, która obejmuje całą aplikację Menedżera Haseł, ze wszystkimi klasami Form. */
 namespace Password_Manager
 {
-    //! Klasa Form4 zawiera okno aplikacji, w której użytkownik dokonuje zmiany klucza szyfrującego do bazy z hasłami.
-    /*! W klasie Form4 znajduje się okno otwierane po naciśnięciu przycisku Change w głównym oknie aplikacji.
+    //! Klasa FormChangeKey zawiera okno aplikacji, w której użytkownik dokonuje zmiany klucza szyfrującego do bazy z hasłami.
+    /*! W klasie FormChangeKey znajduje się okno otwierane po naciśnięciu przycisku Change w głównym oknie aplikacji.
      * Pozwala ono użytkownikowi na wprowadzenie nowego klucza szyfrującego. 
      * Po naciśnięciu przycisku OK zmiany zostają automatycznie zapisane do bazy.
      */
-    public partial class Form4 : Form
+    public partial class FormChangeKey : Form
     {
-        //! Konstruktor klasy Form4.
-        /*! Inicjalizuje komponenty klasy Form4. */
-        public Form4()
+        //! Konstruktor klasy FormChangeKey.
+        /*! Inicjalizuje komponenty klasy FormChangeKey. */
+        public FormChangeKey()
         {
             InitializeComponent();
         }
@@ -41,7 +41,7 @@ namespace Password_Manager
                 //zdefiniowanie kodowania utf8 w celu późniejszej zamiany tekstu wprowadzanego przez użytkownika na bajty
                 UTF8Encoding utf8 = new UTF8Encoding();
 
-                Form1.Key = md5.ComputeHash(utf8.GetBytes(textBox_Key.Text));
+                MainForm.Key = md5.ComputeHash(utf8.GetBytes(textBox_Key.Text));
             }
             else
             {

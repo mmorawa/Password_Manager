@@ -1,14 +1,14 @@
-﻿/*! \file Form4.Designer.cs
-\brief Plik Form4.Designer.cs zawiera klasę Form4 z kodem wygenerowanym przez Designera.
+﻿/*! \file FormChangeKey.Designer.cs
+\brief Plik FormChangeKey.Designer.cs zawiera klasę FormChangeKey z kodem wygenerowanym przez Designera.
 
-Plik Form4.Designer.cs zawiera klasę Form4 z kodem automatycznie wygenerowanym przez Designera Visual Studio na podstawie zaprojektowanego okna aplikacji.
+Plik FormChangeKey.Designer.cs zawiera klasę FormChangeKey z kodem automatycznie wygenerowanym przez Designera Visual Studio na podstawie zaprojektowanego okna aplikacji.
 */
 
 //! Przestrzeń nazw Password_Manager obejmuje całą aplikację Menedżera Haseł.
 /*! Password_Manager to przestrzeń nazw, która obejmuje całą aplikację Menedżera Haseł, ze wszystkimi klasami Form. */
 namespace Password_Manager
 {
-    partial class Form4
+    partial class FormChangeKey
     {
         /// <summary>
         /// Zmienna wymagana przez Designera.
@@ -95,7 +95,7 @@ namespace Password_Manager
             this.label_Info.TabIndex = 24;
             this.label_Info.Text = "Enter new Key:";
             // 
-            // Form4
+            // FormChangeKey
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -105,7 +105,7 @@ namespace Password_Manager
             this.Controls.Add(this.textBox_Key);
             this.Controls.Add(this.label_key);
             this.Controls.Add(this.Button_OK);
-            this.Name = "Form4";
+            this.Name = "FormChangeKey";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Change Key";
             this.ResumeLayout(false);

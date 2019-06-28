@@ -1,7 +1,7 @@
-﻿/*! \file Form3.cs
-\brief Plik Form3.cs zawiera klasę Form3 odpowiedzialną za zapisanie klucza i ścieżki do nowo utworzonej bazy z hasłami.
+﻿/*! \file FormNewDB.cs
+\brief Plik FormNewDB.cs zawiera klasę FormNewDB odpowiedzialną za zapisanie klucza i ścieżki do nowo utworzonej bazy z hasłami.
 
-Plik Form3.cs zawiera kod okna aplikacji, w którym użytkownik w oknie dialogowym wybiera plik, do którego zostanie zapisana nowo utworzona baza z hasłami a następnie podaje klucz do niej.
+Plik FormNewDB.cs zawiera kod okna aplikacji, w którym użytkownik w oknie dialogowym wybiera plik, do którego zostanie zapisana nowo utworzona baza z hasłami a następnie podaje klucz do niej.
 */
 
 using System;
@@ -13,21 +13,21 @@ using System.Windows.Forms;
 /*! Password_Manager to przestrzeń nazw, która obejmuje całą aplikację Menedżera Haseł, ze wszystkimi klasami Form. */
 namespace Password_Manager
 {
-    //! Klasa Form3 zawiera okno aplikacji, w której użytkownik podaje dane dla nowej bazy z hasłami.
-    /*! W klasie Form3 znajduje się okno otwierane po naciśnięciu przycisku New w głównym oknie aplikacji.
+    //! Klasa FormNewDB zawiera okno aplikacji, w której użytkownik podaje dane dla nowej bazy z hasłami.
+    /*! W klasie FormNewDB znajduje się okno otwierane po naciśnięciu przycisku New w głównym oknie aplikacji.
      * Pozwala ono na wybranie pliku bazy, do którego zapisywane będą nowe wpisy z hasłami a także na podanie klucza szyfrującego do niej.
      */
-    public partial class Form3 : Form
+    public partial class FormNewDB : Form
     {
-        //! Konstruktor klasy Form3.
-        /*! Inicjalizuje komponenty klasy Form3. */
-        public Form3()
+        //! Konstruktor klasy FormNewDB.
+        /*! Inicjalizuje komponenty klasy FormNewDB. */
+        public FormNewDB()
         {
             InitializeComponent();
         }
 
         /*******************************************************************************
-        *  Metody klasy Form3.
+        *  Metody klasy FormNewDB.
         ********************************************************************************/
 
         //! Metoda otwierająca okno dialogowe, w którym można wybrać plik, do którego zapisana będzie nowo utworzona baza z hasłami. 
@@ -40,7 +40,7 @@ namespace Password_Manager
             {
                 Filter = "File name | *.txt",
                 FileName = "Database.txt",
-                Title = "Sava Database:"
+                Title = "Save Database:"
             };
 
             DialogResult dr2 = saveFile.ShowDialog();
@@ -50,7 +50,7 @@ namespace Password_Manager
             if (dr2 == DialogResult.OK)
             {
                 textBox_Filename.Text = saveFile.FileName;
-                Form1.PathToDatabase = saveFile.FileName;
+                MainForm.PathToDatabase = saveFile.FileName;
             }
         }
 
@@ -68,7 +68,7 @@ namespace Password_Manager
                 //Zdefiniowanie kodowania utf8 w celu późniejszej zamiany tekstu wprowadzanego przez użytkownika na bajty.
                 UTF8Encoding utf8 = new UTF8Encoding();
 
-                Form1.Key = md5.ComputeHash(utf8.GetBytes(textBox_Key.Text));
+                MainForm.Key = md5.ComputeHash(utf8.GetBytes(textBox_Key.Text));
 
             }
             else

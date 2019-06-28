@@ -1,14 +1,14 @@
-﻿/*! \file Form3.Designer.cs
-\brief Plik Form3.Designer.cs zawiera klasę Form3 z kodem wygenerowanym przez Designera.
+﻿/*! \file FormNewDB.Designer.cs
+\brief Plik FormNewDB.Designer.cs zawiera klasę FormNewDB z kodem wygenerowanym przez Designera.
 
-Plik Form3.Designer.cs zawiera klasę Form1 z kodem automatycznie wygenerowanym przez Designera Visual Studio na podstawie zaprojektowanego okna aplikacji.
+Plik FormNewDB.Designer.cs zawiera klasę MainForm z kodem automatycznie wygenerowanym przez Designera Visual Studio na podstawie zaprojektowanego okna aplikacji.
 */
 
 //! Przestrzeń nazw Password_Manager obejmuje całą aplikację Menedżera Haseł.
 /*! Password_Manager to przestrzeń nazw, która obejmuje całą aplikację Menedżera Haseł, ze wszystkimi klasami Form. */
 namespace Password_Manager
 {
-    partial class Form3
+    partial class FormNewDB
     {
         /// <summary>
         /// Zmienna wymagana przez Designera.
@@ -119,7 +119,7 @@ namespace Password_Manager
             this.Button_Cancel.Text = "Cancel";
             this.Button_Cancel.UseVisualStyleBackColor = true;
             // 
-            // Form3
+            // FormNewDB
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -131,7 +131,7 @@ namespace Password_Manager
             this.Controls.Add(this.label_key);
             this.Controls.Add(this.Button_Save);
             this.Controls.Add(this.Button_OK);
-            this.Name = "Form3";
+            this.Name = "FormNewDB";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "New Database";
             this.ResumeLayout(false);
